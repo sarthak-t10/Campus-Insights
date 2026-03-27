@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import Image from "next/image"
 import { ShaderAnimation } from "@/components/ui/shader-animation"
 
 interface LoadingScreenProps {
@@ -38,30 +37,15 @@ export function LoadingScreen({ redirectPath = "/" }: LoadingScreenProps) {
       
       {/* Dark overlay */}
       <div className="absolute inset-0 z-10 bg-black/20"></div>
-      
-      {/* Splash Image & Text - Main Focus */}
+
+      {/* BMSCE Text - Text Only, No Image */}
       {showContent && (
         <div 
-          className="absolute inset-0 z-50 flex flex-col items-center justify-center pointer-events-none"
+          className="absolute pointer-events-none z-50 flex flex-col items-center justify-center"
           style={{
             animation: "fadeInUp 0.8s ease-out forwards"
           }}
         >
-          {/* Image Section */}
-          <div className="relative w-80 h-80 md:w-96 md:h-96 mb-8">
-            <Image
-              src="/assets/images/splash-image.webp"
-              alt="Campus"
-              fill
-              className="object-contain"
-              priority
-              onError={(e) => {
-                // Fallback to logo if image fails
-                e.currentTarget.src = "/assets/images/logo.jpeg"
-              }}
-            />
-          </div>
-
           {/* BMSCE Text */}
           <h1 
             className="text-6xl md:text-9xl font-bold tracking-[0.1em] text-white text-center"
