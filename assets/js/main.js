@@ -441,7 +441,7 @@
             </section>
             <section class="footer-contact">
               <h4 class="footer-title">Contact</h4>
-              <p>Innovation Avenue, Knowledge City, India</p>
+              <p>BMS College of Engineering, Bengaluru, Karnataka, India</p>
               <p>+91 44 4000 9000</p>
               <p>admissions@campusinsights.edu</p>
             </section>
