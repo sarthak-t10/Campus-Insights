@@ -1,4 +1,9 @@
 (() => {
+  const STORAGE_KEYS = {
+    theme: "ciu-theme",
+    contrast: "ciu-contrast"
+  };
+
   const navItems = [
     { id: "home", label: "Home", href: "index.html" },
     { id: "about", label: "About", href: "about.html" },
@@ -120,8 +125,28 @@
         <div class="nav-inner">
           <a class="nav-logo" href="index.html">CIU</a>
           <nav class="nav-links" aria-label="Primary">${links}</nav>
-          <div class="nav-apply">
+          <div class="nav-actions">
             <a class="apply-btn" href="admissions.html">Apply Now</a>
+            <div class="settings-wrap">
+              <button class="settings-toggle" data-settings-toggle type="button" aria-label="Open display settings" aria-expanded="false" aria-controls="settingsPanel">⚙</button>
+              <div class="settings-panel" id="settingsPanel" data-settings-panel hidden>
+                <p class="settings-title">Display Settings</p>
+                <div class="settings-group">
+                  <span class="settings-label">Theme</span>
+                  <div class="settings-options" role="group" aria-label="Theme mode">
+                    <button type="button" class="settings-option" data-theme-option="light">Light</button>
+                    <button type="button" class="settings-option" data-theme-option="dark">Dark</button>
+                  </div>
+                </div>
+                <div class="settings-group">
+                  <span class="settings-label">Contrast</span>
+                  <div class="settings-options" role="group" aria-label="Contrast mode">
+                    <button type="button" class="settings-option" data-contrast-option="normal">Normal</button>
+                    <button type="button" class="settings-option" data-contrast-option="high">High</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" type="button">
             <span></span>
@@ -188,12 +213,96 @@
       document.body.style.overflow = open ? "hidden" : "";
     });
 
-    mobileMenu.querySelectorAll(".mobile-submenu-link").forEach((link) => {
+    mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
 
     window.addEventListener("scroll", syncNavState, { passive: true });
     syncNavState();
+  }
+
+  function setupSettingsPanel() {
+    const toggle = document.querySelector("[data-settings-toggle]");
+    const panel = document.querySelector("[data-settings-panel]");
+    if (!toggle || !panel) return;
+
+    const themeButtons = Array.from(panel.querySelectorAll("[data-theme-option]"));
+    const contrastButtons = Array.from(panel.querySelectorAll("[data-contrast-option]"));
+
+    const savedTheme = localStorage.getItem(STORAGE_KEYS.theme) || "dark";
+    const savedContrast = localStorage.getItem(STORAGE_KEYS.contrast) || "normal";
+
+    const setPressedState = (buttons, activeValue, attr) => {
+      buttons.forEach((button) => {
+        const isActive = button.getAttribute(attr) === activeValue;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+    };
+
+    const applyPreferences = (theme, contrast) => {
+      document.body.setAttribute("data-theme", theme);
+      document.body.setAttribute("data-contrast", contrast);
+      setPressedState(themeButtons, theme, "data-theme-option");
+      setPressedState(contrastButtons, contrast, "data-contrast-option");
+    };
+
+    const openPanel = () => {
+      panel.hidden = false;
+      requestAnimationFrame(() => panel.classList.add("open"));
+      toggle.setAttribute("aria-expanded", "true");
+    };
+
+    const closePanel = () => {
+      panel.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      window.setTimeout(() => {
+        if (!panel.classList.contains("open")) {
+          panel.hidden = true;
+        }
+      }, 180);
+    };
+
+    themeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const nextTheme = button.getAttribute("data-theme-option");
+        const currentContrast = document.body.getAttribute("data-contrast") || "normal";
+        localStorage.setItem(STORAGE_KEYS.theme, nextTheme);
+        applyPreferences(nextTheme, currentContrast);
+      });
+    });
+
+    contrastButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const nextContrast = button.getAttribute("data-contrast-option");
+        const currentTheme = document.body.getAttribute("data-theme") || "dark";
+        localStorage.setItem(STORAGE_KEYS.contrast, nextContrast);
+        applyPreferences(currentTheme, nextContrast);
+      });
+    });
+
+    toggle.addEventListener("click", () => {
+      const isOpen = panel.classList.contains("open");
+      if (isOpen) {
+        closePanel();
+      } else {
+        openPanel();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!panel.classList.contains("open")) return;
+      if (panel.contains(event.target) || toggle.contains(event.target)) return;
+      closePanel();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closePanel();
+      }
+    });
+
+    applyPreferences(savedTheme, savedContrast);
   }
 
   function buildFooter() {
@@ -269,25 +378,59 @@
 
   function setupHeroParallax() {
     const hero = document.querySelector(".hero");
+    const overlay = document.querySelector(".hero-overlay");
     const video = document.querySelector(".hero-video");
-    const content = document.querySelector(".hero-content-inner");
-    if (!hero || !video || !content || window.matchMedia("(max-width: 767px)").matches) return;
+    const content = document.querySelector(".hero-content");
+    const headingEls = document.querySelectorAll(".hero-eyebrow, .hero-title, .hero-tagline, .hero-sub");
+    if (!hero || !video || !overlay || !content || !headingEls.length || window.matchMedia("(max-width: 767px)").matches) return;
 
-    const maxFadeY = 550;
+    let ticking = false;
+    let lastScrollY = 0;
 
-    const onScroll = () => {
+    const update = () => {
       const scrollY = window.scrollY;
-      const yBg = scrollY * 0.4;
-      const yFg = scrollY * 0.18;
-      const opacity = Math.max(0, 1 - scrollY / maxFadeY);
+      const viewport = Math.max(window.innerHeight, 1);
 
-      video.style.transform = `translateY(${yBg}px) scale(1.08)`;
-      content.style.transform = `translateY(${yFg}px)`;
-      content.style.opacity = String(opacity);
+      const textProgress = Math.min(scrollY / (viewport * 0.48), 1);
+      const headingOpacity = Math.max(0, 1 - textProgress);
+      const headingY = textProgress * 20;
+
+      headingEls.forEach((el) => {
+        el.style.opacity = headingOpacity.toFixed(3);
+        el.style.transform = `translateY(${headingY.toFixed(1)}px)`;
+      });
+
+      const contentOpacity = Math.max(0, 1 - scrollY / (viewport * 0.72));
+      content.style.opacity = contentOpacity.toFixed(3);
+
+      const dimStart = viewport * 0.12;
+      const dimProgress = Math.min(Math.max((scrollY - dimStart) / (viewport * 0.62), 0), 1);
+      const overlayDim = (dimProgress * 0.34).toFixed(3);
+      overlay.style.setProperty("--hero-scroll-dim", overlayDim);
+
+      const brightness = (1 - dimProgress * 0.15).toFixed(3);
+      video.style.filter = `brightness(${brightness})`;
+      video.style.transform = `scale(${(1.08 + dimProgress * 0.03).toFixed(3)})`;
+
+      if (scrollY > lastScrollY + 2) {
+        hero.classList.add("is-scrolling-down");
+      } else if (scrollY < lastScrollY - 2) {
+        hero.classList.remove("is-scrolling-down");
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    const requestUpdate = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+    requestUpdate();
   }
 
   function setupReveals() {
@@ -420,6 +563,7 @@
 
   function init() {
     buildNav();
+    setupSettingsPanel();
     buildFooter();
     setupLoader();
     setupHeroVideo();
