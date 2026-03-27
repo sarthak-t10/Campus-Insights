@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="auditorium-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a5568;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d3748;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#auditorium-grad)"/>
+  <!-- Wall panels -->
+  <rect x="50" y="50" width="1100" height="500" fill="#3d4757" stroke="#8b7355" stroke-width="3"/>
+  <!-- Projection screen -->
+  <rect x="150" y="100" width="900" height="300" fill="#1a1a2e" stroke="#c9a96e" stroke-width="2"/>
+  <!-- Screen frame -->
+  <rect x="140" y="90" width="920" height="320" fill="none" stroke="#8b7355" stroke-width="8"/>
+  <!-- Seats rows -->
+  <g fill="#d32f2f" opacity="0.8">
+    <rect x="100" y="420" width="35" height="35" rx="3"/>
+    <rect x="150" y="420" width="35" height="35" rx="3"/>
+    <rect x="200" y="420" width="35" height="35" rx="3"/>
+    <rect x="250" y="420" width="35" height="35" rx="3"/>
+    <rect x="300" y="420" width="35" height="35" rx="3"/>
+    <rect x="350" y="420" width="35" height="35" rx="3"/>
+    <rect x="400" y="420" width="35" height="35" rx="3"/>
+    <rect x="450" y="420" width="35" height="35" rx="3"/>
+    <rect x="500" y="420" width="35" height="35" rx="3"/>
+    <rect x="550" y="420" width="35" height="35" rx="3"/>
+    <rect x="600" y="420" width="35" height="35" rx="3"/>
+    <rect x="650" y="420" width="35" height="35" rx="3"/>
+    <rect x="700" y="420" width="35" height="35" rx="3"/>
+    <rect x="750" y="420" width="35" height="35" rx="3"/>
+    <rect x="800" y="420" width="35" height="35" rx="3"/>
+    <rect x="850" y="420" width="35" height="35" rx="3"/>
+    <rect x="900" y="420" width="35" height="35" rx="3"/>
+    <rect x="950" y="420" width="35" height="35" rx="3"/>
+    <rect x="1000" y="420" width="35" height="35" rx="3"/>
+  </g>
+  <!-- More rows -->
+  <g fill="#1565c0" opacity="0.8">
+    <rect x="100" y="470" width="35" height="35" rx="3"/>
+    <rect x="150" y="470" width="35" height="35" rx="3"/>
+    <rect x="200" y="470" width="35" height="35" rx="3"/>
+    <rect x="250" y="470" width="35" height="35" rx="3"/>
+    <rect x="300" y="470" width="35" height="35" rx="3"/>
+    <rect x="350" y="470" width="35" height="35" rx="3"/>
+    <rect x="400" y="470" width="35" height="35" rx="3"/>
+    <rect x="450" y="470" width="35" height="35" rx="3"/>
+    <rect x="500" y="470" width="35" height="35" rx="3"/>
+    <rect x="550" y="470" width="35" height="35" rx="3"/>
+    <rect x="600" y="470" width="35" height="35" rx="3"/>
+    <rect x="650" y="470" width="35" height="35" rx="3"/>
+    <rect x="700" y="470" width="35" height="35" rx="3"/>
+    <rect x="750" y="470" width="35" height="35" rx="3"/>
+    <rect x="800" y="470" width="35" height="35" rx="3"/>
+    <rect x="850" y="470" width="35" height="35" rx="3"/>
+    <rect x="900" y="470" width="35" height="35" rx="3"/>
+    <rect x="950" y="470" width="35" height="35" rx="3"/>
+    <rect x="1000" y="470" width="35" height="35" rx="3"/>
+  </g>
+  <!-- Title -->
+  <text x="600" y="560" font-size="24" font-family="Cormorant Garamond, serif" fill="#c9a96e" text-anchor="middle" font-weight="400">Modern Lecture Hall & Auditorium</text>
+</svg>

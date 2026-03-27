@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="building-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b0e0e6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="brick-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d2691e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a0522d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Sky background -->
+  <rect width="1200" height="400" fill="url(#building-grad)"/>
+  <!-- Ground -->
+  <rect y="400" width="1200" height="200" fill="#8b7355"/>
+  <!-- Main building -->
+  <rect x="150" y="150" width="900" height="350" fill="url(#brick-grad)" stroke="#654321" stroke-width="8"/>
+  <!-- Windows grid left section -->
+  <g fill="#87ceeb" stroke="#333" stroke-width="2">
+    <rect x="180" y="180" width="40" height="40"/>
+    <rect x="240" y="180" width="40" height="40"/>
+    <rect x="300" y="180" width="40" height="40"/>
+    <rect x="360" y="180" width="40" height="40"/>
+    <rect x="180" y="250" width="40" height="40"/>
+    <rect x="240" y="250" width="40" height="40"/>
+    <rect x="300" y="250" width="40" height="40"/>
+    <rect x="360" y="250" width="40" height="40"/>
+    <rect x="180" y="320" width="40" height="40"/>
+    <rect x="240" y="320" width="40" height="40"/>
+    <rect x="300" y="320" width="40" height="40"/>
+    <rect x="360" y="320" width="40" height="40"/>
+  </g>
+  <!-- Windows center section -->
+  <g fill="#87ceeb" stroke="#333" stroke-width="2">
+    <rect x="500" y="180" width="40" height="40"/>
+    <rect x="560" y="180" width="40" height="40"/>
+    <rect x="620" y="180" width="40" height="40"/>
+    <rect x="500" y="250" width="40" height="40"/>
+    <rect x="560" y="250" width="40" height="40"/>
+    <rect x="620" y="250" width="40" height="40"/>
+    <rect x="500" y="320" width="40" height="40"/>
+    <rect x="560" y="320" width="40" height="40"/>
+    <rect x="620" y="320" width="40" height="40"/>
+  </g>
+  <!-- Windows right section -->
+  <g fill="#87ceeb" stroke="#333" stroke-width="2">
+    <rect x="700" y="180" width="40" height="40"/>
+    <rect x="760" y="180" width="40" height="40"/>
+    <rect x="820" y="180" width="40" height="40"/>
+    <rect x="700" y="250" width="40" height="40"/>
+    <rect x="760" y="250" width="40" height="40"/>
+    <rect x="820" y="250" width="40" height="40"/>
+    <rect x="700" y="320" width="40" height="40"/>
+    <rect x="760" y="320" width="40" height="40"/>
+    <rect x="820" y="320" width="40" height="40"/>
+  </g>
+  <!-- Banner -->
+  <rect x="200" y="80" width="800" height="50" fill="#2c3e50" stroke="#c9a96e" stroke-width="3"/>
+  <text x="600" y="115" font-size="28" font-family="Cormorant Garamond, serif" fill="#c9a96e" text-anchor="middle" font-weight="400">Platinum Academic Block - Modern Infrastructure</text>
+  <!-- Door entrance -->
+  <rect x="560" y="350" width="80" height="150" fill="#1a1a1a" stroke="#333" stroke-width="3"/>
+</svg>

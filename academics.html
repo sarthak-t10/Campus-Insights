@@ -450,11 +450,53 @@
         <div class="container">
           <p class="section-label reveal">Engineering Disciplines</p>
           <h2 class="section-title reveal">Explore Our Departments & Specializations</h2>
-          <p style="text-align: center; color: var(--text-muted); margin-bottom: 48px; font-size: 1.05rem;">Choose from 12 distinctive engineering and technology programs, each offering UG, PG, and doctoral pathways.</p>
+          <p style="text-align: center; color: var(--text-muted); margin-bottom: 48px; font-size: 1.05rem;">Choose from 8 engineering programs, each offering UG, PG, and doctoral pathways.</p>
           
+          <!-- LEVEL TABS -->
+          <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 48px; flex-wrap: wrap;">
+            <button class="level-tab active" onclick="showLevel('ug')">Undergraduate</button>
+            <button class="level-tab" onclick="showLevel('pg')">Postgraduate (M.Tech)</button>
+            <button class="level-tab" onclick="showLevel('phd')">Doctoral (PhD)</button>
+          </div>
+
+          <style>
+            .level-tab {
+              padding: 12px 28px;
+              background: var(--surface-2);
+              border: 2px solid var(--gold-border);
+              color: var(--text-primary);
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 1rem;
+              font-weight: 500;
+              transition: all 300ms var(--ease);
+            }
+
+            .level-tab:hover {
+              border-color: var(--gold);
+              background: var(--gold-dim);
+            }
+
+            .level-tab.active {
+              background: var(--gold);
+              border-color: var(--gold);
+              color: var(--bg);
+            }
+
+            .department-section {
+              display: none;
+            }
+
+            .department-section.active {
+              display: block;
+            }
+          </style>
+
+          <!-- UNDERGRADUATE SECTION -->
+          <div id="ug-section" class="department-section active">
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px;">
             <!-- Core Engineering -->
-            <a href="dept-civil.html" class="dept-card-equal reveal">
+            <a href="/departments/civil" class="dept-card-equal reveal">
               <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16"/><path d="M6 21V7l6-4 6 4v14"/><path d="M9 11h2"/><path d="M13 11h2"/><path d="M9 15h2"/><path d="M13 15h2"/></svg></div>
               <h3>Civil Engineering</h3>
               <p class="dept-card-focus">Infrastructure & Structures</p>
@@ -462,7 +504,7 @@
               <span class="dept-card-cta">Explore Department →</span>
             </a>
 
-            <a href="dept-mechanical.html" class="dept-card-equal reveal">
+            <a href="/departments/mechanical" class="dept-card-equal reveal">
               <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a3 3 0 0 0 3.9 3.9l-8.3 8.3a2 2 0 1 1-2.8-2.8z"/><path d="M16 4l4 4"/></svg></div>
               <h3>Mechanical Engineering</h3>
               <p class="dept-card-focus">Manufacturing & Systems</p>
@@ -470,7 +512,7 @@
               <span class="dept-card-cta">Explore Department →</span>
             </a>
 
-            <a href="dept-electrical.html" class="dept-card-equal reveal">
+            <a href="/departments/electrical" class="dept-card-equal reveal">
               <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
               <h3>Electrical Engineering</h3>
               <p class="dept-card-focus">Power & Control Systems</p>
@@ -478,7 +520,7 @@
               <span class="dept-card-cta">Explore Department →</span>
             </a>
 
-            <a href="dept-electronics.html" class="dept-card-equal reveal">
+            <a href="/departments/electronics" class="dept-card-equal reveal">
               <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 1v3M14 1v3M10 20v3M14 20v3M20 10h3M20 14h3M1 10h3M1 14h3"/></svg></div>
               <h3>Electronics & Instrumentation</h3>
               <p class="dept-card-focus">Semiconductors & Signals</p>
@@ -486,7 +528,7 @@
               <span class="dept-card-cta">Explore Department →</span>
             </a>
 
-            <a href="dept-cse.html" class="dept-card-equal reveal">
+            <a href="/departments/cse" class="dept-card-equal reveal">
               <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg></div>
               <h3>Computer Science Engineering</h3>
               <p class="dept-card-focus">Software & Systems</p>
@@ -494,7 +536,7 @@
               <span class="dept-card-cta">Explore Department →</span>
             </a>
 
-            <a href="dept-aerospace.html" class="dept-card-equal reveal">
+            <a href="/departments/aerospace" class="dept-card-equal reveal">
               <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l4 7-4 13-4-13z"/><path d="M9 9h6"/></svg></div>
               <h3>Aerospace Engineering</h3>
               <p class="dept-card-focus">Aviation & Space</p>
@@ -503,7 +545,7 @@
             </a>
 
             <!-- Advanced/Emerging -->
-            <a href="dept-chemical.html" class="dept-card-equal reveal">
+            <a href="/departments/chemical" class="dept-card-equal reveal">
               <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-4 7a3 3 0 0 0 2.6 4.5h6.8A3 3 0 0 0 18 16l-4-7V3"/></svg></div>
               <h3>Chemical Engineering</h3>
               <p class="dept-card-focus">Processes & Sustainability</p>
@@ -511,7 +553,7 @@
               <span class="dept-card-cta">Explore Department →</span>
             </a>
 
-            <a href="dept-ml.html" class="dept-card-equal reveal">
+            <a href="/departments/ml-ai" class="dept-card-equal reveal">
               <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h6M16.6 7.4l-3.2 3.2M13.4 13.4l3.2 3.2"/></svg></div>
               <h3>AI & Machine Learning</h3>
               <p class="dept-card-focus">Data & Intelligence</p>
@@ -519,8 +561,165 @@
               <span class="dept-card-cta">Explore Department →</span>
             </a>
           </div>
+          </div>
+
+          <!-- POSTGRADUATE SECTION -->
+          <div id="pg-section" class="department-section">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px;">
+            <a href="/academics/postgraduate/civil-engineering-mtech" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🏗️</div>
+              <h3>Civil Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced Structural & Infrastructure</p>
+              <p class="dept-card-desc">Specialize in earthquake engineering, sustainable construction, and advanced infrastructure systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="/academics/postgraduate/mechanical-engineering-mtech" class="dept-card-equal reveal">
+              <div class="dept-card-icon">⚙️</div>
+              <h3>Mechanical Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced Design & Automation</p>
+              <p class="dept-card-desc">Master CAD/CAM, robotics, advanced materials, and computational fluid dynamics.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="/academics/postgraduate/electrical-engineering-mtech" class="dept-card-equal reveal">
+              <div class="dept-card-icon">⚡</div>
+              <h3>Electrical Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Power Systems & Smart Grid</p>
+              <p class="dept-card-desc">Specialize in renewable energy, smart grids, and power electronics systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="/academics/postgraduate/electronics-engineering-mtech" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🔌</div>
+              <h3>Electronics Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">VLSI & Embedded Systems</p>
+              <p class="dept-card-desc">Advance in chip design, IoT, and advanced signal processing technologies.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="/academics/postgraduate/computer-science-mtech" class="dept-card-equal reveal">
+              <div class="dept-card-icon">💻</div>
+              <h3>Computer Science (M.Tech)</h3>
+              <p class="dept-card-focus">Data Science & Cloud Computing</p>
+              <p class="dept-card-desc">Specialize in big data, cloud platforms, cybersecurity, and AI systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="/academics/postgraduate/aerospace-engineering-mtech" class="dept-card-equal reveal">
+              <div class="dept-card-icon">✈️</div>
+              <h3>Aerospace Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced Flight Dynamics</p>
+              <p class="dept-card-desc">Specialize in aircraft design, aerodynamics, and propulsion systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="/academics/postgraduate/chemical-engineering-mtech" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🧪</div>
+              <h3>Chemical Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced Process Engineering</p>
+              <p class="dept-card-desc">Master biochemical processes, green chemistry, and sustainable engineering.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="/academics/postgraduate/ai-machine-learning-mtech" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🤖</div>
+              <h3>AI & Machine Learning (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced AI & Deep Learning</p>
+              <p class="dept-card-desc">Specialize in neural networks, NLP, and large-scale machine learning systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+          </div>
+          </div>
+
+          <!-- DOCTORAL SECTION -->
+          <div id="phd-section" class="department-section">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px;">
+            <a href="phd-civil.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🏗️</div>
+              <h3>Civil Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Conduct cutting-edge research in structural systems, sustainability, and infrastructure innovation.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-mechanical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">⚙️</div>
+              <h3>Mechanical Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Advanced research in manufacturing, robotics, thermal systems, and mechanics.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-electrical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">⚡</div>
+              <h3>Electrical Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research opportunities in power systems, renewable energy, and control systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-electronics.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🔌</div>
+              <h3>Electronics Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in semiconductor devices, nanoelectronics, and advanced sensor systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-cse.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">💻</div>
+              <h3>Computer Science (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in AI, cybersecurity, distributed systems, and computational methods.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-aerospace.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">✈️</div>
+              <h3>Aerospace Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in aerodynamics, propulsion, space systems, and flight control.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-chemical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🧪</div>
+              <h3>Chemical Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in catalysis, green chemistry, and bioengineering processes.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-ml.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🤖</div>
+              <h3>AI & Machine Learning (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in theoretical ML, optimization, and applications of AI to complex domains.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+          </div>
+          </div>
         </div>
       </section>
+
+      <script>
+        function showLevel(level) {
+          // Hide all sections
+          document.querySelectorAll('.department-section').forEach(el => el.classList.remove('active'));
+          document.querySelectorAll('.level-tab').forEach(el => el.classList.remove('active'));
+          
+          // Show selected section
+          const sectionId = level + '-section';
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.classList.add('active');
+          }
+          
+          // Highlight active tab
+          event.target.classList.add('active');
+        }
+      </script>
 
       <!-- SECTION 4: ACADEMIC FEATURES -->
       <section class="section">

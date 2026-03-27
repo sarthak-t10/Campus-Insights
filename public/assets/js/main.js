@@ -11,15 +11,33 @@
       id: "academics",
       label: "Academics",
       href: "academics.html",
-      submenu: [
-        { label: "Civil Engineering", href: "dept-civil.html" },
-        { label: "Mechanical Engineering", href: "dept-mechanical.html" },
-        { label: "Electrical Engineering", href: "dept-electrical.html" },
-        { label: "Electronics Engineering", href: "dept-electronics.html" },
-        { label: "Computer Science", href: "dept-cse.html" },
-        { label: "Chemical Engineering", href: "dept-chemical.html" },
-        { label: "Aerospace Engineering", href: "dept-aerospace.html" },
-        { label: "Machine Learning (AI & ML)", href: "dept-ml.html" }
+      submenuColumns: [
+        {
+          title: "UNDERGRADUATE PROGRAMS",
+          links: [
+            { label: "B.Tech Civil Engineering", href: "/departments/civil" },
+            { label: "B.Tech Mechanical Engineering", href: "/departments/mechanical" },
+            { label: "B.Tech Electrical Engineering", href: "/departments/electrical" },
+            { label: "B.Tech Electronics Engineering", href: "/departments/electronics" },
+            { label: "B.Tech Computer Science", href: "/departments/cse" },
+            { label: "B.Tech Chemical Engineering", href: "/departments/chemical" },
+            { label: "B.Tech Aerospace Engineering", href: "/departments/aerospace" },
+            { label: "B.Tech Artificial Intelligence", href: "/departments/ml-ai" }
+          ]
+        },
+        {
+          title: "POSTGRADUATE PROGRAMS",
+          links: [
+            { label: "M.Tech Civil Engineering", href: "/academics/postgraduate/civil-engineering-mtech" },
+            { label: "M.Tech Mechanical Engineering", href: "/academics/postgraduate/mechanical-engineering-mtech" },
+            { label: "M.Tech Electrical Engineering", href: "/academics/postgraduate/electrical-engineering-mtech" },
+            { label: "M.Tech Electronics Engineering", href: "/academics/postgraduate/electronics-engineering-mtech" },
+            { label: "M.Tech Computer Science", href: "/academics/postgraduate/computer-science-mtech" },
+            { label: "M.Tech Chemical Engineering", href: "/academics/postgraduate/chemical-engineering-mtech" },
+            { label: "M.Tech Aerospace Engineering", href: "/academics/postgraduate/aerospace-engineering-mtech" },
+            { label: "M.Tech AI & Machine Learning", href: "/academics/postgraduate/ai-machine-learning-mtech" }
+          ]
+        }
       ]
     },
     {
@@ -72,12 +90,25 @@
     const links = navItems
       .map((item) => {
         const activeClass = item.id === page ? "is-active" : "";
-        let html = `<div class="nav-item ${item.submenu ? 'has-submenu' : ''}">
+        let html = `<div class="nav-item ${item.submenu || item.submenuColumns ? 'has-submenu' : ''}">
           <a class="nav-link ${activeClass}" href="${item.href}">${item.label}</a>`;
         
-        if (item.submenu) {
+        if (item.submenuColumns) {
+          const columnsHtml = item.submenuColumns
+            .map((column) => {
+              const linksHtml = column.links
+                .map((sub) => `<a class="submenu-link submenu-link-compact" href="${sub.href}">${sub.label}</a>`)
+                .join("");
+              return `<div class="submenu-column"><p class="submenu-heading">${column.title}</p>${linksHtml}</div>`;
+            })
+            .join("");
+          html += `<div class="submenu submenu-programs">${columnsHtml}</div>`;
+        } else if (item.submenu) {
           const submenuHtml = item.submenu
-            .map((sub) => `<a class="submenu-link" href="${sub.href}">${sub.label}</a>`)
+            .map((sub) => {
+              const styleAttr = sub.style ? `style="${sub.style}"` : "";
+              return `<a class="submenu-link" href="${sub.href}" ${styleAttr}>${sub.label}</a>`;
+            })
             .join("");
           html += `<div class="submenu">${submenuHtml}</div>`;
         }
@@ -92,9 +123,22 @@
         let html = `<div class="mobile-nav-item">
           <a href="${item.href}">${item.label}</a>`;
         
-        if (item.submenu) {
+        if (item.submenuColumns) {
+          const submenuHtml = item.submenuColumns
+            .map((column) => {
+              const linksHtml = column.links
+                .map((sub) => `<a class="mobile-submenu-link" href="${sub.href}">${sub.label}</a>`)
+                .join("");
+              return `<div class="mobile-submenu-group"><p class="mobile-submenu-heading">${column.title}</p>${linksHtml}</div>`;
+            })
+            .join("");
+          html += `<div class="mobile-submenu">${submenuHtml}</div>`;
+        } else if (item.submenu) {
           const submenuHtml = item.submenu
-            .map((sub) => `<a class="mobile-submenu-link" href="${sub.href}">${sub.label}</a>`)
+            .map((sub) => {
+              const styleAttr = sub.style ? `style="${sub.style}"` : "";
+              return `<a class="mobile-submenu-link" href="${sub.href}" ${styleAttr}>${sub.label}</a>`;
+            })
             .join("");
           html += `<div class="mobile-submenu">${submenuHtml}</div>`;
         }
@@ -462,7 +506,13 @@
 
       const brightness = (1 - dimProgress * 0.15).toFixed(3);
       video.style.filter = `brightness(${brightness})`;
-      video.style.transform = `scale(${(1.08 + dimProgress * 0.03).toFixed(3)})`;
+      
+      const videoProgress = Math.min(scrollY / viewport, 1);
+      const videoScale = Math.max(1.02 - videoProgress * 0.6, 0.4);
+      const videoTranslateY = videoProgress * 60;
+      const videoOpacity = Math.max(1 - videoProgress * 0.8, 0.2);
+      video.style.transform = `scale(${videoScale.toFixed(3)}) translateY(-${videoTranslateY.toFixed(1)}px)`;
+      video.style.opacity = videoOpacity.toFixed(3);
 
       if (scrollY > lastScrollY + 2) {
         hero.classList.add("is-scrolling-down");

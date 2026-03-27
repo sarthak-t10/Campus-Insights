@@ -39,9 +39,9 @@ const DepartmentPage: React.FC<DepartmentPageProps> = ({
   const currentSection = sections.find(s => s.id === activeSection);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(201,169,110,0.16),transparent_50%),#09090b] text-[var(--foreground)]">
       {/* Header */}
-      <header className="py-16 px-6 border-b border-slate-700">
+      <header className="py-16 px-6 border-b border-[var(--border)]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <GlowCard glowColor="gold" customSize width={200} height={200}>
@@ -52,11 +52,11 @@ const DepartmentPage: React.FC<DepartmentPageProps> = ({
               />
             </GlowCard>
             <div>
-              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <h1 className="font-heading text-5xl md:text-7xl font-light mb-4 text-[var(--foreground)]">
                 {departmentName}
               </h1>
-              <h2 className="text-2xl text-yellow-500 mb-2">{headName}</h2>
-              <p className="text-slate-300 text-lg">{headTitle}</p>
+              <h2 className="font-heading text-4xl text-[var(--gold)] mb-2">{headName}</h2>
+              <p className="text-[var(--text-muted)] text-lg">{headTitle}</p>
             </div>
           </div>
         </div>
@@ -67,16 +67,16 @@ const DepartmentPage: React.FC<DepartmentPageProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar Navigation */}
           <aside className="lg:col-span-1">
-            <nav className="sticky top-8 space-y-2 bg-slate-800 rounded-lg p-4 border border-slate-700">
-              <h3 className="text-yellow-500 font-bold mb-4 text-sm uppercase">Navigation</h3>
+            <nav className="sticky top-8 space-y-2 bg-[var(--surface)] rounded-lg p-4 border border-[var(--border)]">
+              <h3 className="font-label text-[var(--gold)] mb-4 text-xs tracking-[0.16em] uppercase">Navigation</h3>
               {sections.map(section => (
                 <button
                   key={section.id}
                   onClick={() => setActiveSection(section.id)}
                   className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
                     activeSection === section.id
-                      ? 'bg-yellow-500/20 border-l-4 border-yellow-500 text-yellow-400'
-                      : 'text-slate-300 hover:bg-slate-700/50'
+                      ? 'bg-[var(--gold-dim)] border-l-4 border-[var(--gold)] text-[var(--gold)]'
+                      : 'text-[var(--text-muted)] hover:bg-[var(--surface-2)]'
                   }`}
                 >
                   {section.title}
@@ -90,8 +90,8 @@ const DepartmentPage: React.FC<DepartmentPageProps> = ({
             {currentSection && (
               <div className="animate-fade-in">
                 <GlowCard glowColor="gold" customSize width="100%" height="auto" className="!p-8">
-                  <h2 className="text-4xl font-bold mb-6 text-yellow-400">{currentSection.title}</h2>
-                  <div className="text-slate-200 space-y-4 leading-relaxed">
+                  <h2 className="font-heading text-5xl font-normal mb-6 text-[var(--foreground)]">{currentSection.title}</h2>
+                  <div className="text-[var(--text-muted)] space-y-4 leading-relaxed">
                     {typeof currentSection.content === 'string' ? (
                       <p>{currentSection.content}</p>
                     ) : (
@@ -105,7 +105,7 @@ const DepartmentPage: React.FC<DepartmentPageProps> = ({
             {/* Image Carousel */}
             {campusImages.length > 0 && (
               <div className="mt-12">
-                <h3 className="text-2xl font-bold mb-4 text-yellow-400">Campus Gallery</h3>
+                <h3 className="font-heading text-4xl mb-4 text-[var(--foreground)]">Campus Gallery</h3>
                 <ImageCarousel
                   images={campusImages}
                   interval={3000}
@@ -117,7 +117,7 @@ const DepartmentPage: React.FC<DepartmentPageProps> = ({
             {/* Highlights */}
             {highlights.length > 0 && (
               <div className="mt-12">
-                <h3 className="text-2xl font-bold mb-6 text-yellow-400">Key Highlights</h3>
+                <h3 className="font-heading text-4xl mb-6 text-[var(--foreground)]">Key Highlights</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {highlights.map((highlight, index) => (
                     <GlowCard
@@ -128,8 +128,8 @@ const DepartmentPage: React.FC<DepartmentPageProps> = ({
                       height="auto"
                       className="!p-6"
                     >
-                      <h4 className="text-xl font-bold text-yellow-400 mb-2">{highlight.title}</h4>
-                      <p className="text-slate-300">{highlight.description}</p>
+                      <h4 className="font-heading text-3xl text-[var(--foreground)] mb-2">{highlight.title}</h4>
+                      <p className="text-[var(--text-muted)]">{highlight.description}</p>
                     </GlowCard>
                   ))}
                 </div>

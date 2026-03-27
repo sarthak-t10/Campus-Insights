@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="library-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#library-grad)"/>
+  <!-- Ceiling -->
+  <rect y="0" width="1200" height="60" fill="#f0f0f0" stroke="#ccc" stroke-width="2"/>
+  <!-- Lights -->
+  <circle cx="200" cy="30" r="8" fill="#ffeb3b"/>
+  <circle cx="400" cy="30" r="8" fill="#ffeb3b"/>
+  <circle cx="600" cy="30" r="8" fill="#ffeb3b"/>
+  <circle cx="800" cy="30" r="8" fill="#ffeb3b"/>
+  <circle cx="1000" cy="30" r="8" fill="#ffeb3b"/>
+  <!-- Left bookshelf -->
+  <rect x="50" y="100" width="250" height="450" fill="#8b7355" stroke="#654321" stroke-width="3"/>
+  <!-- Books on left shelf -->
+  <g fill="#d32f2f"><rect x="70" y="130" width="20" height="100"/><rect x="100" y="140" width="18" height="90"/><rect x="128" y="120" width="22" height="110"/></g>
+  <g fill="#1565c0"><rect x="160" y="135" width="20" height="95"/><rect x="190" y="125" width="19" height="105"/></g>
+  <!-- Study tables -->
+  <g fill="#a0826d" stroke="#654321" stroke-width="2">
+    <rect x="350" y="200" width="200" height="80"/>
+    <rect x="350" y="320" width="200" height="80"/>
+    <rect x="650" y="200" width="200" height="80"/>
+    <rect x="650" y="320" width="200" height="80"/>
+  </g>
+  <!-- Chairs around tables -->
+  <g fill="#2c3e50" opacity="0.7">
+    <!-- Table 1 chairs -->
+    <rect x="330" y="220" width="30" height="30" rx="4"/>
+    <rect x="570" y="220" width="30" height="30" rx="4"/>
+    <!-- Table 2 chairs -->
+    <rect x="330" y="340" width="30" height="30" rx="4"/>
+    <rect x="570" y="340" width="30" height="30" rx="4"/>
+    <!-- Table 3 chairs -->
+    <rect x="630" y="220" width="30" height="30" rx="4"/>
+    <rect x="870" y="220" width="30" height="30" rx="4"/>
+    <!-- Table 4 chairs -->
+    <rect x="630" y="340" width="30" height="30" rx="4"/>
+    <rect x="870" y="340" width="30" height="30" rx="4"/>
+  </g>
+  <!-- Right bookshelf -->
+  <rect x="900" y="100" width="250" height="450" fill="#8b7355" stroke="#654321" stroke-width="3"/>
+  <!-- Books on right shelf -->
+  <g fill="#228b22"><rect x="920" y="140" width="20" height="90"/><rect x="950" y="130" width="22" height="100"/><rect x="985" y="135" width="19" height="95"/></g>
+  <g fill="#ff6f00"><rect x="1020" y="125" width="20" height="105"/></g>
+  <!-- Title -->
+  <text x="600" y="555" font-size="24" font-family="Cormorant Garamond, serif" fill="#333" text-anchor="middle" font-weight="400">Central Library & Study Center</text>
+</svg>
