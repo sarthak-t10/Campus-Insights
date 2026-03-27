@@ -424,7 +424,7 @@ const chatbotResponses = {
 • Address proof
 
 **Contact:** admissions@bmsce.ac.in
-📌 <a href="/admissions">View Full Admissions Details</a>`;
+📌 <a href="admissions.html">View Full Admissions Details</a>`;
     },
   },
 
@@ -454,7 +454,7 @@ const chatbotResponses = {
 **Available Programs:** Civil, Mechanical, Electrical, Electronics, CSE, Chemical, Aerospace, AI & Machine Learning
 
 **Contact:** pg-admissions@bmsce.ac.in
-📌 <a href="/academics/postgraduate/civil-engineering-mtech">View Postgraduate Programs</a>`;
+📌 <a href="pg-civil.html">View Postgraduate Programs</a>`;
     },
   },
 
@@ -479,7 +479,7 @@ Each program has:
 ✓ Research opportunities
 ✓ Industry internships
 
-📌 <a href="/academics">Explore All Programs</a>`;
+📌 <a href="academics.html">Explore All Programs</a>`;
     },
   },
 
@@ -505,7 +505,7 @@ Each program includes:
 ✓ Expert faculty guidance
 ✓ Placement assistance
 
-📌 <a href="/academics/postgraduate/computer-science-mtech">Explore M.Tech Programs</a>`;
+📌 <a href="pg-cse.html">Explore M.Tech Programs</a>`;
     },
   },
 
@@ -520,6 +520,18 @@ Each program includes:
 
       if (!dept) return null;
 
+      const departmentPageBySlug = {
+        civil: "dept-civil.html",
+        mechanical: "dept-mechanical.html",
+        electrical: "dept-electrical.html",
+        electronics: "dept-electronics.html",
+        cse: "dept-cse.html",
+        chemical: "dept-chemical.html",
+        aerospace: "dept-aerospace.html",
+        "ml-ai": "dept-ml.html"
+      };
+      const departmentHref = departmentPageBySlug[dept.slug] || "departments.html";
+
       return `📖 **${dept.name} Department**
 
 **B.Tech Program:** ${dept.ug}
@@ -532,7 +544,7 @@ ${dept.description}
 **Specializations Available:**
 ${dept.pg.split("(")[1].split(")")[0]}
 
-📌 <a href="/departments/${dept.slug}">View Department Details</a>`;
+📌 <a href="${departmentHref}">View Department Details</a>`;
     },
   },
 
@@ -560,7 +572,7 @@ ${recruiters} & many more...
 ✓ Resume & interview workshops
 ✓ On-campus recruitment drives
 
-📌 <a href="/placements">View Placement Details</a>
+📌 <a href="placements.html">View Placement Details</a>
 📧 Contact: placements@bmsce.ac.in`;
     },
   },
@@ -583,7 +595,7 @@ ${chatbotKnowledge.facilities.amenities.slice(0, 5).map((f) => `• ${f}`).join(
 **Student Clubs:**
 Robotics, IEEE, Coding, Entrepreneurship, Cultural, Sports & more
 
-📌 <a href="/facilities">Explore Complete Facilities</a>`;
+📌 <a href="facilities.html">Explore Complete Facilities</a>`;
     },
   },
 
@@ -613,7 +625,7 @@ ${chatbotKnowledge.campusLife.clubs.map((c) => `• ${c}`).join("\n")}
 ✓ Mental health support
 ✓ Counselling services
 
-📌 <a href="/campus-life">Learn More About Campus Life</a>`;
+📌 <a href="campus-life.html">Learn More About Campus Life</a>`;
     },
   },
 
@@ -639,7 +651,7 @@ Each department offers:
 • Located in Bangalore, India
 • 50+ years of excellence
 
-📌 <a href="/departments">View All Departments</a>`;
+📌 <a href="departments.html">View All Departments</a>`;
     },
   },
 
@@ -667,7 +679,7 @@ ${chatbotKnowledge.research.funding}
 **Publication Record:**
 ${chatbotKnowledge.research.publications}
 
-📌 <a href="/research">Explore Research Opportunities</a>`;
+📌 <a href="research.html">Explore Research Opportunities</a>`;
     },
   },
 
@@ -692,9 +704,9 @@ Bangalore - ${contact.mainOffice.city}
 📧 ${contact.placements.email}
 
 **Quick Links:**
-📌 <a href="/contact">Contact Page</a>
-📌 <a href="/admissions">Admissions Info</a>
-📌 <a href="/placements">Placements Info</a>`;
+📌 <a href="contact.html">Contact Page</a>
+📌 <a href="admissions.html">Admissions Info</a>
+📌 <a href="placements.html">Placements Info</a>`;
     },
   },
 
@@ -720,7 +732,7 @@ A: Yes! We have strong research facilities and opportunities in multiple domains
 A: Modern, well-equipped hostels with 24/7 security, internet, and recreational areas.
 
 Need help with something specific?
-📌 <a href="/contact">Contact Admissions</a>`;
+📌 <a href="contact.html">Contact Admissions</a>`;
     },
   },
 
