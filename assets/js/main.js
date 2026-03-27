@@ -28,14 +28,14 @@
         {
           title: "POSTGRADUATE PROGRAMS",
           links: [
-            { label: "M.Tech Civil Engineering", href: "/academics/postgraduate/civil-engineering-mtech" },
-            { label: "M.Tech Mechanical Engineering", href: "/academics/postgraduate/mechanical-engineering-mtech" },
-            { label: "M.Tech Electrical Engineering", href: "/academics/postgraduate/electrical-engineering-mtech" },
-            { label: "M.Tech Electronics Engineering", href: "/academics/postgraduate/electronics-engineering-mtech" },
-            { label: "M.Tech Computer Science", href: "/academics/postgraduate/computer-science-mtech" },
-            { label: "M.Tech Chemical Engineering", href: "/academics/postgraduate/chemical-engineering-mtech" },
-            { label: "M.Tech Aerospace Engineering", href: "/academics/postgraduate/aerospace-engineering-mtech" },
-            { label: "M.Tech AI & Machine Learning", href: "/academics/postgraduate/ai-machine-learning-mtech" }
+            { label: "M.Tech Civil Engineering", href: "pg-civil.html" },
+            { label: "M.Tech Mechanical Engineering", href: "pg-mechanical.html" },
+            { label: "M.Tech Electrical Engineering", href: "pg-electrical.html" },
+            { label: "M.Tech Electronics Engineering", href: "pg-electronics.html" },
+            { label: "M.Tech Computer Science", href: "pg-cse.html" },
+            { label: "M.Tech Chemical Engineering", href: "pg-chemical.html" },
+            { label: "M.Tech Aerospace Engineering", href: "pg-aerospace.html" },
+            { label: "M.Tech AI & Machine Learning", href: "pg-ml.html" }
           ]
         }
       ]
