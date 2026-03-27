@@ -461,7 +461,7 @@
     window.setTimeout(() => {
       loader.classList.add("is-hidden");
       document.body.classList.add("ready");
-    }, 2600);
+    }, 2100);
   }
 
   function setupHeroVideo() {

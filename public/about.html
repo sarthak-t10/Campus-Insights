@@ -23,11 +23,11 @@
 
       <section class="section">
         <div class="container">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 64px;">
+          <div class="legacy-grid">
             <!-- Left: Text Content -->
-            <article data-stagger-group>
+            <article class="legacy-text" data-stagger-group>
               <p class="section-label reveal">A LEGACY OF EXCELLENCE</p>
-              <h2 class="section-title reveal" style="margin-top: 12px;">Since 1946</h2>
+              <h2 class="section-title reveal">Since 1946</h2>
               <p class="reveal" style="margin-top: 24px; line-height: 1.8; color: var(--text-muted);">BMSCE College of Engineering (BMSCE) was founded in 1946 by the visionary Late Sri. B. M. Sreenivasaiah, making it the first private sector initiative in engineering education in India. Over 75+ years, BMSCE has been dedicated to providing world-class engineering education and groundbreaking research.</p>
               <p class="reveal" style="margin-top: 16px; line-height: 1.8; color: var(--text-muted);">Today, BMSCE offers 13 Undergraduate and 16 Postgraduate programs across conventional and emerging areas of engineering. The college is accredited by prestigious bodies including NAAC (A++), NBA, VTU, and AICTE, and consistently ranks among the top engineering institutions in India.</p>
               <p class="reveal" style="margin-top: 16px; line-height: 1.8; color: var(--text-muted);">BMSCE's commitment extends beyond academics to encompass research, innovation, and social responsibility. Our 75+ years of excellence have produced thousands of alumni who now lead global organizations.</p>
@@ -35,9 +35,17 @@
             </article>
 
             <!-- Right: Image -->
-            <div class="reveal" style="display: flex; align-items: center; justify-content: center;">
-              <img src="assets/images/about-image.webp" alt="BMSCE Campus Building" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);" />
-            </div>
+            <figure class="legacy-image-container reveal">
+              <div class="legacy-image-wrapper">
+                <img 
+                  src="assets/images/about-image.webp" 
+                  alt="BMS College of Engineering campus building with modern architecture" 
+                  loading="lazy"
+                  class="legacy-image"
+                />
+                <div class="legacy-image-overlay"></div>
+              </div>
+            </figure>
           </div>
         </div>
       </section>
