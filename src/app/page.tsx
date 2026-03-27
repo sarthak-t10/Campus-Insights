@@ -1,8 +1,6 @@
 'use client';
-import { useEffect } from 'react';
+import { LoadingScreen } from "@/components/ui/loading-screen"
+
 export default function Home() {
-  useEffect(() => {
-    window.location.href = '/index.html';
-  }, []);
-  return null;
+  return <LoadingScreen redirectPath="/index.html" />
 }
