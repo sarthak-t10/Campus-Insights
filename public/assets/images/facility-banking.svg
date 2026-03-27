@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="banking-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a3a47;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#151f26;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#banking-grad)"/>
+  
+  <!-- Banking facilities -->
+  <g opacity="0.35">
+    <!-- ATM 1 -->
+    <rect x="250" y="280" width="140" height="180" fill="none" stroke="#C9A96E" stroke-width="2" rx="8"/>
+    <rect x="265" y="310" width="110" height="90" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="320" cy="430" r="8" fill="#C9A96E" opacity="0.5"/>
+    <circle cx="320" cy="450" r="8" fill="#C9A96E" opacity="0.5"/>
+    
+    <!-- ATM 2 -->
+    <rect x="600" y="280" width="140" height="180" fill="none" stroke="#C9A96E" stroke-width="2" rx="8"/>
+    <rect x="615" y="310" width="110" height="90" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="670" cy="430" r="8" fill="#C9A96E" opacity="0.5"/>
+    <circle cx="670" cy="450" r="8" fill="#C9A96E" opacity="0.5"/>
+    
+    <!-- Banking counter -->
+    <rect x="950" y="300" width="300" height="160" fill="none" stroke="#C9A96E" stroke-width="2" rx="6"/>
+    <line x1="1000" y1="340" x2="1250" y2="340" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="1000" y1="380" x2="1250" y2="380" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="1000" y1="420" x2="1250" y2="420" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- Store shelves -->
+  <g opacity="0.2">
+    <!-- Shelf 1 -->
+    <rect x="350" y="600" width="240" height="100" fill="none" stroke="#C9A96E" stroke-width="2" rx="4"/>
+    <line x1="360" y1="630" x2="580" y2="630" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="360" y1="660" x2="580" y2="660" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Shelf 2 -->
+    <rect x="920" y="600" width="240" height="100" fill="none" stroke="#C9A96E" stroke-width="2" rx="4"/>
+    <line x1="930" y1="630" x2="1150" y2="630" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="930" y1="660" x2="1150" y2="660" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- Text overlay -->
+  <text x="800" y="550" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Banking &amp;
+  </text>
+  <text x="800" y="640" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Essentials Zone
+  </text>
+  <text x="800" y="750" font-family="DM Sans, sans-serif" font-size="32" fill="#C9A96E" text-anchor="middle" opacity="0.8">
+    ATM • Banking Services • Stationery Store
+  </text>
+</svg>

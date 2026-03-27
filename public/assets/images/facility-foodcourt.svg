@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="foodcourt-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#473a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a1f0f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#foodcourt-grad)"/>
+  
+  <!-- Multiple food counters -->
+  <g opacity="0.35">
+    <!-- Counter 1 - Indian -->
+    <rect x="200" y="300" width="180" height="140" fill="none" stroke="#C9A96E" stroke-width="2" rx="6"/>
+    <line x1="210" y1="330" x2="370" y2="330" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="210" y1="370" x2="370" y2="370" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Counter 2 - Chinese -->
+    <rect x="550" y="300" width="180" height="140" fill="none" stroke="#C9A96E" stroke-width="2" rx="6"/>
+    <line x1="560" y1="330" x2="720" y2="330" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="560" y1="370" x2="720" y2="370" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Counter 3 - Continental -->
+    <rect x="900" y="300" width="180" height="140" fill="none" stroke="#C9A96E" stroke-width="2" rx="6"/>
+    <line x1="910" y1="330" x2="1070" y2="330" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="910" y1="370" x2="1070" y2="370" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Counter 4 - Beverages -->
+    <rect x="1250" y="300" width="180" height="140" fill="none" stroke="#C9A96E" stroke-width="2" rx="6"/>
+    <circle cx="1280" cy="340" r="12" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="1340" cy="340" r="12" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- Food items -->
+  <g opacity="0.2">
+    <path d="M 600 650 L 620 600 L 640 650 Z" fill="#C9A96E" opacity="0.5"/>
+    <rect x="880" y="620" width="40" height="60" fill="#C9A96E" opacity="0.5" rx="3"/>
+    <circle cx="1100" cy="650" r="18" fill="#C9A96E" opacity="0.55"/>
+  </g>
+  
+  <!-- Text overlay -->
+  <text x="800" y="550" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Multi-Cuisine
+  </text>
+  <text x="800" y="640" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Food Court
+  </text>
+  <text x="800" y="750" font-family="DM Sans, sans-serif" font-size="32" fill="#C9A96E" text-anchor="middle" opacity="0.8">
+    Indian • Chinese • Continental • Beverages
+  </text>
+</svg>

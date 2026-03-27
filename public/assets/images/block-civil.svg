@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="civil-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3a47;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1f26;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#civil-grad)"/>
+  
+  <!-- Structural elements -->
+  <g opacity="0.3">
+    <!-- Building structure -->
+    <line x1="250" y1="600" x2="250" y2="250" stroke="#C9A96E" stroke-width="4"/>
+    <line x1="500" y1="600" x2="500" y2="200" stroke="#C9A96E" stroke-width="4"/>
+    <line x1="250" y1="600" x2="500" y2="600" stroke="#C9A96E" stroke-width="4"/>
+    
+    <!-- Cross bracing -->
+    <line x1="250" y1="250" x2="500" y2="600" stroke="#C9A96E" stroke-width="2" opacity="0.6"/>
+    <line x1="500" y1="200" x2="250" y2="600" stroke="#C9A96E" stroke-width="2" opacity="0.6"/>
+    
+    <!-- Survey elements -->
+    <circle cx="900" cy="350" r="60" fill="none" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="900" y1="290" x2="900" y2="410" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="840" y1="350" x2="960" y2="350" stroke="#C9A96E" stroke-width="2"/>
+  </g>
+  
+  <!-- Engineering symbols -->
+  <g opacity="0.2">
+    <path d="M 1050 500 L 1150 400 L 1200 500 L 1150 600 Z" fill="none" stroke="#C9A96E" stroke-width="2"/>
+    <rect x="1000" y="650" width="200" height="150" fill="none" stroke="#C9A96E" stroke-width="2" rx="8"/>
+  </g>
+  
+  <!-- Text overlay -->
+  <text x="800" y="550" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Civil & Infrastructure
+  </text>
+  <text x="800" y="640" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Block
+  </text>
+  <text x="800" y="750" font-family="DM Sans, sans-serif" font-size="32" fill="#C9A96E" text-anchor="middle" opacity="0.8">
+    Survey Labs • Structural Testing • Transportation
+  </text>
+</svg>
