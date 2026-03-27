@@ -4,6 +4,7 @@
     contrast: "ciu-contrast"
   };
   const FORCE_SPLASH_KEY = "ciu-force-splash";
+  const HOME_SPLASH_PLAYED_KEY = "ciu-home-splash-played";
 
   const navItems = [
     { id: "home", label: "Home", href: "index.html" },
@@ -733,6 +734,22 @@
       return forcedByStorage || forcedByUrl;
     };
 
+    const hasSplashPlayedThisSession = () => {
+      try {
+        return window.sessionStorage.getItem(HOME_SPLASH_PLAYED_KEY) === "1";
+      } catch (_error) {
+        return false;
+      }
+    };
+
+    const markSplashPlayed = () => {
+      try {
+        window.sessionStorage.setItem(HOME_SPLASH_PLAYED_KEY, "1");
+      } catch (_error) {
+        // Ignore storage access failures in strict/private modes.
+      }
+    };
+
     let hideTimerId = 0;
 
     const playOverlaySplash = () => {
@@ -763,6 +780,7 @@
           homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
         }
         playOverlaySplash();
+        markSplashPlayed();
       };
 
       const loader = document.querySelector(".loader");
@@ -788,8 +806,13 @@
     };
 
     const wasForced = consumeForcedSplashRequest();
-    if (wasForced || document.body.dataset.page === "home") {
+    const shouldAutoplayOnEntry = document.body.dataset.page === "home" && !hasSplashPlayedThisSession();
+
+    if (wasForced || shouldAutoplayOnEntry) {
       replayAfterLoader();
+    } else {
+      splashOverlay.classList.remove("is-active");
+      splashOverlay.setAttribute("aria-hidden", "true");
     }
 
     window.addEventListener("ciu:force-home-splash", forceFromLogo);
