@@ -153,7 +153,7 @@
     root.innerHTML = `
       <header class="site-nav" id="siteNav">
         <div class="nav-inner">
-          <a class="nav-logo" href="index.html"><img src="assets/images/logo.jpeg" alt="Campus Insights Logo" class="nav-logo-img" /></a>
+          <a class="nav-logo" href="index.html" aria-label="Go to homepage"><img src="assets/images/logo.jpeg" alt="Campus Insights Logo" class="nav-logo-img" /></a>
           <nav class="nav-links" aria-label="Primary">${links}</nav>
           <div class="nav-actions">
             <a class="apply-btn" href="admissions.html">Apply Now</a>
@@ -338,16 +338,16 @@
         }
 
         if (document.body.dataset.page === "home") {
-          const aboutSection = document.getElementById("about");
-          if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          const homeSection = document.getElementById("home");
+          if (homeSection) {
+            homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
           }
 
-          window.dispatchEvent(new Event("ciu:force-splash"));
+          window.dispatchEvent(new Event("ciu:force-home-splash"));
           return;
         }
 
-        const splashUrl = `index.html?logoSplash=${Date.now()}#about`;
+        const splashUrl = `index.html?logoSplash=${Date.now()}#home`;
         window.location.assign(splashUrl);
       });
     }
@@ -703,6 +703,98 @@
     showSlide(0);
   }
 
+  function setupHomeSplash() {
+    const splashOverlay = document.querySelector("[data-home-splash]");
+    if (!splashOverlay) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const urlParams = new URLSearchParams(window.location.search);
+    const forcedByUrl = urlParams.has("logoSplash");
+
+    const consumeForcedSplashRequest = () => {
+      let forcedByStorage = false;
+      try {
+        forcedByStorage = window.sessionStorage.getItem(FORCE_SPLASH_KEY) === "1";
+        if (forcedByStorage) {
+          window.sessionStorage.removeItem(FORCE_SPLASH_KEY);
+        }
+      } catch (_error) {
+        forcedByStorage = false;
+      }
+
+      if (forcedByUrl && typeof window.history.replaceState === "function") {
+        urlParams.delete("logoSplash");
+        const query = urlParams.toString();
+        const hash = window.location.hash || "";
+        const cleanUrl = `${window.location.pathname}${query ? `?${query}` : ""}${hash}`;
+        window.history.replaceState(null, "", cleanUrl);
+      }
+
+      return forcedByStorage || forcedByUrl;
+    };
+
+    let hideTimerId = 0;
+
+    const playOverlaySplash = () => {
+      window.clearTimeout(hideTimerId);
+      splashOverlay.setAttribute("aria-hidden", "false");
+      splashOverlay.classList.remove("is-active");
+      void splashOverlay.offsetWidth;
+      splashOverlay.classList.add("is-active");
+
+      if (prefersReducedMotion) {
+        hideTimerId = window.setTimeout(() => {
+          splashOverlay.classList.remove("is-active");
+          splashOverlay.setAttribute("aria-hidden", "true");
+        }, 1200);
+        return;
+      }
+
+      hideTimerId = window.setTimeout(() => {
+        splashOverlay.classList.remove("is-active");
+        splashOverlay.setAttribute("aria-hidden", "true");
+      }, 3300);
+    };
+
+    const replayAfterLoader = () => {
+      const runSequence = () => {
+        const homeSection = document.getElementById("home");
+        if (homeSection) {
+          homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        playOverlaySplash();
+      };
+
+      const loader = document.querySelector(".loader");
+      const loaderActive = loader && !loader.classList.contains("is-hidden");
+      if (!loaderActive) {
+        window.setTimeout(runSequence, 120);
+        return;
+      }
+
+      let resolved = false;
+      const finish = () => {
+        if (resolved) return;
+        resolved = true;
+        runSequence();
+      };
+
+      window.addEventListener("ciu:loader-hidden", finish, { once: true });
+      window.setTimeout(finish, 2600);
+    };
+
+    const forceFromLogo = () => {
+      replayAfterLoader();
+    };
+
+    const wasForced = consumeForcedSplashRequest();
+    if (wasForced || document.body.dataset.page === "home") {
+      replayAfterLoader();
+    }
+
+    window.addEventListener("ciu:force-home-splash", forceFromLogo);
+  }
+
   function setupAboutLegacyMotion() {
     const motionBlock = document.querySelector("[data-legacy-motion]");
     const title = motionBlock ? motionBlock.querySelector("[data-word-splash]") : null;
@@ -961,6 +1053,7 @@
     setupLoader();
     setupHeroVideo();
     setupHeroParallax();
+    setupHomeSplash();
     setupAboutLegacyMotion();
     setupStagger();
     setupReveals();
