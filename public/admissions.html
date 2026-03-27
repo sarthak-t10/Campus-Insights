@@ -91,7 +91,7 @@
       }
 
       .requirement-list li:before {
-        content: "✓";
+        content: "âœ“";
         color: var(--gold);
         font-weight: bold;
         font-size: 1.2em;
@@ -144,7 +144,7 @@
       }
 
       .faq-question::before {
-        content: "▸";
+        content: "â–¸";
         color: var(--gold);
         font-weight: bold;
         font-size: 1.2em;
@@ -271,7 +271,7 @@
         font-size: 0.85rem;
         margin: 8px 0 0 0;
       }
-    </style>
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
   </head>
   <body data-page="admissions">
     <div data-nav></div>
@@ -412,12 +412,12 @@
 
       <!-- SECTION 1: PROGRAM OPTIONS -->
       <section class="section"><div class="container"><p class="section-label reveal">What You Can Study</p><h2 class="section-title reveal">Multiple Programs for All Academic Levels</h2><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 48px;">
-        <div class="admission-card clickable reveal" onclick="openDepartmentModal()"><span class="admission-icon">🎓</span><h3>Undergraduate Programs</h3><p>Four-year engineering degrees with honors tracks, specializations, and industry internships. UG programs begin every semester.</p></div>
-        <div class="admission-card clickable reveal" onclick="openPostgradModal()"><span class="admission-icon">📚</span><h3>Postgraduate Programs</h3><p>Master's degrees (M.Tech, M.S.) for specialized advanced learning. PG admissions twice yearly with flexible intake options.</p></div>
-        <div class="admission-card clickable reveal" onclick="openDoctoralModal()"><span class="admission-icon">🔬</span><h3>Doctoral Programs</h3><p>PhD programs offering research opportunities with world-class faculty. Year-round rolling admissions for research-focused candidates.</p></div>
-        <div class="admission-card reveal"><span class="admission-icon">💼</span><h3>Executive Programs</h3><p>Part-time and weekend programs for working professionals. Skill enhancement certifications and executive upskilling available.</p></div>
-        <div class="admission-card reveal"><span class="admission-icon">🌍</span><h3>International Students</h3><p>Study at our campus with special visa support and orientation programs. International admissions coordinating across 40+ countries.</p></div>
-        <div class="admission-card reveal"><span class="admission-icon">📖</span><h3>Diploma Programs</h3><p>Vocational training and diploma courses for technical skill development. Short-duration programs with placement support.</p></div>
+        <div class="admission-card clickable reveal" onclick="openDepartmentModal()"><span class="admission-icon">ðŸŽ“</span><h3>Undergraduate Programs</h3><p>Four-year engineering degrees with honors tracks, specializations, and industry internships. UG programs begin every semester.</p></div>
+        <div class="admission-card clickable reveal" onclick="openPostgradModal()"><span class="admission-icon">ðŸ“š</span><h3>Postgraduate Programs</h3><p>Master's degrees (M.Tech, M.S.) for specialized advanced learning. PG admissions twice yearly with flexible intake options.</p></div>
+        <div class="admission-card clickable reveal" onclick="openDoctoralModal()"><span class="admission-icon">ðŸ”¬</span><h3>Doctoral Programs</h3><p>PhD programs offering research opportunities with world-class faculty. Year-round rolling admissions for research-focused candidates.</p></div>
+        <div class="admission-card reveal"><span class="admission-icon">ðŸ’¼</span><h3>Executive Programs</h3><p>Part-time and weekend programs for working professionals. Skill enhancement certifications and executive upskilling available.</p></div>
+        <div class="admission-card reveal"><span class="admission-icon">ðŸŒ</span><h3>International Students</h3><p>Study at our campus with special visa support and orientation programs. International admissions coordinating across 40+ countries.</p></div>
+        <div class="admission-card reveal"><span class="admission-icon">ðŸ“–</span><h3>Diploma Programs</h3><p>Vocational training and diploma courses for technical skill development. Short-duration programs with placement support.</p></div>
       </div></div></section>
 
       <!-- SECTION 2: APPLICATION TIMELINE -->
@@ -528,6 +528,7 @@
         });
       });
     </script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
   </body>
 </html>

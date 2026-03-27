@@ -28,8 +28,8 @@
       .dept-section p { color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
       .dept-list { list-style: none; padding: 0; margin: 20px 0; }
       .dept-list li { padding: 12px 0; color: var(--text-muted); display: flex; align-items: center; gap: 12px; }
-      .dept-list li:before { content: "›"; color: var(--gold); font-size: 1.5rem; font-weight: bold; }
-    </style>
+      .dept-list li:before { content: "â€º"; color: var(--gold); font-size: 1.5rem; font-weight: bold; }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
   </head>
   <body data-page="academics">
     <div data-nav></div>
@@ -43,7 +43,7 @@
               </div>
               <div class="dept-head-info">
                 <h3>Dr. Electronics Head</h3>
-                <p>Professor & Head – Electronics Engineering</p>
+                <p>Professor & Head â€“ Electronics Engineering</p>
               </div>
             </div>
           </div>
@@ -54,11 +54,11 @@
           <div class="dept-content">
             <aside class="dept-sidebar">
               <h4 class="dept-sidebar-title">ELECTRONICS ENGINEERING</h4>
-              <a class="dept-nav-item active" data-section="about">›  About</a>
-              <a class="dept-nav-item" data-section="programmes">›  Programmes</a>
-              <a class="dept-nav-item" data-section="faculty">›  Faculty</a>
-              <a class="dept-nav-item" data-section="research">›  Research</a>
-              <a class="dept-nav-item" data-section="alumni">›  Alumni</a>
+              <a class="dept-nav-item active" data-section="about">â€º  About</a>
+              <a class="dept-nav-item" data-section="programmes">â€º  Programmes</a>
+              <a class="dept-nav-item" data-section="faculty">â€º  Faculty</a>
+              <a class="dept-nav-item" data-section="research">â€º  Research</a>
+              <a class="dept-nav-item" data-section="alumni">â€º  Alumni</a>
             </aside>
             <article class="dept-main">
               <div class="dept-section active" id="about"><h2>About Department</h2><p>Department of Electronics and Instrumentation Engineering focused on microelectronics, signal processing, and embedded systems.</p></div>
@@ -83,6 +83,7 @@
           if (section) { section.classList.add('active'); section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         });
       });
-    </script>
+    </script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
   </body>
 </html>
