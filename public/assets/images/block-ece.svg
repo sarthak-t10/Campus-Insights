@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="ece-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a1a47;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#20100f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#ece-grad)"/>
+  
+  <!-- Circuit board patterns -->
+  <g opacity="0.4">
+    <circle cx="300" cy="300" r="15" fill="#C9A96E"/>
+    <circle cx="600" cy="300" r="15" fill="#C9A96E"/>
+    <circle cx="900" cy="300" r="15" fill="#C9A96E"/>
+    <circle cx="1200" cy="300" r="15" fill="#C9A96E"/>
+    <line x1="300" y1="300" x2="600" y2="300" stroke="#C9A96E" stroke-width="2" opacity="0.7"/>
+    <line x1="600" y1="300" x2="900" y2="300" stroke="#C9A96E" stroke-width="2" opacity="0.7"/>
+    <line x1="900" y1="300" x2="1200" y2="300" stroke="#C9A96E" stroke-width="2" opacity="0.7"/>
+    
+    <!-- Vertical connections -->
+    <circle cx="300" cy="600" r="15" fill="#C9A96E"/>
+    <circle cx="1200" cy="600" r="15" fill="#C9A96E"/>
+    <line x1="300" y1="300" x2="300" y2="600" stroke="#C9A96E" stroke-width="2" opacity="0.7"/>
+    <line x1="1200" y1="300" x2="1200" y2="600" stroke="#C9A96E" stroke-width="2" opacity="0.7"/>
+  </g>
+  
+  <!-- Signal waves -->
+  <g opacity="0.2">
+    <path d="M 400 750 Q 500 700 600 750 T 800 750" fill="none" stroke="#C9A96E" stroke-width="2"/>
+    <path d="M 1000 750 Q 1100 700 1200 750 T 1400 750" fill="none" stroke="#C9A96E" stroke-width="2"/>
+  </g>
+  
+  <!-- Text overlay -->
+  <text x="800" y="550" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Electronics &amp;
+  </text>
+  <text x="800" y="640" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Communication Block
+  </text>
+  <text x="800" y="750" font-family="DM Sans, sans-serif" font-size="32" fill="#C9A96E" text-anchor="middle" opacity="0.8">
+    Embedded Systems • Communication Labs • VLSI
+  </text>
+</svg>

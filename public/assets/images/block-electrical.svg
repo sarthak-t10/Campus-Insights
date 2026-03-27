@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="elec-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#473217;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a1f0f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#elec-grad)"/>
+  
+  <!-- Power transmission symbols -->
+  <g opacity="0.3">
+    <!-- Transmission tower -->
+    <line x1="400" y1="150" x2="400" y2="500" stroke="#C9A96E" stroke-width="3"/>
+    <line x1="300" y1="450" x2="500" y2="450" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="350" y1="380" x2="450" y2="380" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="320" y1="300" x2="480" y2="300" stroke="#C9A96E" stroke-width="2"/>
+    
+    <!-- Power lines -->
+    <line x1="400" y1="150" x2="700" y2="200" stroke="#C9A96E" stroke-width="2" opacity="0.6"/>
+    <line x1="400" y1="200" x2="800" y2="150" stroke="#C9A96E" stroke-width="2" opacity="0.6"/>
+    
+    <!-- Generator/Motor symbol -->
+    <circle cx="1200" cy="350" r="80" fill="none" stroke="#C9A96E" stroke-width="3"/>
+    <circle cx="1200" cy="350" r="50" fill="none" stroke="#C9A96E" stroke-width="2" opacity="0.7"/>
+  </g>
+  
+  <!-- Control elements -->
+  <g opacity="0.2">
+    <rect x="900" y="750" width="120" height="100" fill="none" stroke="#C9A96E" stroke-width="2" rx="4"/>
+    <circle cx="920" cy="780" r="8" fill="#C9A96E" opacity="0.6"/>
+    <circle cx="960" cy="800" r="8" fill="#C9A96E" opacity="0.6"/>
+    <circle cx="1000" cy="820" r="8" fill="#C9A96E" opacity="0.6"/>
+  </g>
+  
+  <!-- Text overlay -->
+  <text x="800" y="550" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Electrical
+  </text>
+  <text x="800" y="640" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Engineering Block
+  </text>
+  <text x="800" y="750" font-family="DM Sans, sans-serif" font-size="32" fill="#C9A96E" text-anchor="middle" opacity="0.8">
+    Power Systems • Control Labs • Machines Lab
+  </text>
+</svg>

@@ -143,25 +143,25 @@
       .facility-image-slot {
         width: 100%;
         aspect-ratio: 16 / 10;
-        border: 1px dashed rgba(201, 169, 110, 0.55);
         border-radius: 10px;
+        overflow: hidden;
         background:
-          linear-gradient(145deg, rgba(201, 169, 110, 0.09), rgba(255, 255, 255, 0.02)),
-          repeating-linear-gradient(
-            -45deg,
-            rgba(201, 169, 110, 0.07) 0,
-            rgba(201, 169, 110, 0.07) 8px,
-            transparent 8px,
-            transparent 16px
-          );
+          linear-gradient(145deg, rgba(201, 169, 110, 0.09), rgba(255, 255, 255, 0.02));
         display: grid;
         place-items: center;
-        color: var(--gold);
-        font-size: 0.74rem;
-        text-transform: uppercase;
-        letter-spacing: 0.09em;
-        text-align: center;
-        padding: 16px;
+        padding: 0;
+      }
+
+      .facility-image-slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 320ms var(--ease);
+      }
+
+      .facility-card:hover .facility-image-slot img {
+        transform: scale(1.08);
       }
 
       .card-subtitle {
@@ -311,7 +311,9 @@
 
           <div class="facilities-grid three">
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - CSE Block</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/block-cse.svg" alt="Computer Science and Engineering Block - Advanced computing labs and AI classrooms" />
+              </div>
               <p class="card-subtitle">CSE Block</p>
               <h3 class="card-title">Computer Science and Engineering Block</h3>
               <p class="card-text">Advanced computing labs, coding studios, and AI and data science classrooms.</p>
@@ -319,7 +321,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Mechanical Block</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/block-mechanical.svg" alt="Mechanical Engineering Block - Workshops and CAD labs" />
+              </div>
               <p class="card-subtitle">Mechanical Block</p>
               <h3 class="card-title">Mechanical Engineering Block</h3>
               <p class="card-text">Workshops, CAD labs, thermal systems labs, and project fabrication spaces.</p>
@@ -327,7 +331,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Civil Block</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/block-civil.svg" alt="Civil and Infrastructure Block - Survey labs and structural testing" />
+              </div>
               <p class="card-subtitle">Civil Block</p>
               <h3 class="card-title">Civil and Infrastructure Block</h3>
               <p class="card-text">Survey labs, structural testing setups, and transportation engineering classrooms.</p>
@@ -335,7 +341,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - ECE Block</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/block-ece.svg" alt="Electronics and Communication Block - Embedded systems labs" />
+              </div>
               <p class="card-subtitle">ECE Block</p>
               <h3 class="card-title">Electronics and Communication Block</h3>
               <p class="card-text">Embedded systems labs, communication labs, VLSI and instrumentation setup.</p>
@@ -343,7 +351,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Electrical Block</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/block-electrical.svg" alt="Electrical Engineering Block - Power systems and control labs" />
+              </div>
               <p class="card-subtitle">Electrical Block</p>
               <h3 class="card-title">Electrical Engineering Block</h3>
               <p class="card-text">Power systems, control systems, and machine labs for practical learning.</p>
@@ -351,7 +361,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - AI and DS Block</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/block-ai-ds.svg" alt="AI and Data Science Block - Analytics labs and ML studios" />
+              </div>
               <p class="card-subtitle">AI and DS Block</p>
               <h3 class="card-title">AI and Data Science Block</h3>
               <p class="card-text">Specialized analytics labs and innovation classrooms for emerging technologies.</p>
@@ -371,7 +383,9 @@
 
           <div class="facilities-grid three">
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Central Library</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-library.svg" alt="Central Library - Digital resources and reading halls" />
+              </div>
               <p class="card-subtitle">Library</p>
               <h3 class="card-title">Central Library and Reading Halls</h3>
               <p class="card-text">Digital resources, reference collections, silent reading zones, and discussion areas.</p>
@@ -379,7 +393,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Auditorium</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-auditorium.svg" alt="Main Auditorium - Conferences and academic events" />
+              </div>
               <p class="card-subtitle">Auditorium</p>
               <h3 class="card-title">Main Auditorium and Seminar Spaces</h3>
               <p class="card-text">Venue for conferences, lectures, student events, and academic ceremonies.</p>
@@ -387,7 +403,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Hostels</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-hostels.svg" alt="Student Hostels - Residential blocks and student life" />
+              </div>
               <p class="card-subtitle">Hostels</p>
               <h3 class="card-title">Student Hostels and Residential Life</h3>
               <p class="card-text">Safe residential blocks with study zones, common areas, and ward support.</p>
@@ -407,7 +425,9 @@
 
           <div class="facilities-grid three">
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Indoor Arena</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-indoor-arena.svg" alt="Indoor Sports Arena - Badminton courts and fitness center" />
+              </div>
               <p class="card-subtitle">Indoor Arena</p>
               <h3 class="card-title">Indoor Courts and Fitness Arena</h3>
               <p class="card-text">Indoor badminton, table tennis, multi-sport courts, and cardio training zone.</p>
@@ -415,7 +435,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Outdoor Grounds</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-outdoor-grounds.svg" alt="Outdoor Sports Grounds - Cricket, football and athletics" />
+              </div>
               <p class="card-subtitle">Outdoor Facilities</p>
               <h3 class="card-title">Cricket, Football, and Athletics Grounds</h3>
               <p class="card-text">Dedicated open grounds for team sports and track events.</p>
@@ -423,7 +445,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Wellness Center</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-wellness.svg" alt="Wellness Center - Yoga and recreation facilities" />
+              </div>
               <p class="card-subtitle">Wellness</p>
               <h3 class="card-title">Wellness and Recreation Center</h3>
               <p class="card-text">Yoga, wellness sessions, and recreational facilities supporting student well-being.</p>
@@ -443,7 +467,9 @@
 
           <div class="facilities-grid three">
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Main Canteen</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-canteen.svg" alt="Central Canteen - Campus dining and food services" />
+              </div>
               <p class="card-subtitle">Main Canteen</p>
               <h3 class="card-title">Central Canteen</h3>
               <p class="card-text">Primary campus dining area with affordable meal options and seating capacity for peak hours.</p>
@@ -451,7 +477,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Food Court</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-foodcourt.svg" alt="Multi-Cuisine Food Court - Diverse food options" />
+              </div>
               <p class="card-subtitle">Food Court</p>
               <h3 class="card-title">Multi-Cuisine Food Court</h3>
               <p class="card-text">Diverse food counters with quick-serve options for students and visitors.</p>
@@ -459,7 +487,9 @@
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Cafe</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-cafe.svg" alt="Campus Cafe - Casual dining and collaboration space" />
+              </div>
               <p class="card-subtitle">Cafe</p>
               <h3 class="card-title">Cafe and Collaboration Spot</h3>
               <p class="card-text">Casual seating and light refreshments for informal meetings and peer discussions.</p>
@@ -479,21 +509,27 @@
 
           <div class="facilities-grid four">
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Health Center</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-health.svg" alt="Campus Health Center - Medical care and student wellness" />
+              </div>
               <p class="card-subtitle">Health</p>
               <h3 class="card-title">Campus Health Center</h3>
               <p class="card-text">Primary medical care, first-aid support, and health consultations.</p>
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Transport Hub</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-transport.svg" alt="Transport Hub - Campus bus services and commute" />
+              </div>
               <p class="card-subtitle">Transport</p>
               <h3 class="card-title">Transport and Commute Hub</h3>
               <p class="card-text">Daily bus routes and commute coordination for students and staff.</p>
             </article>
 
             <article class="facility-card reveal">
-              <div class="facility-image-slot">Image Space - Banking and Store</div>
+              <div class="facility-image-slot">
+                <img src="assets/images/facility-banking.svg" alt="Banking and Essentials - ATM and campus store" />
+              </div>
               <p class="card-subtitle">Convenience</p>
               <h3 class="card-title">Banking and Essentials Zone</h3>
               <p class="card-text">ATM, banking services, and stationery store for campus requirements.</p>
