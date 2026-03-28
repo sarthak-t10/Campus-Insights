@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Robotics Challenge Workshop</title>
+  <desc id="desc">Stylized robotics workshop illustration with students and robotic arm in a premium dark and gold theme.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/>
+      <stop offset="1" stop-color="#111722"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d4b378"/>
+      <stop offset="1" stop-color="#9a7743"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1480" height="780" rx="28" fill="none" stroke="#c9a96e" stroke-opacity="0.35" stroke-width="3"/>
+
+  <circle cx="280" cy="220" r="110" fill="#182030"/>
+  <circle cx="280" cy="220" r="56" fill="#243146"/>
+  <circle cx="280" cy="220" r="18" fill="url(#gold)"/>
+
+  <rect x="640" y="530" width="320" height="150" rx="20" fill="#1c2738" stroke="#c9a96e" stroke-opacity="0.4"/>
+  <rect x="730" y="420" width="140" height="120" rx="14" fill="#213049"/>
+  <rect x="780" y="320" width="40" height="110" rx="8" fill="url(#gold)"/>
+  <circle cx="800" cy="300" r="34" fill="#1f2c43" stroke="#c9a96e" stroke-width="6"/>
+  <path d="M820 300 L980 250 L1040 290 L900 340 Z" fill="#253752"/>
+  <circle cx="1040" cy="290" r="24" fill="url(#gold)"/>
+  <rect x="1032" y="298" width="16" height="70" rx="6" fill="#c9a96e"/>
+
+  <g fill="#2a3953">
+    <rect x="180" y="560" width="230" height="140" rx="16"/>
+    <rect x="1190" y="560" width="230" height="140" rx="16"/>
+  </g>
+  <g fill="url(#gold)">
+    <circle cx="250" cy="535" r="26"/>
+    <circle cx="1320" cy="535" r="26"/>
+  </g>
+
+  <text x="96" y="120" fill="#c9a96e" font-family="Space Grotesk, Arial, sans-serif" font-size="34" letter-spacing="4">WORKSHOP</text>
+  <text x="96" y="790" fill="#f2ede4" font-family="Cormorant Garamond, Georgia, serif" font-size="68">National Robotics Challenge</text>
+</svg>

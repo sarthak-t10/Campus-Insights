@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="cafe-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a2a2a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1f1515;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#cafe-grad)"/>
+  
+  <!-- Casual cafe seating -->
+  <g opacity="0.35">
+    <!-- Lounge chairs -->
+    <rect x="300" y="300" width="90" height="100" fill="none" stroke="#C9A96E" stroke-width="2" rx="20" opacity="0.8"/>
+    <rect x="500" y="300" width="90" height="100" fill="none" stroke="#C9A96E" stroke-width="2" rx="20" opacity="0.8"/>
+    <rect x="700" y="300" width="90" height="100" fill="none" stroke="#C9A96E" stroke-width="2" rx="20" opacity="0.8"/>
+    
+    <!-- Table groups -->
+    <circle cx="350" cy="520" r="50" fill="none" stroke="#C9A96E" stroke-width="2"/>
+    <circle cx="550" cy="520" r="50" fill="none" stroke="#C9A96E" stroke-width="2"/>
+    <circle cx="750" cy="520" r="50" fill="none" stroke="#C9A96E" stroke-width="2"/>
+    
+    <!-- Coffee bar -->
+    <rect x="1050" y="350" width="250" height="80" fill="none" stroke="#C9A96E" stroke-width="2" rx="6"/>
+    <circle cx="1100" cy="390" r="15" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="1170" cy="390" r="15" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="1240" cy="390" r="15" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- Coffee cup symbol -->
+  <g opacity="0.2">
+    <path d="M 500 700 Q 480 720 500 750 Q 520 730 520 700 Z" fill="none" stroke="#C9A96E" stroke-width="3" stroke-linecap="round"/>
+    <rect x="1020" y="700" width="120" height="80" fill="none" stroke="#C9A96E" stroke-width="2" rx="8"/>
+  </g>
+  
+  <!-- Text overlay -->
+  <text x="800" y="550" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Cafe &amp;
+  </text>
+  <text x="800" y="640" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Collaboration Spot
+  </text>
+  <text x="800" y="750" font-family="DM Sans, sans-serif" font-size="32" fill="#C9A96E" text-anchor="middle" opacity="0.8">
+    Coffee • Snacks • Collaborative Seating
+  </text>
+</svg>

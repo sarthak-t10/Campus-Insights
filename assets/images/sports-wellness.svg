@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0f24;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#grad2)"/>
+  <text x="600" y="180" font-size="48" font-family="Cormorant Garamond, serif" fill="#c9a96e" text-anchor="middle" font-weight="300">Sports and Wellness</text>
+  <text x="600" y="240" font-size="20" font-family="DM Sans, sans-serif" fill="#c9a96e" text-anchor="middle" opacity="0.7">Structured training and competition</text>
+</svg>

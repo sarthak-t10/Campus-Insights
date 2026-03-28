@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activities and Events | Campus Insights University</title>
+    <meta
+      name="description"
+      content="Campus activities, event calendar, cultural and technical engagements at Campus Insights University."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .portal-shell {
+        width: min(100%, 1152px);
+        margin: 0 auto;
+      }
+
+      .dense-section {
+        padding: 96px 0;
+      }
+
+      .events-hero {
+        padding-top: 170px;
+        padding-bottom: 92px;
+      }
+
+      .events-hero p {
+        max-width: 840px;
+      }
+
+      .section-head {
+        margin-bottom: 30px;
+      }
+
+      .section-head p {
+        margin: 12px 0 0;
+        color: var(--text-muted);
+        max-width: 840px;
+      }
+
+      .events-grid {
+        display: grid;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .event-card {
+        height: 100%;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        background: linear-gradient(155deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: transform 260ms var(--ease), border-color 260ms var(--ease), box-shadow 260ms var(--ease);
+      }
+
+      .event-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold-border);
+        box-shadow: var(--shadow-gold);
+      }
+
+      .event-meta {
+        display: grid;
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .meta-line {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-muted);
+        font-size: 0.83rem;
+      }
+
+      .meta-line svg {
+        width: 14px;
+        height: 14px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex: 0 0 auto;
+      }
+
+      .badge {
+        display: inline-flex;
+        width: fit-content;
+        border: 1px solid var(--gold-border);
+        border-radius: 999px;
+        padding: 4px 10px;
+        color: var(--gold);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .event-title {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.34rem;
+        font-weight: 400;
+      }
+
+      .event-copy {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.64;
+      }
+
+      .register-btn {
+        margin-top: auto;
+        width: fit-content;
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--gold-border);
+        color: var(--gold);
+        font-family: "Space Grotesk", sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        transition: all 220ms var(--ease);
+      }
+
+      .register-btn:hover {
+        border-color: var(--gold);
+        background: var(--gold-dim);
+        transform: translateY(-2px);
+      }
+
+      .image-slot {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+        border: 1px solid var(--gold-border);
+        overflow: hidden;
+        background: var(--surface-2);
+      }
+
+      .image-slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 320ms var(--ease), filter 320ms var(--ease);
+        filter: saturate(1.03) contrast(1.05) brightness(0.88);
+      }
+
+      .event-card:hover .image-slot img {
+        transform: scale(1.04);
+        filter: saturate(1.05) contrast(1.08) brightness(0.92);
+      }
+
+      .announcement-panel {
+        border: 1px solid var(--gold-border);
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--surface) 74%, transparent);
+        padding: 20px;
+      }
+
+      .announcement-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .announcement-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .announcement-item:last-child {
+        border-bottom: none;
+      }
+
+      .announcement-item svg {
+        width: 16px;
+        height: 16px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        margin-top: 3px;
+        flex: 0 0 auto;
+      }
+
+      .announcement-title {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--text-primary);
+      }
+
+      .announcement-meta {
+        margin: 4px 0 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+      }
+
+      .highlight-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px;
+        background: var(--surface);
+        height: 100%;
+      }
+
+      .highlight-title {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+
+      .highlight-card p {
+        margin: 10px 0 0;
+        color: var(--text-muted);
+        line-height: 1.66;
+      }
+
+      .category-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px;
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: transform 220ms var(--ease), border-color 220ms var(--ease), box-shadow 220ms var(--ease);
+      }
+
+      .category-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold-border);
+        box-shadow: 0 10px 26px rgba(201, 169, 110, 0.18);
+      }
+
+      .category-card h4 {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.22rem;
+        font-weight: 400;
+      }
+
+      .category-card p {
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      @media (max-width: 1180px) {
+        .grid-4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 920px) {
+        .dense-section {
+          padding: 76px 0;
+        }
+
+        .events-hero {
+          padding-top: 136px;
+          padding-bottom: 70px;
+        }
+
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="activities">
+    <div data-nav></div>
+    <main>
+      <header class="page-header events-hero">
+        <div class="container portal-shell">
+          <p class="section-label reveal">Co-curricular and Experiential Learning</p>
+          <h1 class="reveal">Campus Life, Events, and Experiences That Shape Leaders</h1>
+          <p class="reveal">
+            CIU hosts a year-round event ecosystem that combines technical learning, culture, sports, leadership, and community
+            participation.
+          </p>
+        </div>
+      </header>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Upcoming Events</p>
+            <h2 class="section-title">Event Calendar for the Current Academic Cycle</h2>
+            <p>Register early for technical summits, club showcases, cultural festivals, and interdisciplinary competitions.</p>
+          </div>
+
+          <div class="events-grid grid-4" data-stagger-group>
+            <article class="event-card reveal" data-stagger>
+              <span class="badge">Tech</span>
+              <h3 class="event-title">AI Systems Summit 2026</h3>
+              <p class="event-copy">Industry panels on model deployment, explainability, and enterprise AI implementation pathways.</p>
+              <div class="event-meta">
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>18 April 2026</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>10:00 AM - 4:30 PM</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Main Convention Center</p>
+              </div>
+              <a class="register-btn" href="contact.html">Register</a>
+            </article>
+
+            <article class="event-card reveal" data-stagger>
+              <span class="badge">Cultural</span>
+              <h3 class="event-title">Raaga and Rhythm Fest</h3>
+              <p class="event-copy">Multi-day cultural showcase featuring music ensembles, theatre productions, and fine arts studios.</p>
+              <div class="event-meta">
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>24 April 2026</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>5:30 PM - 9:00 PM</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Open Air Theatre</p>
+              </div>
+              <a class="register-btn" href="contact.html">Register</a>
+            </article>
+
+            <article class="event-card reveal" data-stagger>
+              <span class="badge">Workshop</span>
+              <h3 class="event-title">Embedded Systems Bootcamp</h3>
+              <p class="event-copy">Hands-on workshop on MCU programming, sensor integration, and hardware prototyping workflows.</p>
+              <div class="event-meta">
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>29 April 2026</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>9:30 AM - 1:00 PM</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>ECE Innovation Lab</p>
+              </div>
+              <a class="register-btn" href="contact.html">Register</a>
+            </article>
+
+            <article class="event-card reveal" data-stagger>
+              <span class="badge">Sports</span>
+              <h3 class="event-title">Inter-Department Sports Meet</h3>
+              <p class="event-copy">Track events, football, basketball, volleyball, and team relays across all departments.</p>
+              <div class="event-meta">
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>2 May 2026</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>7:00 AM - 6:00 PM</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Sports Complex Grounds</p>
+              </div>
+              <a class="register-btn" href="contact.html">Register</a>
+            </article>
+
+            <article class="event-card reveal" data-stagger>
+              <span class="badge">Hackathon</span>
+              <h3 class="event-title">Civic Tech Hack 48</h3>
+              <p class="event-copy">Problem statements on mobility, energy efficiency, and digital public services for smart cities.</p>
+              <div class="event-meta">
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>10 May 2026</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>9:00 AM - 48 Hours</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Innovation Hub</p>
+              </div>
+              <a class="register-btn" href="contact.html">Register</a>
+            </article>
+
+            <article class="event-card reveal" data-stagger>
+              <span class="badge">Leadership</span>
+              <h3 class="event-title">Student Council Leadership Forum</h3>
+              <p class="event-copy">Panel discussions on governance, representation, conflict resolution, and policy feedback.</p>
+              <div class="event-meta">
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>14 May 2026</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>2:00 PM - 5:00 PM</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Senate Hall</p>
+              </div>
+              <a class="register-btn" href="contact.html">Register</a>
+            </article>
+
+            <article class="event-card reveal" data-stagger>
+              <span class="badge">Research</span>
+              <h3 class="event-title">Undergraduate Research Showcase</h3>
+              <p class="event-copy">Poster presentations and demos from multidisciplinary student research teams.</p>
+              <div class="event-meta">
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>20 May 2026</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>11:00 AM - 4:00 PM</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Research Gallery</p>
+              </div>
+              <a class="register-btn" href="contact.html">Register</a>
+            </article>
+
+            <article class="event-card reveal" data-stagger>
+              <span class="badge">Cultural</span>
+              <h3 class="event-title">Language and Literary Week</h3>
+              <p class="event-copy">Debates, poetry recitals, storytelling sessions, and multilingual cultural exchanges.</p>
+              <div class="event-meta">
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>28 May 2026</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>4:30 PM - 8:00 PM</p>
+                <p class="meta-line"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Library Forum Hall</p>
+              </div>
+              <a class="register-btn" href="contact.html">Register</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Recent Events</p>
+            <h2 class="section-title">Highlights from Recent Campus Programs</h2>
+            <p>Recent initiatives capture academic rigor, innovation, and student-led execution across domains.</p>
+          </div>
+
+          <div class="events-grid grid-3" data-stagger-group>
+            <article class="event-card reveal" data-stagger>
+              <div class="image-slot"><img src="assets/images/event-robotics.svg" alt="Students building robots during a robotics challenge workshop" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/images/campus-building.png';" /></div>
+              <span class="badge">Workshop</span>
+              <h3 class="event-title">National Robotics Challenge Preparatory Camp</h3>
+              <p class="event-copy">Interdisciplinary teams developed autonomous mobility prototypes and control architecture demos.</p>
+            </article>
+            <article class="event-card reveal" data-stagger>
+              <div class="image-slot"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Startup teams presenting ideas during a campus bootcamp" loading="lazy" decoding="async" /></div>
+              <span class="badge">Fest</span>
+              <h3 class="event-title">Campus Startup Bootcamp</h3>
+              <p class="event-copy">Early-stage founders refined business models, investor pitches, and product-market validation paths.</p>
+            </article>
+            <article class="event-card reveal" data-stagger>
+              <div class="image-slot"><img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1200&q=80" alt="Cyber security team collaborating during a hackathon sprint" loading="lazy" decoding="async" /></div>
+              <span class="badge">Hackathon</span>
+              <h3 class="event-title">Cyber Security Sprint</h3>
+              <p class="event-copy">Teams solved security incident simulations, exploit mitigation cases, and architecture hardening tasks.</p>
+            </article>
+            <article class="event-card reveal" data-stagger>
+              <div class="image-slot"><img src="assets/images/event-cultural-night.svg" alt="Students performing on stage during an inter-college cultural night" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/images/campus-building.png';" /></div>
+              <span class="badge">Fest</span>
+              <h3 class="event-title">Inter-College Cultural Night</h3>
+              <p class="event-copy">Performing arts ensembles and student collectives delivered curated thematic performances.</p>
+            </article>
+            <article class="event-card reveal" data-stagger>
+              <div class="image-slot"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80" alt="Industry speaker presenting future mobility trends to students" loading="lazy" decoding="async" /></div>
+              <span class="badge">Seminar</span>
+              <h3 class="event-title">Industry Talk Series: Future of Mobility</h3>
+              <p class="event-copy">Leaders from automotive and aerospace sectors discussed sustainable mobility innovation.</p>
+            </article>
+            <article class="event-card reveal" data-stagger>
+              <div class="image-slot"><img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1200&q=80" alt="Campus sports teams competing in a league match" loading="lazy" decoding="async" /></div>
+              <span class="badge">Sports</span>
+              <h3 class="event-title">Campus Premier Sports League</h3>
+              <p class="event-copy">Department teams participated in league-format football and basketball fixtures.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="events-grid grid-2">
+            <article class="announcement-panel reveal">
+              <p class="section-label">Announcements</p>
+              <h2 class="section-title">Notices, Deadlines, and Alerts</h2>
+              <ul class="announcement-list">
+                <li class="announcement-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+                  <div>
+                    <p class="announcement-title">Annual Tech Fest Project Submission Window closes on 12 April 2026.</p>
+                    <p class="announcement-meta">Category: Event Deadline</p>
+                  </div>
+                </li>
+                <li class="announcement-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+                  <div>
+                    <p class="announcement-title">Cultural Fest volunteer onboarding orientation scheduled for 08 April 2026.</p>
+                    <p class="announcement-meta">Category: Student Notice</p>
+                  </div>
+                </li>
+                <li class="announcement-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+                  <div>
+                    <p class="announcement-title">Academic timetable revision for workshop slots uploaded to student portal.</p>
+                    <p class="announcement-meta">Category: Academic Update</p>
+                  </div>
+                </li>
+                <li class="announcement-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+                  <div>
+                    <p class="announcement-title">Hackathon registration limit increased for first-year interdisciplinary teams.</p>
+                    <p class="announcement-meta">Category: Event Alert</p>
+                  </div>
+                </li>
+                <li class="announcement-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+                  <div>
+                    <p class="announcement-title">Inter-department sports entries must be finalized with captains by 15 April 2026.</p>
+                    <p class="announcement-meta">Category: Sports Update</p>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <article class="announcement-panel reveal">
+              <p class="section-label">Featured Events</p>
+              <h2 class="section-title">Institutional Signature Programs</h2>
+              <div class="events-grid grid-2">
+                <article class="highlight-card">
+                  <h3 class="highlight-title">Annual Tech Fest</h3>
+                  <p>Three-day innovation festival with engineering expos, coding competitions, and industry-sponsored challenge tracks.</p>
+                </article>
+                <article class="highlight-card">
+                  <h3 class="highlight-title">Cultural Fest</h3>
+                  <p>Campus-wide celebration of performance arts, heritage showcases, and student creative collaborations.</p>
+                </article>
+                <article class="highlight-card">
+                  <h3 class="highlight-title">48-Hour Hackathons</h3>
+                  <p>Problem-solving sprints where teams build deployable prototypes under mentorship and jury evaluation.</p>
+                </article>
+                <article class="highlight-card">
+                  <h3 class="highlight-title">Inter-University Sports Meet</h3>
+                  <p>Competitive multi-sport championships promoting discipline, teamwork, and collegiate sportsmanship.</p>
+                </article>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Event Categories</p>
+            <h2 class="section-title">Structured Streams of Campus Engagement</h2>
+            <p>Every event cluster is managed through student committees, faculty coordinators, and external advisors.</p>
+          </div>
+
+          <div class="events-grid grid-3" data-stagger-group>
+            <article class="category-card reveal" data-stagger>
+              <h4>Technical Events</h4>
+              <p>Conferences, coding contests, design challenges, and innovation showcases.</p>
+            </article>
+            <article class="category-card reveal" data-stagger>
+              <h4>Cultural Events</h4>
+              <p>Music, theatre, dance, visual arts, and literary expression platforms.</p>
+            </article>
+            <article class="category-card reveal" data-stagger>
+              <h4>Sports Events</h4>
+              <p>League tournaments, athletics meets, endurance challenges, and team fixtures.</p>
+            </article>
+            <article class="category-card reveal" data-stagger>
+              <h4>Workshops</h4>
+              <p>Hands-on domain workshops with tools, labs, and mentor-guided outcomes.</p>
+            </article>
+            <article class="category-card reveal" data-stagger>
+              <h4>Competitions</h4>
+              <p>Case studies, innovation contests, pitch events, and interdisciplinary battles.</p>
+            </article>
+            <article class="category-card reveal" data-stagger>
+              <h4>Leadership Forums</h4>
+              <p>Policy dialogues, student governance sessions, and campus consultation panels.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta">
+        <div class="container portal-shell">
+          <p class="section-label">Participation Pathway</p>
+          <h2>Register, Participate, and Lead Campus Events</h2>
+          <p>
+            Students can join organizing committees, submit event proposals, and participate in flagship programs through the activity
+            office.
+          </p>
+          <div class="cta-actions">
+            <a class="btn-primary" href="contact.html">Contact Activity Office</a>
+            <a class="btn-ghost" href="clubs.html">Explore Clubs and Communities</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-footer></div>
+    <script src="assets/js/main.js"></script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

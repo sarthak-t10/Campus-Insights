@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facilities | Campus Insights University</title>
+    <meta
+      name="description"
+      content="Campus facilities and campus life at Campus Insights University including academic blocks, sports complex, canteen, hostels, and student services."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .facilities-shell {
+        width: min(100%, 1152px);
+        margin: 0 auto;
+      }
+
+      .facilities-hero {
+        padding-top: 166px;
+        padding-bottom: 90px;
+      }
+
+      .facilities-hero h1,
+      .facilities-hero p {
+        animation: facilitiesFadeIn 700ms var(--ease) both;
+      }
+
+      .facilities-hero p {
+        animation-delay: 90ms;
+      }
+
+      @keyframes facilitiesFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .facilities-local-nav {
+        position: sticky;
+        top: 76px;
+        z-index: 900;
+        padding: 12px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: color-mix(in srgb, var(--surface) 86%, transparent);
+        backdrop-filter: blur(14px);
+      }
+
+      .facilities-local-track {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+
+      .facilities-local-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .facilities-local-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 14px;
+        border: 1px solid var(--gold-border);
+        border-radius: 999px;
+        color: var(--text-muted);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        transition: all 250ms var(--ease);
+      }
+
+      .facilities-local-link:hover,
+      .facilities-local-link.is-active {
+        color: var(--gold);
+        border-color: var(--gold);
+        background: var(--gold-dim);
+      }
+
+      .facilities-section {
+        padding: 96px 0;
+      }
+
+      .section-head {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .section-head p {
+        margin: 12px auto 0;
+        max-width: 760px;
+        color: var(--text-muted);
+      }
+
+      .facilities-grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      .facilities-grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .facilities-grid.three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .facilities-grid.four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .facility-card {
+        height: 100%;
+        border: 1px solid var(--gold-border);
+        border-radius: 14px;
+        padding: 20px;
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: transform 280ms var(--ease), border-color 280ms var(--ease), box-shadow 280ms var(--ease), background-color 280ms var(--ease);
+      }
+
+      .facility-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(201, 169, 110, 0.68);
+        box-shadow: var(--shadow-gold);
+        background: linear-gradient(165deg, rgba(201, 169, 110, 0.12), rgba(255, 255, 255, 0.02));
+      }
+
+      .facility-image-slot {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        border-radius: 10px;
+        overflow: hidden;
+        background:
+          linear-gradient(145deg, rgba(201, 169, 110, 0.09), rgba(255, 255, 255, 0.02));
+        display: grid;
+        place-items: center;
+        padding: 0;
+      }
+
+      .facility-image-slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 320ms var(--ease);
+      }
+
+      .facility-card:hover .facility-image-slot img {
+        transform: scale(1.08);
+      }
+
+      .card-subtitle {
+        margin: 0;
+        color: var(--gold);
+        font-size: 0.75rem;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .card-title {
+        margin: 0;
+        color: var(--text-primary);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35rem;
+        line-height: 1.16;
+      }
+
+      .card-text {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.66;
+      }
+
+      .meta-line {
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        font-size: 0.82rem;
+        color: var(--gold);
+      }
+
+      .stat-card {
+        justify-content: center;
+      }
+
+      .stat-value {
+        margin: 0;
+        color: var(--gold);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+        line-height: 1.1;
+      }
+
+      .stat-label {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 1140px) {
+        .facilities-grid.four {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .facilities-grid.three {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 860px) {
+        .facilities-hero {
+          padding-top: 130px;
+          padding-bottom: 70px;
+        }
+
+        .facilities-section {
+          padding: 74px 0;
+        }
+
+        .facilities-grid.two,
+        .facilities-grid.three,
+        .facilities-grid.four {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="facilities">
+    <div data-nav></div>
+    <main>
+      <header class="page-header facilities-hero">
+        <div class="container facilities-shell">
+          <p class="section-label">Campus Facilities and Life</p>
+          <h1>Campus Spaces Designed for Learning, Living, and Growth</h1>
+          <p>
+            Explore our academic blocks, sports complex, canteens, hostels, and student services that support both academic excellence
+            and vibrant campus life.
+          </p>
+        </div>
+      </header>
+
+      <section class="facilities-local-nav">
+        <div class="container facilities-shell">
+          <nav class="facilities-local-track" aria-label="Facilities Section Navigation">
+            <a class="facilities-local-link" href="#overview">Overview</a>
+            <a class="facilities-local-link" href="#academic-blocks">Academic Blocks</a>
+            <a class="facilities-local-link" href="#campus-life">Campus Life</a>
+            <a class="facilities-local-link" href="#sports-complex">Sports Complex</a>
+            <a class="facilities-local-link" href="#dining">Dining and Canteen</a>
+            <a class="facilities-local-link" href="#services">Student Services</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="facilities-section" id="overview">
+        <div class="container facilities-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Facilities Overview</p>
+            <h2 class="section-title">A Complete Academic and Campus Infrastructure</h2>
+            <p>
+              CIU provides modern academic and student-life infrastructure through specialized department blocks, community spaces,
+              sports facilities, and support services.
+            </p>
+          </div>
+
+          <div class="facilities-grid four">
+            <article class="facility-card stat-card reveal">
+              <p class="stat-value">8+</p>
+              <p class="stat-label">Academic Blocks</p>
+            </article>
+            <article class="facility-card stat-card reveal">
+              <p class="stat-value">1</p>
+              <p class="stat-label">Integrated Sports Complex</p>
+            </article>
+            <article class="facility-card stat-card reveal">
+              <p class="stat-value">3</p>
+              <p class="stat-label">Dining Spaces</p>
+            </article>
+            <article class="facility-card stat-card reveal">
+              <p class="stat-value">24x7</p>
+              <p class="stat-label">Core Student Services</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="facilities-section" id="academic-blocks">
+        <div class="container facilities-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Academic Blocks</p>
+            <h2 class="section-title">Department-Wise Academic Infrastructure</h2>
+            <p>Each department has a dedicated block with classrooms, labs, faculty spaces, and collaborative project zones.</p>
+          </div>
+
+          <div class="facilities-grid three">
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&h=1000&fit=crop" alt="Computer Science and Engineering Block - Advanced computing labs and AI classrooms" />
+              </div>
+              <p class="card-subtitle">CSE Block</p>
+              <h3 class="card-title">Computer Science and Engineering Block</h3>
+              <p class="card-text">Advanced computing labs, coding studios, and AI and data science classrooms.</p>
+              <p class="meta-line">Includes: Programming Labs, Cloud Lab, Seminar Hall</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1600&h=1000&fit=crop" alt="Mechanical Engineering Block - Workshops and CAD labs" />
+              </div>
+              <p class="card-subtitle">Mechanical Block</p>
+              <h3 class="card-title">Mechanical Engineering Block</h3>
+              <p class="card-text">Workshops, CAD labs, thermal systems labs, and project fabrication spaces.</p>
+              <p class="meta-line">Includes: Workshop Bay, CAD Center, Testing Lab</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1600&h=1000&fit=crop" alt="Civil and Infrastructure Block - Survey labs and structural testing" />
+              </div>
+              <p class="card-subtitle">Civil Block</p>
+              <h3 class="card-title">Civil and Infrastructure Block</h3>
+              <p class="card-text">Survey labs, structural testing setups, and transportation engineering classrooms.</p>
+              <p class="meta-line">Includes: Survey Lab, Material Lab, Smart Classroom</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=1000&fit=crop" alt="Electronics and Communication Block - Embedded systems labs" />
+              </div>
+              <p class="card-subtitle">ECE Block</p>
+              <h3 class="card-title">Electronics and Communication Block</h3>
+              <p class="card-text">Embedded systems labs, communication labs, VLSI and instrumentation setup.</p>
+              <p class="meta-line">Includes: Embedded Lab, Signals Lab, Hardware Studio</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1600&h=1000&fit=crop" alt="Electrical Engineering Block - Power systems and control labs" />
+              </div>
+              <p class="card-subtitle">Electrical Block</p>
+              <h3 class="card-title">Electrical Engineering Block</h3>
+              <p class="card-text">Power systems, control systems, and machine labs for practical learning.</p>
+              <p class="meta-line">Includes: Power Lab, Control Lab, Machines Lab</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&h=1000&fit=crop" alt="AI and Data Science Block - Analytics labs and ML studios" />
+              </div>
+              <p class="card-subtitle">AI and DS Block</p>
+              <h3 class="card-title">AI and Data Science Block</h3>
+              <p class="card-text">Specialized analytics labs and innovation classrooms for emerging technologies.</p>
+              <p class="meta-line">Includes: Data Lab, ML Studio, Collaboration Zone</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="facilities-section" id="campus-life">
+        <div class="container facilities-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Campus Life Facilities</p>
+            <h2 class="section-title">Spaces Beyond Classrooms</h2>
+            <p>Campus life is supported through recreation, study, wellness, and community spaces.</p>
+          </div>
+
+          <div class="facilities-grid three">
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1600&h=1000&fit=crop" alt="Central Library - Digital resources and reading halls" />
+              </div>
+              <p class="card-subtitle">Library</p>
+              <h3 class="card-title">Central Library and Reading Halls</h3>
+              <p class="card-text">Digital resources, reference collections, silent reading zones, and discussion areas.</p>
+              <p class="meta-line">Open Access: Weekdays and Extended Exam Hours</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1600&h=1000&fit=crop" alt="Main Auditorium - Conferences and academic events" />
+              </div>
+              <p class="card-subtitle">Auditorium</p>
+              <h3 class="card-title">Main Auditorium and Seminar Spaces</h3>
+              <p class="card-text">Venue for conferences, lectures, student events, and academic ceremonies.</p>
+              <p class="meta-line">Capacity: Large Academic and Cultural Events</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&h=1000&fit=crop" alt="Student Hostels - Residential blocks and student life" />
+              </div>
+              <p class="card-subtitle">Hostels</p>
+              <h3 class="card-title">Student Hostels and Residential Life</h3>
+              <p class="card-text">Safe residential blocks with study zones, common areas, and ward support.</p>
+              <p class="meta-line">Facilities: Wi-Fi, Common Rooms, Study Spaces</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="facilities-section" id="sports-complex">
+        <div class="container facilities-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Sports and Wellness</p>
+            <h2 class="section-title">Integrated Sports Complex</h2>
+            <p>Comprehensive indoor and outdoor facilities for sports training, fitness, and wellness programs.</p>
+          </div>
+
+          <div class="facilities-grid three">
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&h=1000&fit=crop" alt="Indoor Sports Arena - Badminton courts and fitness center" />
+              </div>
+              <p class="card-subtitle">Indoor Arena</p>
+              <h3 class="card-title">Indoor Courts and Fitness Arena</h3>
+              <p class="card-text">Indoor badminton, table tennis, multi-sport courts, and cardio training zone.</p>
+              <p class="meta-line">Includes: Indoor Courts, Gym, Conditioning Area</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1531415629922-8fbdf5a64eab?w=1600&h=1000&fit=crop" alt="Outdoor Sports Grounds - Cricket, football and athletics" />
+              </div>
+              <p class="card-subtitle">Outdoor Facilities</p>
+              <h3 class="card-title">Cricket, Football, and Athletics Grounds</h3>
+              <p class="card-text">Dedicated open grounds for team sports and track events.</p>
+              <p class="meta-line">Includes: Field Sports and Practice Nets</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=1600&h=1000&fit=crop" alt="Wellness Center - Yoga and recreation facilities" />
+              </div>
+              <p class="card-subtitle">Wellness</p>
+              <h3 class="card-title">Wellness and Recreation Center</h3>
+              <p class="card-text">Yoga, wellness sessions, and recreational facilities supporting student well-being.</p>
+              <p class="meta-line">Includes: Wellness Studio and Activity Rooms</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="facilities-section" id="dining">
+        <div class="container facilities-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Dining and Canteen</p>
+            <h2 class="section-title">Food and Student Commons</h2>
+            <p>Multiple dining points across campus support daily student and faculty needs.</p>
+          </div>
+
+          <div class="facilities-grid three">
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1600&h=1000&fit=crop" alt="Central Canteen - Campus dining and food services" />
+              </div>
+              <p class="card-subtitle">Main Canteen</p>
+              <h3 class="card-title">Central Canteen</h3>
+              <p class="card-text">Primary campus dining area with affordable meal options and seating capacity for peak hours.</p>
+              <p class="meta-line">Service: Breakfast to Evening Snacks</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=1600&h=1000&fit=crop" alt="Multi-Cuisine Food Court - Diverse food options" />
+              </div>
+              <p class="card-subtitle">Food Court</p>
+              <h3 class="card-title">Multi-Cuisine Food Court</h3>
+              <p class="card-text">Diverse food counters with quick-serve options for students and visitors.</p>
+              <p class="meta-line">Service: All-Day Meal and Beverage Counters</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1600&h=1000&fit=crop" alt="Campus Cafe - Casual dining and collaboration space" />
+              </div>
+              <p class="card-subtitle">Cafe</p>
+              <h3 class="card-title">Cafe and Collaboration Spot</h3>
+              <p class="card-text">Casual seating and light refreshments for informal meetings and peer discussions.</p>
+              <p class="meta-line">Service: Coffee, Snacks, Collaborative Seating</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="facilities-section" id="services">
+        <div class="container facilities-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Student Services</p>
+            <h2 class="section-title">Essential Support Infrastructure</h2>
+            <p>Core campus services ensure safety, convenience, and daily operational support.</p>
+          </div>
+
+          <div class="facilities-grid four">
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&h=1000&fit=crop" alt="Campus Health Center - Medical care and student wellness" />
+              </div>
+              <p class="card-subtitle">Health</p>
+              <h3 class="card-title">Campus Health Center</h3>
+              <p class="card-text">Primary medical care, first-aid support, and health consultations.</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=1600&h=1000&fit=crop" alt="Transport Hub - Campus bus services and commute" />
+              </div>
+              <p class="card-subtitle">Transport</p>
+              <h3 class="card-title">Transport and Commute Hub</h3>
+              <p class="card-text">Daily bus routes and commute coordination for students and staff.</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=1600&h=1000&fit=crop" alt="Banking and Essentials - ATM and campus store" />
+              </div>
+              <p class="card-subtitle">Convenience</p>
+              <h3 class="card-title">Banking and Essentials Zone</h3>
+              <p class="card-text">ATM, banking services, and stationery store for campus requirements.</p>
+            </article>
+
+            <article class="facility-card reveal">
+              <div class="facility-image-slot">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=1000&fit=crop" alt="Career and Placement Center - Career counseling and recruiter interaction" />
+              </div>
+              <p class="card-subtitle">Career</p>
+              <h3 class="card-title">Career and Placement Center</h3>
+              <p class="card-text">Career counseling rooms, recruiter interaction halls, and training spaces.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta">
+        <div class="container facilities-shell">
+          <p class="section-label">Need More Information</p>
+          <h2>Explore Campus Facilities in Detail</h2>
+          <p>Contact the campus administration team for facility tours, infrastructure details, and campus-life information.</p>
+          <div class="cta-actions">
+            <a class="btn-primary" href="contact.html">Contact Administration</a>
+            <a class="btn-ghost" href="admissions.html">Plan a Campus Visit</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-footer></div>
+    <script src="assets/js/main.js"></script>
+    <script>
+      (function () {
+        const links = Array.from(document.querySelectorAll(".facilities-local-link"));
+        const sections = links
+          .map((l) => document.querySelector(l.getAttribute("href")))
+          .filter(Boolean);
+
+        const setActive = (id) => {
+          links.forEach((link) => {
+            const match = link.getAttribute("href") === `#${id}`;
+            link.classList.toggle("is-active", match);
+          });
+        };
+
+        if (sections.length) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  setActive(entry.target.id);
+                }
+              });
+            },
+            { rootMargin: "-30% 0px -55% 0px", threshold: 0.1 }
+          );
+
+          sections.forEach((section) => observer.observe(section));
+          setActive("overview");
+        }
+      })();
+    </script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

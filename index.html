@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B.M.S. College of Engineering</title>
+    <meta
+      name="description"
+      content="B.M.S. College of Engineering - Founded in 1946, BMSCE is a premier engineering institution dedicated to excellence in education."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .hero {
+        height: 100vh;
+        min-height: 760px;
+        position: relative;
+        overflow: hidden;
+        z-index: 10;
+      }
+
+      .hero-media {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        will-change: transform;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        will-change: transform;
+        transform: scale(1) translateZ(0);
+        backface-visibility: hidden;
+        background: #000;
+      }
+
+      .hero-overlay {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        background:
+          linear-gradient(to right, rgba(9, 9, 11, 0.85) 0%, rgba(9, 9, 11, 0.4) 55%, rgba(9, 9, 11, 0.1) 100%),
+          linear-gradient(to top, rgba(9, 9, 11, 0.75) 0%, transparent 45%);
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        will-change: opacity;
+        opacity: 1;
+        transition: opacity 0.1s ease-out;
+      }
+
+      .hero-content-inner {
+        position: relative;
+        z-index: 2;
+        width: min(760px, 100%);
+        padding: 0 1rem;
+      }
+
+      .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      main section:not(.hero) {
+        position: relative;
+        z-index: 1;
+        background: var(--bg);
+      }
+
+      .stats-strip {
+        position: relative;
+        z-index: 1;
+        background: var(--bg);
+      }
+
+      /* Smooth scrolling for the entire page */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @supports (scroll-behavior: smooth) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="home">
+    <div class="loader" aria-hidden="true">
+      <div class="loader-inner">
+        <h1 class="loader-logo">BMSCE</h1>
+        <div class="loader-line"></div>
+        <p class="loader-text">Welcome to Excellence...</p>
+      </div>
+    </div>
+
+    <div data-nav></div>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-media">
+          <video 
+            class="hero-video" 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            preload="auto" 
+            aria-hidden="true"
+            width="1920"
+            height="1080"
+            onloadedmetadata="console.log('Video metadata loaded')"
+            onplay="console.log('Video started playing')"
+            onerror="console.error('Video error:', this.error)"
+          >
+            <source src="campus-video.mp4" type="video/mp4" />
+            <source src="campus-video.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content container">
+          <div class="hero-content-inner">
+            <p class="hero-eyebrow anim-entry" style="--entry-delay: 0ms">Excellence Since 1946</p>
+            <h1 class="hero-title">
+              <span class="line anim-entry" style="--entry-delay: 150ms">B.M.S. College of</span>
+              <span class="line anim-entry" style="--entry-delay: 280ms">Engineering</span>
+            </h1>
+            <p class="hero-tagline anim-entry" style="--entry-delay: 450ms">Where Innovation Meets Excellence</p>
+            <p class="hero-sub anim-entry" style="--entry-delay: 580ms">
+              Shaping future leaders through world-class education and groundbreaking research since 1946.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary anim-entry" style="--entry-delay: 730ms" href="#about">Explore More -></a>
+              <a class="btn-ghost ghost-mobile-hide anim-entry" style="--entry-delay: 850ms" href="admissions.html">Admissions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-splash-overlay" data-home-splash aria-live="polite" aria-atomic="true" aria-hidden="true">
+          <h2 class="home-splash-line">Welcome to BMS College of Engineering</h2>
+          <p class="home-splash-line home-splash-line-secondary">A Legacy of Excellence Since 1946</p>
+        </div>
+
+        <div class="hero-scroll anim-entry" style="--entry-delay: 1100ms">
+          <span class="hero-scroll-line"></span>
+          <span class="hero-scroll-text">Scroll</span>
+        </div>
+      </section>
+
+      <section class="stats-strip">
+        <div class="container stats-grid">
+          <article class="stat-item reveal fade">
+            <p class="stat-number" data-count="25000" data-suffix="+">0</p>
+            <p class="stat-label">Alumni Globally</p>
+          </article>
+          <article class="stat-item reveal fade">
+            <p class="stat-number" data-count="29" data-suffix="">0</p>
+            <p class="stat-label">Programs Offered</p>
+          </article>
+          <article class="stat-item reveal fade">
+            <p class="stat-number" data-count="98" data-suffix="%">0</p>
+            <p class="stat-label">Placement Rate</p>
+          </article>
+          <article class="stat-item reveal fade">
+            <p class="stat-number" data-count="79" data-suffix="+">0</p>
+            <p class="stat-label">Years of Legacy</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container intro-grid">
+          <div class="intro-copy legacy-motion-block" data-legacy-motion>
+            <p class="section-label">About BMSCE</p>
+            <h2 class="legacy-splash-title" data-word-splash>A Legacy of Excellence Since 1946</h2>
+            <p class="legacy-splash-copy">
+              B.M.S. College of Engineering (BMSCE) was founded in 1946 by the visionary Late Sri. B. M. Sreenivasaiah, making it the first private sector initiative in engineering education in India. Over 75+ years, BMSCE has been dedicated to providing world-class engineering education and groundbreaking research.
+            </p>
+            <p class="legacy-splash-copy">
+              Today, BMSCE offers 13 Undergraduate and 16 Postgraduate programs across conventional and emerging areas of engineering. The college is accredited by prestigious bodies including NAAC (A++), NBA, VTU, and AICTE, and consistently ranks among the top engineering institutions in India.
+            </p>
+            <p class="legacy-splash-copy">
+              BMSCE's commitment extends beyond academics to encompass research, innovation, and social responsibility. Our 70+ years of excellence have produced thousands of alumni who now lead global organizations.
+            </p>
+            <p class="legacy-splash-copy">
+              Every student journey at BMSCE is shaped by world-class mentorship, collaborative learning, and cutting-edge infrastructure designed to foster innovation and leadership.
+            </p>
+            <a class="inline-link legacy-splash-copy legacy-splash-cta" href="about.html">Learn More About BMSCE -></a>
+          </div>
+          <figure class="intro-image intro-image-premium" data-legacy-image>
+            <div class="intro-image-media">
+              <img
+                class="intro-image-asset"
+                src="assets/images/campus-building.png"
+                alt="BMS College of Engineering campus building"
+                onerror="this.onerror=null;this.src='assets/images/about-image.webp';"
+                loading="lazy"
+                decoding="async"
+                width="1600"
+                height="1000"
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="why-us">
+        <div class="container">
+          <p class="section-label reveal">Excellence & Innovation</p>
+          <h2 class="section-title reveal">Why Choose BMSCE</h2>
+          <p class="reveal" style="color: var(--text-muted); margin-top: 1rem; max-width: 720px">
+            Nearly 80 years of proven excellence with a strong focus on academics, research, and student development.
+          </p>
+
+          <div class="choose-grid" data-stagger-group>
+            <article class="choose-card reveal" data-stagger>
+              <svg class="choose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l7-7 4 4 7-7"/><path d="M14 7h7v7"/></svg>
+              <h3>94-98% Placements</h3>
+              <p>Industry-leading recruitment rates with top companies including Fortune 500 organizations. Average salary packages exceed expectations.</p>
+            </article>
+            <article class="choose-card reveal" data-stagger>
+              <svg class="choose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2L3 9.6l6.2-.9z"/></svg>
+              <h3>Top Rankings</h3>
+              <p>NIRF Rank 83, NAAC A++, consistently recognized among India's premier engineering colleges.</p>
+            </article>
+            <article class="choose-card reveal" data-stagger>
+              <svg class="choose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18"/><path d="M4 9h16"/><path d="M7 21h10"/></svg>
+              <h3>Expert Faculty</h3>
+              <p>Experienced educators and researchers with international publications and industry collaborations.</p>
+            </article>
+            <article class="choose-card reveal" data-stagger>
+              <svg class="choose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10l9-7 9 7v10H3z"/><path d="M9 21v-7h6v7"/></svg>
+              <h3>Modern Campus</h3>
+              <p>State-of-the-art laboratories, libraries, and sports facilities in the heart of Bengaluru.</p>
+            </article>
+            <article class="choose-card reveal" data-stagger>
+              <svg class="choose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+              <h3>Research Focused</h3>
+              <p>DST-FIST and other sponsored research programs enabling students to contribute to cutting-edge discoveries.</p>
+            </article>
+            <article class="choose-card reveal" data-stagger>
+              <svg class="choose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16"/><path d="M12 4v16"/><circle cx="12" cy="12" r="9"/></svg>
+              <h3>Industry Connections</h3>
+              <p>Internships, capstone projects, and co-created curricula with leading global organizations.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="programs">
+        <div class="container">
+          <p class="section-label reveal">Academic Programs</p>
+          <h2 class="section-title reveal">Programs Built for Future Leaders</h2>
+          <div class="program-grid program-scroll" data-stagger-group>
+            <article class="program-card reveal" data-stagger>
+              <span class="program-shape"></span>
+              <h3 class="program-name">Engineering</h3>
+              <p>Advanced systems, design thinking, and industry-linked capstones.</p>
+              <span class="duration-badge">4 Years</span>
+              <a class="inline-link" href="departments.html">View Program -></a>
+            </article>
+            <article class="program-card reveal" data-stagger>
+              <span class="program-shape"></span>
+              <h3 class="program-name">MBA</h3>
+              <p>Leadership, analytics, and strategy for high-impact decision making.</p>
+              <span class="duration-badge">2 Years</span>
+              <a class="inline-link" href="departments.html">View Program -></a>
+            </article>
+            <article class="program-card reveal" data-stagger>
+              <span class="program-shape"></span>
+              <h3 class="program-name">Computer Science</h3>
+              <p>AI, software engineering, cybersecurity, and applied data science.</p>
+              <span class="duration-badge">4 Years</span>
+              <a class="inline-link" href="departments.html">View Program -></a>
+            </article>
+            <article class="program-card reveal" data-stagger>
+              <span class="program-shape"></span>
+              <h3 class="program-name">Law</h3>
+              <p>Policy, constitutional studies, and technology-focused legal practice.</p>
+              <span class="duration-badge">5 Years</span>
+              <a class="inline-link" href="departments.html">View Program -></a>
+            </article>
+            <article class="program-card reveal" data-stagger>
+              <span class="program-shape"></span>
+              <h3 class="program-name">Architecture</h3>
+              <p>Sustainable design, urban systems, and digital fabrication methods.</p>
+              <span class="duration-badge">5 Years</span>
+              <a class="inline-link" href="departments.html">View Program -></a>
+            </article>
+            <article class="program-card reveal" data-stagger>
+              <span class="program-shape"></span>
+              <h3 class="program-name">Medicine</h3>
+              <p>Integrated clinical training with simulation-driven learning pathways.</p>
+              <span class="duration-badge">5 Years</span>
+              <a class="inline-link" href="departments.html">View Program -></a>
+            </article>
+            <article class="program-card reveal" data-stagger>
+              <span class="program-shape"></span>
+              <h3 class="program-name">Design</h3>
+              <p>Human-centered design, visual communication, and product innovation.</p>
+              <span class="duration-badge">4 Years</span>
+              <a class="inline-link" href="departments.html">View Program -></a>
+            </article>
+            <article class="program-card reveal" data-stagger>
+              <span class="program-shape"></span>
+              <h3 class="program-name">Sciences</h3>
+              <p>Research-first science programs in biology, chemistry, and physics.</p>
+              <span class="duration-badge">3 Years</span>
+              <a class="inline-link" href="departments.html">View Program -></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="campus-life">
+        <div class="container">
+          <p class="section-label reveal">Campus Life</p>
+          <h2 class="section-title reveal">An Experience Beyond the Classroom</h2>
+          <div class="carousel-container">
+            <div class="carousel" id="campusCarousel">
+              <figure class="carousel-item active reveal fade">
+                <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80" alt="Campus event" loading="lazy" />
+                <figcaption>Innovation Festival</figcaption>
+              </figure>
+              <figure class="carousel-item reveal fade">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="Student clubs" loading="lazy" />
+                <figcaption>Student Clubs</figcaption>
+              </figure>
+              <figure class="carousel-item reveal fade">
+                <img src="https://images.unsplash.com/photo-1546519638-68e109acd27d?auto=format&fit=crop&w=900&q=80" alt="Sports" loading="lazy" />
+                <figcaption>Sports Culture</figcaption>
+              </figure>
+              <figure class="carousel-item reveal fade">
+                <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=80" alt="Campus architecture" loading="lazy" />
+                <figcaption>Campus Greenways</figcaption>
+              </figure>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
+          <div class="highlight-tags reveal">
+            <span class="highlight-tag">100+ Clubs and Societies</span>
+            <span class="highlight-tag">National Level Sports</span>
+            <span class="highlight-tag">Annual Cultural Fest</span>
+          </div>
+          <a class="inline-link reveal" href="campus-life.html">Explore Campus Life -></a>
+        </div>
+      </section>
+
+      <section class="section placements" id="placements-home">
+        <div class="container placements-grid">
+          <div class="reveal">
+            <p class="section-label">Placements</p>
+            <p class="place-main" data-count="98" data-suffix="%">0%</p>
+            <p class="place-label">Placement Rate</p>
+            <p class="place-details">Avg. Package: INR 12 LPA<br />Highest: INR 45 LPA</p>
+          </div>
+          <div class="reveal">
+            <p class="section-label">Our Students Work At</p>
+            <div class="logo-grid">
+              <div class="logo-tile">Google</div><div class="logo-tile">Microsoft</div><div class="logo-tile">Amazon</div><div class="logo-tile">Adobe</div>
+              <div class="logo-tile">TCS</div><div class="logo-tile">Infosys</div><div class="logo-tile">Accenture</div><div class="logo-tile">Deloitte</div>
+              <div class="logo-tile">IBM</div><div class="logo-tile">Meta</div><div class="logo-tile">NVIDIA</div><div class="logo-tile">Flipkart</div>
+              <div class="logo-tile">KPMG</div><div class="logo-tile">EY</div><div class="logo-tile">JP Morgan</div><div class="logo-tile">Siemens</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials" id="testimonials">
+        <div class="container">
+          <p class="section-label reveal">Student Voices</p>
+          <h2 class="section-title reveal">Stories of Growth and Excellence</h2>
+          <div class="testimonial-track reveal fade">
+            <article class="testimonial active">
+              <p class="testimonial-quote">"The campus gave me opportunities I never imagined. From research labs to mentorship, every semester raised my confidence and capability."</p>
+              <div class="testimonial-avatar">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Student testimonial" loading="lazy" />
+              </div>
+              <p class="testimonial-name">Aarohi Menon</p>
+              <p class="testimonial-meta">Computer Science, Class of 2025</p>
+            </article>
+            <article class="testimonial">
+              <p class="testimonial-quote">"Our design studios felt like real innovation labs. Faculty pushed us to solve practical problems with global relevance."</p>
+              <div class="testimonial-avatar">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Student testimonial" loading="lazy" />
+              </div>
+              <p class="testimonial-name">Rishabh Kapoor</p>
+              <p class="testimonial-meta">Architecture, Class of 2024</p>
+            </article>
+            <article class="testimonial">
+              <p class="testimonial-quote">"The placement support was exceptional. I moved from internship to a global role because of the university's industry network."</p>
+              <div class="testimonial-avatar">
+                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=200&q=80" alt="Student testimonial" loading="lazy" />
+              </div>
+              <p class="testimonial-name">Niharika Singh</p>
+              <p class="testimonial-meta">MBA, Class of 2023</p>
+            </article>
+          </div>
+          <div class="testimonial-dots reveal">
+            <button class="dot active" aria-label="Testimonial 1"></button>
+            <button class="dot" aria-label="Testimonial 2"></button>
+            <button class="dot" aria-label="Testimonial 3"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta" id="apply">
+        <div class="container">
+          <p class="section-label">Your Journey Begins Here</p>
+          <h2>Ready to Shape Your Future?</h2>
+          <p>
+            Join a dynamic learning community designed for ambition, innovation, and real-world impact.
+          </p>
+          <div class="cta-actions">
+            <a class="btn-primary" href="admissions.html">Apply Now</a>
+            <a class="btn-ghost" href="#">Download Prospectus</a>
+          </div>
+          <p class="cta-small">Admissions open for 2025-26 batch</p>
+        </div>
+      </section>
+    </main>
+
+    <div data-footer></div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+      console.log('Parallax script loaded');
+      
+      // Ensure video plays
+      const videoElement = document.querySelector('.hero-video');
+      if (videoElement) {
+        console.log('Video element found');
+        videoElement.addEventListener('error', (e) => {
+          console.error('Video error event:', e);
+          console.error('Error code:', videoElement.error?.code, videoElement.error?.message);
+        });
+        videoElement.addEventListener('play', () => console.log('Video is playing'));
+        videoElement.addEventListener('loadedmetadata', () => console.log('Video metadata loaded'));
+        
+        // Try to play
+        videoElement.play().then(() => {
+          console.log('Video play() promise resolved');
+        }).catch((e) => {
+          console.error('Video play() promise rejected:', e);
+        });
+      } else {
+        console.log('Video element NOT found');
+      }
+
+      // Smooth parallax effect for the video background
+      (function() {
+        console.log('Initializing parallax effect');
+        
+        const hero = document.querySelector('.hero');
+        const heroMedia = document.querySelector('.hero-media');
+        const heroVideo = document.querySelector('.hero-video');
+        
+        if (!hero || !heroMedia || !heroVideo) {
+          console.log('Missing elements. Hero:', !!hero, 'HeroMedia:', !!heroMedia, 'HeroVideo:', !!heroVideo);
+          return;
+        }
+        
+        console.log('All parallax elements found');
+
+        let scrollY = 0;
+        let ticking = false;
+
+        function updateParallax() {
+          scrollY = window.scrollY;
+          
+          // Calculate parallax offset (slower than scroll speed) - REVERSED for upward movement
+          const offset = scrollY * 0.5;
+          
+          // Apply smooth transform with parallax effect - negative offset makes video move UP
+          heroMedia.style.transform = `translateY(-${offset}px)`;
+          
+          // Adjust video scale slightly based on scroll
+          const scale = 1 + (scrollY * 0.0001);
+          heroVideo.style.transform = `scale(${Math.min(scale, 1.1)})`;
+          
+          ticking = false;
+        }
+
+        function requestTick() {
+          if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        }
+
+        window.addEventListener('scroll', requestTick, { passive: true });
+        
+        // Fade out content as user scrolls past hero
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+          window.addEventListener('scroll', function() {
+            const scrollPercent = Math.min(scrollY / window.innerHeight, 1);
+            heroContent.style.opacity = 1 - (scrollPercent * 1.2);
+          }, { passive: true });
+        }
+        
+        console.log('Parallax effect initialized');
+      })();
+
+      // Carousel functionality
+      (function() {
+        const carousel = document.getElementById('campusCarousel');
+        const dotsContainer = document.getElementById('carouselDots');
+        if (!carousel) return;
+
+        const items = carousel.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+
+        // Create dots
+        items.forEach((_, index) => {
+          const dot = document.createElement('button');
+          dot.className = `dot ${index === 0 ? 'active' : ''}`;
+          dot.addEventListener('click', () => goToSlide(index));
+          dotsContainer.appendChild(dot);
+        });
+
+        function updateCarousel() {
+          items.forEach((item, index) => {
+            item.classList.toggle('active', index === currentIndex);
+          });
+          dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        }
+
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % items.length;
+          updateCarousel();
+        }
+
+        function goToSlide(index) {
+          currentIndex = index;
+          updateCarousel();
+        }
+
+        // Auto-rotate every 2.5 seconds
+        setInterval(nextSlide, 2500);
+      })();
+    </script>
+    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clubs and Communities | Campus Insights University</title>
+    <meta
+      name="description"
+      content="Student clubs and communities at Campus Insights University supporting innovation, culture, leadership, and collaboration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .portal-shell {
+        width: min(100%, 1152px);
+        margin: 0 auto;
+      }
+
+      .dense-section {
+        padding: 96px 0;
+      }
+
+      .clubs-hero {
+        padding-top: 170px;
+        padding-bottom: 92px;
+      }
+
+      .clubs-hero p {
+        max-width: 840px;
+      }
+
+      .section-head {
+        margin-bottom: 30px;
+      }
+
+      .section-head p {
+        margin: 12px 0 0;
+        color: var(--text-muted);
+        max-width: 850px;
+      }
+
+      .clubs-grid {
+        display: grid;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .club-card {
+        height: 100%;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 10px;
+        transition: transform 250ms var(--ease), border-color 250ms var(--ease), box-shadow 250ms var(--ease);
+      }
+
+      .club-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold-border);
+        box-shadow: var(--shadow-gold);
+      }
+
+      .club-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .club-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid var(--gold-border);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        background: var(--gold-dim);
+      }
+
+      .club-icon svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .club-title {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.24rem;
+        font-weight: 400;
+      }
+
+      .club-copy {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.62;
+      }
+
+      .focus-chip {
+        margin-top: auto;
+        width: fit-content;
+        border: 1px solid var(--gold-border);
+        border-radius: 999px;
+        padding: 4px 10px;
+        color: var(--gold);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .detail-panel {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px;
+        background: var(--surface);
+      }
+
+      .detail-panel h3 {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.45rem;
+        font-weight: 400;
+      }
+
+      .detail-panel p {
+        margin: 10px 0 0;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      .detail-list {
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .detail-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: var(--text-muted);
+      }
+
+      .detail-list svg {
+        width: 16px;
+        height: 16px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        margin-top: 3px;
+        flex: 0 0 auto;
+      }
+
+      .achievement-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+        height: 100%;
+      }
+
+      .achievement-card h4 {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.25rem;
+        font-weight: 400;
+      }
+
+      .achievement-card p {
+        margin: 8px 0 0;
+        color: var(--text-muted);
+      }
+
+      .achievement-meta {
+        margin-top: 10px;
+        color: var(--gold);
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .engagement-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .engage-card {
+        border: 1px solid var(--gold-border);
+        border-radius: 12px;
+        padding: 18px;
+        background: color-mix(in srgb, var(--surface) 78%, transparent);
+      }
+
+      .engage-value {
+        margin: 0;
+        color: var(--gold);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      }
+
+      .engage-label {
+        margin: 6px 0 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      @media (max-width: 1180px) {
+        .grid-4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .engagement-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 920px) {
+        .dense-section {
+          padding: 76px 0;
+        }
+
+        .clubs-hero {
+          padding-top: 136px;
+          padding-bottom: 70px;
+        }
+
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .engagement-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="clubs">
+    <div data-nav></div>
+    <main>
+      <header class="page-header clubs-hero">
+        <div class="container portal-shell">
+          <p class="section-label reveal">Student Communities and Leadership Networks</p>
+          <h1 class="reveal">Clubs and Communities That Drive Innovation and Collaboration</h1>
+          <p class="reveal">
+            CIU clubs create high-impact learning ecosystems where students build projects, host events, and develop leadership through
+            sustained peer collaboration.
+          </p>
+        </div>
+      </header>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Clubs Directory</p>
+            <h2 class="section-title">Student Clubs Across Technology, Culture, Sports, and Leadership</h2>
+            <p>Each club runs an annual activity plan, faculty advisory board, and skill-track pathways for members.</p>
+          </div>
+
+          <div class="clubs-grid grid-4" data-stagger-group>
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M10 9.5 6 13l4 3.5"/><path d="M14 9.5 18 13l-4 3.5"/><path d="m13 7-2 12"/></svg></span><h3 class="club-title">Coding Club</h3></div>
+              <p class="club-copy">Organizes coding marathons, algorithm labs, and open-source contribution sprints.</p>
+              <span class="focus-chip">Focus: Software and Problem Solving</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M5 5l14 14"/><path d="M19 5 5 19"/></svg></span><h3 class="club-title">AI and ML Club</h3></div>
+              <p class="club-copy">Conducts model-building sessions, Kaggle practice cohorts, and AI ethics discussions.</p>
+              <span class="focus-chip">Focus: Machine Learning and Analytics</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 12h.01"/><path d="M17 12h.01"/></svg></span><h3 class="club-title">Robotics Club</h3></div>
+              <p class="club-copy">Builds autonomous and manual robot platforms for competitions and applied projects.</p>
+              <span class="focus-chip">Focus: Embedded Systems and Mechatronics</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-4 4"/></svg></span><h3 class="club-title">Entrepreneurship Club</h3></div>
+              <p class="club-copy">Runs startup ideation labs, founder circles, and venture readiness bootcamps.</p>
+              <span class="focus-chip">Focus: Innovation and Venture Building</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><h3 class="club-title">Design Club</h3></div>
+              <p class="club-copy">Explores UX design, visual communication, and product interface case studios.</p>
+              <span class="focus-chip">Focus: UI, Visual, and Product Design</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M4 8h16"/><path d="M4 16h16"/><path d="M9 4v16"/><path d="M15 4v16"/></svg></span><h3 class="club-title">Cultural Club</h3></div>
+              <p class="club-copy">Curates campus festivals, thematic performances, and collaborative cultural showcases.</p>
+              <span class="focus-chip">Focus: Heritage and Creative Expression</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><h3 class="club-title">Music Club</h3></div>
+              <p class="club-copy">Hosts instrument circles, vocal ensembles, recording labs, and stage performances.</p>
+              <span class="focus-chip">Focus: Instrumental and Vocal Arts</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M8 4v6"/><path d="M16 4v6"/><path d="M12 10v10"/><path d="M6 21h12"/></svg></span><h3 class="club-title">Dance Club</h3></div>
+              <p class="club-copy">Leads choreography labs, inter-college dance circuits, and performance residencies.</p>
+              <span class="focus-chip">Focus: Classical and Contemporary Dance</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/><path d="M4 12h16"/></svg></span><h3 class="club-title">Sports Club</h3></div>
+              <p class="club-copy">Coordinates leagues, intramurals, fitness camps, and inter-university representation.</p>
+              <span class="focus-chip">Focus: Competitive and Recreational Sports</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/></svg></span><h3 class="club-title">Literary Club</h3></div>
+              <p class="club-copy">Organizes debates, publication circles, editorial workshops, and spoken-word sessions.</p>
+              <span class="focus-chip">Focus: Writing, Debate, and Publishing</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M2 12h20"/></svg></span><h3 class="club-title">Photography Club</h3></div>
+              <p class="club-copy">Runs campus photowalks, visual storytelling workshops, and exhibition portfolios.</p>
+              <span class="focus-chip">Focus: Visual Media and Documentation</span>
+            </article>
+
+            <article class="club-card reveal" data-stagger>
+              <div class="club-head"><span class="club-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4"/><path d="M6 12H2"/><path d="M12 6V2"/><path d="M12 22v-4"/><circle cx="12" cy="12" r="4"/></svg></span><h3 class="club-title">Community Service Club</h3></div>
+              <p class="club-copy">Designs outreach drives, sustainability campaigns, and social impact collaborations.</p>
+              <span class="focus-chip">Focus: Service Learning and Outreach</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Club Activities</p>
+            <h2 class="section-title">Programs Conducted by Student Communities</h2>
+            <p>Club calendars combine recurring practice sessions with flagship events and domain-specific initiatives.</p>
+          </div>
+
+          <div class="clubs-grid grid-2">
+            <article class="detail-panel reveal">
+              <h3>Workshops and Skill Studios</h3>
+              <p>Hands-on workshops covering coding, design systems, robotics assembly, storytelling, and entrepreneurship modules.</p>
+              <ul class="detail-list">
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Weekly technical labs for coding, AI model pipelines, and embedded prototyping.</li>
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Design and communication workshops focusing on UX, visual systems, and presentations.</li>
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Performance arts and cultural practice sessions led by senior student coordinators.</li>
+              </ul>
+            </article>
+
+            <article class="detail-panel reveal">
+              <h3>Hackathons and Competitions</h3>
+              <p>Competitive formats that test execution under constraints while fostering collaboration and leadership.</p>
+              <ul class="detail-list">
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Campus and inter-college hackathons with domain mentors and jury evaluation frameworks.</li>
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Case challenge series for entrepreneurship, analytics, and consulting pathways.</li>
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Sports leagues and cultural circuits that build consistency, discipline, and teamwork.</li>
+              </ul>
+            </article>
+
+            <article class="detail-panel reveal">
+              <h3>Guest Sessions and Industry Talks</h3>
+              <p>Sessions with alumni, founders, artists, and specialists who provide contextual insights and career direction.</p>
+              <ul class="detail-list">
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Alumni knowledge sessions on roles, tools, and project pathways in industry.</li>
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Founder and product talks through the innovation and incubation ecosystem.</li>
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Cultural masterclasses from performing artists and professional curators.</li>
+              </ul>
+            </article>
+
+            <article class="detail-panel reveal">
+              <h3>Community and Outreach Programs</h3>
+              <p>Students engage with schools, civic organizations, and community initiatives through service projects.</p>
+              <ul class="detail-list">
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Literacy and digital awareness initiatives in nearby communities.</li>
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Sustainability drives including waste management and campus greening programs.</li>
+                <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Health and wellness campaigns in partnership with student support teams.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Club Achievements</p>
+            <h2 class="section-title">Recognition Across Competitions and Participation Platforms</h2>
+            <p>Club teams represent CIU at state and national events, producing consistent results and recognition.</p>
+          </div>
+
+          <div class="clubs-grid grid-3" data-stagger-group>
+            <article class="achievement-card reveal" data-stagger>
+              <h4>National Coding League Finalist Position</h4>
+              <p>Coding Club teams reached the national finals with top-tier performance in algorithm and system design rounds.</p>
+              <p class="achievement-meta">Competitive Programming</p>
+            </article>
+            <article class="achievement-card reveal" data-stagger>
+              <h4>Autonomous Robotics Challenge Podium Finish</h4>
+              <p>Robotics Club secured podium rank through integrated navigation and obstacle adaptation modules.</p>
+              <p class="achievement-meta">Robotics and Mechatronics</p>
+            </article>
+            <article class="achievement-card reveal" data-stagger>
+              <h4>Inter-University Cultural Fest Award Series</h4>
+              <p>Cultural, Music, and Dance Clubs won multiple category awards for choreography and ensemble performance.</p>
+              <p class="achievement-meta">Arts and Cultural Performance</p>
+            </article>
+            <article class="achievement-card reveal" data-stagger>
+              <h4>Startup Pitch Track Funding Recognition</h4>
+              <p>Entrepreneurship Club teams secured seed-stage mentorship and incubation pre-selection offers.</p>
+              <p class="achievement-meta">Innovation and Entrepreneurship</p>
+            </article>
+            <article class="achievement-card reveal" data-stagger>
+              <h4>Campus Sports Championship Aggregate Title</h4>
+              <p>Sports Club maintained top aggregate ranking through league consistency and team participation depth.</p>
+              <p class="achievement-meta">Sports and Athletics</p>
+            </article>
+            <article class="achievement-card reveal" data-stagger>
+              <h4>Editorial Publication Showcase Distinction</h4>
+              <p>Literary Club publications and debate team presentations received recognition at academic conventions.</p>
+              <p class="achievement-meta">Literature and Communication</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Club Engagement Metrics</p>
+            <h2 class="section-title">Participation and Activity Indicators</h2>
+            <p>Engagement statistics reflect the continuity and scale of student community participation at CIU.</p>
+          </div>
+
+          <div class="engagement-grid" data-stagger-group>
+            <article class="engage-card reveal" data-stagger>
+              <p class="engage-value">2,600+</p>
+              <p class="engage-label">Active Club Members</p>
+            </article>
+            <article class="engage-card reveal" data-stagger>
+              <p class="engage-value">180+</p>
+              <p class="engage-label">Events Conducted Annually</p>
+            </article>
+            <article class="engage-card reveal" data-stagger>
+              <p class="engage-value">65%</p>
+              <p class="engage-label">Multi-club Participation</p>
+            </article>
+            <article class="engage-card reveal" data-stagger>
+              <p class="engage-value">90+</p>
+              <p class="engage-label">External Competition Entries</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta">
+        <div class="container portal-shell">
+          <p class="section-label">Get Involved</p>
+          <h2>Join Clubs, Build Networks, and Lead Community Initiatives</h2>
+          <p>Students can register for clubs through department coordinators and annual club orientation drives.</p>
+          <div class="cta-actions">
+            <a class="btn-primary" href="contact.html">Join a Club</a>
+            <a class="btn-ghost" href="activities.html">View Event Calendar</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-footer></div>
+    <script src="assets/js/main.js"></script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

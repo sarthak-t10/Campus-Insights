@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctoral Research | Campus Insights University</title>
+    <meta
+      name="description"
+      content="Explore doctoral research at BMS College of Engineering: domains, scholar achievements, projects, labs, publications, and collaborations."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .doctoral-shell {
+        width: min(100%, 1152px);
+        margin: 0 auto;
+      }
+
+      .doctoral-hero {
+        position: relative;
+        padding-top: 172px;
+        padding-bottom: 108px;
+        overflow: hidden;
+      }
+
+      .doctoral-hero::before,
+      .doctoral-hero::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        pointer-events: none;
+      }
+
+      .doctoral-hero::before {
+        width: 520px;
+        height: 520px;
+        top: -210px;
+        right: -140px;
+        background: radial-gradient(circle, rgba(201, 169, 110, 0.2), rgba(201, 169, 110, 0));
+        animation: heroPulse 7.5s ease-in-out infinite;
+      }
+
+      .doctoral-hero::after {
+        width: 400px;
+        height: 400px;
+        left: -170px;
+        bottom: -180px;
+        background: radial-gradient(circle, rgba(201, 169, 110, 0.14), rgba(201, 169, 110, 0));
+        animation: heroPulse 9s ease-in-out infinite reverse;
+      }
+
+      @keyframes heroPulse {
+        0%,
+        100% {
+          transform: scale(1) translateY(0);
+          opacity: 0.9;
+        }
+        50% {
+          transform: scale(1.08) translateY(12px);
+          opacity: 0.55;
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .hero-content p {
+        max-width: 860px;
+        margin: 16px auto 0;
+        color: var(--text-muted);
+      }
+
+      .doctoral-section {
+        padding: 96px 0;
+      }
+
+      .section-head {
+        text-align: center;
+        margin-bottom: 34px;
+      }
+
+      .section-head p {
+        max-width: 800px;
+        margin: 12px auto 0;
+        color: var(--text-muted);
+      }
+
+      .doctoral-grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      .doctoral-grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .doctoral-grid.three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .doctoral-grid.four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .doctoral-card {
+        height: 100%;
+        border: 1px solid var(--gold-border);
+        border-radius: 14px;
+        padding: 22px;
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: transform 260ms var(--ease), border-color 260ms var(--ease), box-shadow 260ms var(--ease);
+      }
+
+      .doctoral-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(201, 169, 110, 0.75);
+        box-shadow: var(--shadow-gold);
+      }
+
+      .card-title {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.34rem;
+        line-height: 1.18;
+      }
+
+      .card-text {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.66;
+      }
+
+      .about-text {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .impact-list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text-muted);
+      }
+
+      .impact-list li {
+        margin-bottom: 6px;
+      }
+
+      .stat-card {
+        justify-content: center;
+        min-height: 150px;
+      }
+
+      .stat-value {
+        margin: 0;
+        color: var(--gold);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.7rem, 2.2vw, 2.1rem);
+      }
+
+      .stat-label {
+        margin: 0;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.79rem;
+      }
+
+      .domain-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid var(--gold-border);
+        background: rgba(201, 169, 110, 0.1);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .domain-icon svg {
+        width: 19px;
+        height: 19px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .mini-label {
+        margin: 0;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.73rem;
+      }
+
+      .achievement-card .scholar-name {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.45rem;
+      }
+
+      .achievement-meta {
+        margin: 0;
+        color: var(--gold);
+        font-size: 0.83rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 16px;
+      }
+
+      .timeline-item {
+        border: 1px solid var(--gold-border);
+        border-radius: 12px;
+        padding: 16px 18px;
+        background: color-mix(in srgb, var(--surface) 62%, transparent);
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 14px;
+      }
+
+      .timeline-year {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--gold);
+        font-size: 0.96rem;
+        letter-spacing: 0.07em;
+      }
+
+      .timeline-copy {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.62;
+      }
+
+      .lab-meta,
+      .project-meta {
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        color: var(--gold);
+        font-size: 0.82rem;
+      }
+
+      .collab-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .collab-logo {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 12px;
+        text-align: center;
+        color: rgba(242, 237, 228, 0.56);
+        background: rgba(255, 255, 255, 0.02);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        filter: grayscale(1);
+        transition: border-color 240ms var(--ease), color 240ms var(--ease), box-shadow 240ms var(--ease), filter 240ms var(--ease);
+      }
+
+      .collab-logo:hover {
+        border-color: var(--gold-border);
+        color: var(--gold);
+        box-shadow: var(--shadow-gold);
+        filter: grayscale(0.2);
+      }
+
+      .cta-box {
+        border: 1px solid var(--gold-border);
+        border-radius: 16px;
+        padding: 34px;
+        background: linear-gradient(150deg, rgba(201, 169, 110, 0.12), rgba(255, 255, 255, 0.02));
+        text-align: center;
+      }
+
+      .cta-box p {
+        margin: 14px auto 0;
+        max-width: 760px;
+        color: var(--text-muted);
+      }
+
+      .cta-actions {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      @media (max-width: 1160px) {
+        .doctoral-grid.four {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .collab-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 900px) {
+        .doctoral-hero {
+          padding-top: 138px;
+          padding-bottom: 82px;
+        }
+
+        .doctoral-section {
+          padding: 76px 0;
+        }
+
+        .doctoral-grid.two,
+        .doctoral-grid.three,
+        .doctoral-grid.four,
+        .collab-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="admissions">
+    <div data-nav></div>
+    <main>
+      <header class="page-header doctoral-hero">
+        <div class="container doctoral-shell hero-content">
+          <p class="section-label reveal">Doctoral Programs</p>
+          <h1 class="reveal">Doctoral Research at BMS College of Engineering</h1>
+          <h2 class="reveal" style="margin: 14px 0 0; font-weight: 300; font-size: clamp(1.25rem, 3vw, 1.9rem); color: var(--gold); font-family: 'Cormorant Garamond', serif;">
+            Advancing knowledge through innovation, discovery, and interdisciplinary research.
+          </h2>
+          <p class="reveal">
+            The PhD program at BMS College of Engineering fosters cutting-edge research across engineering and technology domains.
+            Doctoral scholars work closely with distinguished faculty and industry collaborators to solve real-world challenges.
+          </p>
+        </div>
+      </header>
+
+      <section class="doctoral-section" id="about-doctoral-research">
+        <div class="container doctoral-shell">
+          <div class="section-head reveal">
+            <p class="section-label">About Doctoral Research</p>
+            <h2 class="section-title">A Strong Ecosystem for High-Impact Scholarship</h2>
+          </div>
+          <div class="doctoral-grid two">
+            <article class="doctoral-card reveal">
+              <p class="about-text">
+                BMS College of Engineering offers doctoral programs in multiple engineering disciplines under Visvesvaraya Technological
+                University (VTU). The program encourages interdisciplinary research and innovation addressing global technological
+                challenges.
+              </p>
+              <p class="mini-label">Doctoral Scholars Contribute To</p>
+              <ul class="impact-list">
+                <li>Sustainable technologies</li>
+                <li>Artificial intelligence research</li>
+                <li>Advanced manufacturing</li>
+                <li>Smart infrastructure systems</li>
+                <li>Renewable energy innovations</li>
+              </ul>
+            </article>
+            <div class="doctoral-grid two">
+              <article class="doctoral-card stat-card reveal">
+                <p class="stat-value">150+</p>
+                <p class="stat-label">Doctoral Scholars</p>
+              </article>
+              <article class="doctoral-card stat-card reveal">
+                <p class="stat-value">1200+</p>
+                <p class="stat-label">Research Publications</p>
+              </article>
+              <article class="doctoral-card stat-card reveal">
+                <p class="stat-value">85+</p>
+                <p class="stat-label">Patents Filed</p>
+              </article>
+              <article class="doctoral-card stat-card reveal">
+                <p class="stat-value">60+</p>
+                <p class="stat-label">Active Research Projects</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctoral-section" id="research-domains">
+        <div class="container doctoral-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Research Domains</p>
+            <h2 class="section-title">Priority Areas for Doctoral Exploration</h2>
+          </div>
+          <div class="doctoral-grid four">
+            <article class="doctoral-card reveal">
+              <span class="domain-icon"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/></svg></span>
+              <h3 class="card-title">Artificial Intelligence and Machine Learning</h3>
+              <p class="card-text">Research focuses on intelligent systems, deep learning pipelines, predictive analytics, and autonomous technologies.</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <span class="domain-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 21v-8"/><path d="M12 21v-14"/><path d="M18 21v-10"/></svg></span>
+              <h3 class="card-title">Smart Cities and Infrastructure</h3>
+              <p class="card-text">Doctoral work addresses resilient mobility, connected infrastructure, and intelligent urban resource management.</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <span class="domain-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M5 8c2-3 5-4 7-4s5 1 7 4"/><path d="M5 16c2 3 5 4 7 4s5-1 7-4"/></svg></span>
+              <h3 class="card-title">Renewable Energy Systems</h3>
+              <p class="card-text">Scholars develop efficient energy conversion, storage optimization, and decentralized sustainable power solutions.</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <span class="domain-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><path d="M10 6h4"/><path d="M6 10v4"/></svg></span>
+              <h3 class="card-title">Robotics and Automation</h3>
+              <p class="card-text">Research investigates robot intelligence, human-machine collaboration, and adaptive automation for complex operations.</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <span class="domain-icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+              <h3 class="card-title">Cybersecurity and Data Science</h3>
+              <p class="card-text">Doctoral investigations center on secure architectures, privacy-preserving analytics, and robust threat intelligence.</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <span class="domain-icon"><svg viewBox="0 0 24 24"><path d="M4 18h16"/><path d="M7 18V8"/><path d="M12 18V5"/><path d="M17 18v-7"/></svg></span>
+              <h3 class="card-title">Advanced Materials Engineering</h3>
+              <p class="card-text">Scholars explore high-performance composites, nanostructures, and materials reliability for future products.</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <span class="domain-icon"><svg viewBox="0 0 24 24"><path d="M12 21c4-3 7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 3 8 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <h3 class="card-title">Biomedical Engineering</h3>
+              <p class="card-text">Research combines engineering with healthcare to build diagnostic platforms, assistive systems, and bio-signal intelligence.</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <span class="domain-icon"><svg viewBox="0 0 24 24"><path d="M3 16h8l2-4 2 4h6"/><path d="M4 7h16"/></svg></span>
+              <h3 class="card-title">Sustainable Transportation Systems</h3>
+              <p class="card-text">Doctoral scholars design cleaner mobility systems, electric transport integration, and intelligent route optimization.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctoral-section" id="doctoral-scholar-achievements">
+        <div class="container doctoral-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Doctoral Scholar Achievements</p>
+            <h2 class="section-title">Research Milestones by PhD Scholars</h2>
+          </div>
+          <div class="doctoral-grid three">
+            <article class="doctoral-card achievement-card reveal">
+              <h3 class="scholar-name">Dr. Ananya Rao</h3>
+              <p class="achievement-meta">PhD in Computer Science</p>
+              <p class="card-text"><strong>Research Area:</strong> Explainable AI</p>
+              <p class="card-text">Published 8 papers in IEEE conferences and developed a machine learning model for healthcare diagnostics.</p>
+            </article>
+            <article class="doctoral-card achievement-card reveal">
+              <h3 class="scholar-name">Dr. Karthik Srinivas</h3>
+              <p class="achievement-meta">PhD in Mechanical Engineering</p>
+              <p class="card-text"><strong>Research Area:</strong> Smart Manufacturing</p>
+              <p class="card-text">Developed AI-powered predictive maintenance systems for industrial machinery and pilot-tested in partner plants.</p>
+            </article>
+            <article class="doctoral-card achievement-card reveal">
+              <h3 class="scholar-name">Dr. Meera Iyer</h3>
+              <p class="achievement-meta">PhD in Electrical Engineering</p>
+              <p class="card-text"><strong>Research Area:</strong> Renewable Energy Systems</p>
+              <p class="card-text">Designed optimized solar energy storage systems for microgrids with improved reliability under variable loads.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctoral-section" id="ongoing-research-projects">
+        <div class="container doctoral-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Ongoing Research Projects</p>
+            <h2 class="section-title">Current High-Value Doctoral Initiatives</h2>
+          </div>
+          <div class="doctoral-grid three">
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Smart Traffic Management Systems Using AI</h3>
+              <p class="card-text">Building predictive control models to reduce congestion and improve adaptive signal performance in urban corridors.</p>
+              <p class="project-meta">Department: Computer Science and Civil Engineering</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Autonomous Drone Navigation Algorithms</h3>
+              <p class="card-text">Developing robust navigation frameworks for cluttered environments with real-time perception and route correction.</p>
+              <p class="project-meta">Department: Aerospace and Electronics Engineering</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Low-Cost Solar Grid Solutions for Rural Areas</h3>
+              <p class="card-text">Designing affordable, modular solar microgrid systems with intelligent storage control for remote communities.</p>
+              <p class="project-meta">Department: Electrical Engineering</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Cybersecurity Framework for Smart Cities</h3>
+              <p class="card-text">Creating security architecture and threat analytics for public infrastructure and connected civic services.</p>
+              <p class="project-meta">Department: Computer Science and Information Security</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">AI-Based Medical Imaging Diagnostics</h3>
+              <p class="card-text">Constructing interpretable diagnostic models for early detection workflows in clinical imaging systems.</p>
+              <p class="project-meta">Department: AI and Biomedical Engineering</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctoral-section" id="publications-innovation">
+        <div class="container doctoral-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Publications and Innovation</p>
+            <h2 class="section-title">Impact Timeline</h2>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <p class="timeline-year">2024</p>
+              <p class="timeline-copy">AI-driven urban traffic optimization model published in a leading IEEE Transactions journal issue.</p>
+            </article>
+            <article class="timeline-item reveal">
+              <p class="timeline-year">2023</p>
+              <p class="timeline-copy">Patent filed for a smart energy storage management system enabling dynamic load balancing in microgrids.</p>
+            </article>
+            <article class="timeline-item reveal">
+              <p class="timeline-year">2023</p>
+              <p class="timeline-copy">Research collaboration expanded with IISc Bangalore on sustainable materials and lifecycle performance analytics.</p>
+            </article>
+            <article class="timeline-item reveal">
+              <p class="timeline-year">2022</p>
+              <p class="timeline-copy">Robotic inspection systems for industrial safety developed and validated in pilot manufacturing environments.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctoral-section" id="research-labs">
+        <div class="container doctoral-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Research Labs</p>
+            <h2 class="section-title">Advanced Facilities for Doctoral Work</h2>
+          </div>
+          <div class="doctoral-grid three">
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Artificial Intelligence Research Lab</h3>
+              <p class="card-text">High-performance computing infrastructure for deep learning, model interpretability, and intelligent decision systems.</p>
+              <p class="lab-meta">Department: Computer Science and AI</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Robotics and Automation Laboratory</h3>
+              <p class="card-text">A configurable robotics space supporting control systems, autonomous navigation, and industrial automation prototyping.</p>
+              <p class="lab-meta">Department: Mechanical and Electronics</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Advanced Materials Testing Lab</h3>
+              <p class="card-text">Experimental setup for material characterization, fatigue studies, and performance under extreme conditions.</p>
+              <p class="lab-meta">Department: Chemical and Mechanical Engineering</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Renewable Energy Innovation Center</h3>
+              <p class="card-text">Dedicated facility for energy conversion analysis, storage diagnostics, and sustainable grid research.</p>
+              <p class="lab-meta">Department: Electrical Engineering</p>
+            </article>
+            <article class="doctoral-card reveal">
+              <h3 class="card-title">Cybersecurity and Data Analytics Lab</h3>
+              <p class="card-text">Infrastructure for secure systems testing, anomaly detection, and large-scale data experimentation.</p>
+              <p class="lab-meta">Department: Computer Science</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctoral-section" id="industry-collaborations">
+        <div class="container doctoral-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Industry Collaborations</p>
+            <h2 class="section-title">Research Partnerships That Accelerate Impact</h2>
+          </div>
+          <div class="collab-grid" aria-label="Industry collaboration partners">
+            <div class="collab-logo reveal">Infosys Research</div>
+            <div class="collab-logo reveal">Bosch Engineering</div>
+            <div class="collab-logo reveal">Intel Innovation Labs</div>
+            <div class="collab-logo reveal">DRDO Research Programs</div>
+            <div class="collab-logo reveal">ISRO Collaboration Initiatives</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctoral-section" id="doctoral-cta">
+        <div class="container doctoral-shell">
+          <div class="cta-box reveal">
+            <p class="section-label">Call to Action</p>
+            <h2 class="section-title">Start Your Doctoral Journey at BMSCE</h2>
+            <p>
+              Join a vibrant research community and contribute to groundbreaking innovations in engineering and technology.
+            </p>
+            <div class="cta-actions">
+              <a class="btn-primary" href="admissions.html">Apply for PhD</a>
+              <a class="btn-ghost" href="contact.html">Contact Research Office</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-footer></div>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

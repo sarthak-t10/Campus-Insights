@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="wellness-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a3a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#151f0f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#wellness-grad)"/>
+  
+  <!-- Yoga and wellness activities -->
+  <g opacity="0.35">
+    <!-- Meditation circle -->
+    <circle cx="400" cy="350" r="100" fill="none" stroke="#C9A96E" stroke-width="2"/>
+    <circle cx="380" cy="330" r="8" fill="#C9A96E" opacity="0.7"/>
+    <circle cx="420" cy="330" r="8" fill="#C9A96E" opacity="0.7"/>
+    <circle cx="400" cy="380" r="8" fill="#C9A96E" opacity="0.7"/>
+    
+    <!-- Yoga mat representation -->
+    <rect x="700" y="280" width="180" height="100" fill="none" stroke="#C9A96E" stroke-width="2" rx="6" opacity="0.8"/>
+    <line x1="710" y1="300" x2="870" y2="300" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="710" y1="320" x2="870" y2="320" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <line x1="710" y1="340" x2="870" y2="340" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Recreation space symbol -->
+    <rect x="1050" y="280" width="200" height="120" fill="none" stroke="#C9A96E" stroke-width="2" rx="8"/>
+    <rect x="1070" y="300" width="50" height="70" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+    <rect x="1150" y="300" width="50" height="70" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- Wellness symbols -->
+  <g opacity="0.2">
+    <path d="M 500 650 Q 550 600 600 650 Q 550 700 500 650" fill="#C9A96E" opacity="0.5"/>
+    <path d="M 900 650 Q 950 600 1000 650 Q 950 700 900 650" fill="#C9A96E" opacity="0.5"/>
+    <line x1="600" y1="650" x2="900" y2="650" stroke="#C9A96E" stroke-width="2.5"/>
+  </g>
+  
+  <!-- Text overlay -->
+  <text x="800" y="550" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Wellness &amp;
+  </text>
+  <text x="800" y="640" font-family="Cormorant Garamond, serif" font-size="72" font-weight="300" fill="#C9A96E" text-anchor="middle">
+    Recreation Center
+  </text>
+  <text x="800" y="750" font-family="DM Sans, sans-serif" font-size="32" fill="#C9A96E" text-anchor="middle" opacity="0.8">
+    Yoga • Wellness Sessions • Recreation Facilities
+  </text>
+</svg>

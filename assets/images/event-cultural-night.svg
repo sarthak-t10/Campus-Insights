@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Inter-College Cultural Night</title>
+  <desc id="desc">Stylized stage and spotlight artwork for a cultural night event using a dark and gold palette.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/>
+      <stop offset="1" stop-color="#141a24"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="50%" cy="35%" r="50%">
+      <stop offset="0" stop-color="#d9ba84" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#d9ba84" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1460" height="760" rx="30" fill="none" stroke="#c9a96e" stroke-opacity="0.35" stroke-width="3"/>
+
+  <ellipse cx="800" cy="760" rx="520" ry="84" fill="#202a39"/>
+  <ellipse cx="800" cy="760" rx="390" ry="52" fill="#2a3750"/>
+  <circle cx="800" cy="360" r="310" fill="url(#spot)"/>
+
+  <rect x="460" y="220" width="680" height="360" rx="20" fill="#1a2333" stroke="#c9a96e" stroke-opacity="0.4"/>
+  <rect x="500" y="260" width="600" height="250" rx="14" fill="#202d42"/>
+
+  <g fill="#c9a96e">
+    <circle cx="560" cy="560" r="14"/>
+    <circle cx="640" cy="560" r="14"/>
+    <circle cx="720" cy="560" r="14"/>
+    <circle cx="800" cy="560" r="14"/>
+    <circle cx="880" cy="560" r="14"/>
+    <circle cx="960" cy="560" r="14"/>
+    <circle cx="1040" cy="560" r="14"/>
+  </g>
+
+  <path d="M420 760 C540 690, 1060 690, 1180 760" fill="none" stroke="#d4b378" stroke-opacity="0.5" stroke-width="3"/>
+
+  <text x="96" y="122" fill="#c9a96e" font-family="Space Grotesk, Arial, sans-serif" font-size="34" letter-spacing="4">FEST</text>
+  <text x="96" y="790" fill="#f2ede4" font-family="Cormorant Garamond, Georgia, serif" font-size="68">Inter-College Cultural Night</text>
+</svg>

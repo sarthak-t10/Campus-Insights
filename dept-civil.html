@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Civil Engineering | BMSCE</title>
+    <meta name="description" content="Department of Civil Engineering at B.M.S. College of Engineering." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .dept-header {
+        padding: 80px 0 60px;
+        background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      }
+
+      .dept-hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .dept-head-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .dept-head-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 3px solid var(--gold);
+      }
+
+      .dept-head-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .dept-head-info h3 {
+        font-size: 1.5rem;
+        font-family: "Cormorant Garamond", serif;
+        color: var(--text-primary);
+        margin: 0;
+      }
+
+      .dept-head-info p {
+        color: var(--gold);
+        font-size: 1rem;
+        margin: 8px 0 0;
+      }
+
+      .dept-content {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 60px;
+        padding: 60px 0;
+      }
+
+      .dept-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .dept-sidebar-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        color: var(--text-primary);
+        padding: 20px 0;
+        border-bottom: 3px solid var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .dept-nav-item {
+        padding: 14px 16px;
+        cursor: pointer;
+        border-left: 3px solid transparent;
+        transition: all 300ms var(--ease);
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dept-nav-item:hover,
+      .dept-nav-item.active {
+        background: var(--gold-dim);
+        border-left-color: var(--gold);
+        color: var(--gold);
+        padding-left: 24px;
+      }
+
+      .dept-main {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .dept-section {
+        display: none;
+      }
+
+      .dept-section.active {
+        display: block;
+      }
+
+      .dept-section h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 24px;
+      }
+
+      .dept-section p {
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+
+      .dept-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+      }
+
+      .dept-list li {
+        padding: 12px 0;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .dept-list li:before {
+        content: "›";
+        color: var(--gold);
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      @media (max-width: 1024px) {
+        .dept-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .dept-sidebar {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .dept-sidebar-title {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .dept-header {
+          padding: 40px 0 30px;
+        }
+
+        .dept-hero {
+          gap: 24px;
+        }
+
+        .dept-head-image {
+          width: 150px;
+          height: 150px;
+        }
+
+        .dept-head-info h3 {
+          font-size: 1.2rem;
+        }
+
+        .dept-sidebar {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="academics">
+    <div data-nav></div>
+    <main>
+      <header class="dept-header">
+        <div class="container">
+          <div class="dept-hero">
+            <div class="dept-head-card">
+              <div class="dept-head-image">
+                <img src="assets/images/avatar-placeholder.svg" alt="Department Head" />
+              </div>
+              <div class="dept-head-info">
+                <h3>Dr. Sureka Naggesh</h3>
+                <p>Professor & Head – Civil Engineering</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container">
+          <div class="dept-content">
+            <aside class="dept-sidebar">
+              <h4 class="dept-sidebar-title">CIVIL ENGINEERING</h4>
+              <a class="dept-nav-item active" data-section="about">
+                ›  About
+              </a>
+              <a class="dept-nav-item" data-section="organization">
+                ›  Organizational Structure
+              </a>
+              <a class="dept-nav-item" data-section="programmes">
+                ›  Programmes
+              </a>
+              <a class="dept-nav-item" data-section="syllabus">
+                ›  Syllabus
+              </a>
+              <a class="dept-nav-item" data-section="faculty">
+                ›  Faculty
+              </a>
+              <a class="dept-nav-item" data-section="staff">
+                ›  Staff
+              </a>
+              <a class="dept-nav-item" data-section="alumni">
+                ›  Alumni
+              </a>
+              <a class="dept-nav-item" data-section="publications">
+                ›  Publications
+              </a>
+              <a class="dept-nav-item" data-section="research">
+                ›  Research
+              </a>
+              <a class="dept-nav-item" data-section="achievements-faculty">
+                ›  Faculty Achievements
+              </a>
+              <a class="dept-nav-item" data-section="achievements-student">
+                ›  Student Achievements
+              </a>
+              <a class="dept-nav-item" data-section="ipr">
+                ›  IPR Achievements
+              </a>
+              <a class="dept-nav-item" data-section="industry">
+                ›  Industry Visits
+              </a>
+              <a class="dept-nav-item" data-section="workshops">
+                ›  Workshops
+              </a>
+              <a class="dept-nav-item" data-section="seminars">
+                ›  Talks / Lectures / Seminars
+              </a>
+              <a class="dept-nav-item" data-section="chapters">
+                ›  Student Chapters
+              </a>
+            </aside>
+
+            <article class="dept-main">
+              <div class="dept-section active" id="about">
+                <h2>About Department</h2>
+                <p>Established in the year 1946, the Department of Civil Engineering at B.M.S College of Engineering has progressively achieved academic excellence, quality research and consultancy for over period of seven decades. The focus of the Department is to impart quality technical education in Civil Engineering holistically in order to meet professional challenges in the society with required competency.</p>
+                <p>The Department receives grant from government of Karnataka and offers B.E, M.Tech and Ph.D programmes which are globally recognized. The undergraduate B.E program was accredited for 3 years under Tier-I (Washington Accord) in 2022, recognizing our academic achievements and is continuously accredited till date. PG programs are also accredited by NBA.</p>
+                <p>The sanctioned intake for UG currently is 120 and 18 for PG in each program. From the year 2008, UG program has been receiving grant from AICTE, New Delhi as per NI status and infrastructure has been upgraded with latest equipment's and laboratory setup.</p>
+              </div>
+
+              <div class="dept-section" id="organization">
+                <h2>Organizational Structure</h2>
+                <p>The Department is led by experienced faculty members and administrators committed to excellence in education and research.</p>
+                <ul class="dept-list">
+                  <li>Department Head: Dr. Sureka Naggesh</li>
+                  <li>Vice Head: Dr. Co-Ordinator</li>
+                  <li>Program Coordinator: Ms. Faculty Member</li>
+                  <li>Research Co-Ordinator: Dr. Research Lead</li>
+                </ul>
+              </div>
+
+              <div class="dept-section" id="programmes">
+                <h2>Programmes Offered</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+                  <div style="padding: 20px; border: 2px solid var(--gold); border-radius: 8px; background: var(--gold-dim);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                      <span style="font-size: 1.5rem; color: var(--gold); font-weight: bold;">▪</span>
+                      <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">B.E. in Civil Engineering</h3>
+                    </div>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">4-year undergraduate program covering infrastructure, construction, and structural design fundamentals.</p>
+                  </div>
+                  <div style="padding: 20px; border: 2px solid var(--gold); border-radius: 8px; background: var(--gold-dim);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                      <span style="font-size: 1.5rem; color: var(--gold); font-weight: bold;">▪</span>
+                      <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">M.Tech. - Structural Engineering</h3>
+                    </div>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">2-year postgraduate specialization in advanced structural analysis and design.</p>
+                  </div>
+                  <div style="padding: 20px; border: 2px solid var(--gold); border-radius: 8px; background: var(--gold-dim);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                      <span style="font-size: 1.5rem; color: var(--gold); font-weight: bold;">▪</span>
+                      <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">M.Tech. - Water Resources</h3>
+                    </div>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">2-year postgraduate program in hydrology, irrigation, and sustainable water management.</p>
+                  </div>
+                  <div style="padding: 20px; border: 2px solid var(--gold); border-radius: 8px; background: var(--gold-dim);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                      <span style="font-size: 1.5rem; color: var(--gold); font-weight: bold;">▪</span>
+                      <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">Ph.D. in Civil Engineering</h3>
+                    </div>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Doctoral research program in specialized areas of civil engineering innovation.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dept-section" id="syllabus">
+                <h2>Syllabus</h2>
+                <p>The curriculum is designed to provide comprehensive knowledge in both traditional and emerging areas of Civil Engineering. It includes:</p>
+                <ul class="dept-list">
+                  <li>Core subjects in Structural, Geotechnical, Water Resources Engineering</li>
+                  <li>Transportation engineering and environmental engineering</li>
+                  <li>Electives in advanced topics and research areas</li>
+                  <li>Practical laboratory work and project-based learning</li>
+                </ul>
+              </div>
+
+              <div class="dept-section" id="faculty">
+                <h2>Faculty</h2>
+                <p>Our faculty comprises experienced academicians with Ph.D. degrees, industry expertise, and active research publications. They are committed to mentoring students and advancing the field through research.</p>
+              </div>
+
+              <div class="dept-section" id="staff">
+                <h2>Support Staff</h2>
+                <p>The department is supported by dedicated technical and administrative staff who ensure smooth functioning of laboratories, library services, and administrative processes.</p>
+              </div>
+
+              <div class="dept-section" id="alumni">
+                <h2>Alumni Network</h2>
+                <p>Our alumni work in leading organizations across the globe in various sectors including infrastructure development, consulting firms, government agencies, and research institutions.</p>
+              </div>
+
+              <div class="dept-section" id="publications">
+                <h2>Publications</h2>
+                <p>Faculty and research scholars publish regularly in peer-reviewed national and international journals and conferences. Key research areas include structural health monitoring, sustainable materials, and water resource management.</p>
+              </div>
+
+              <div class="dept-section" id="research">
+                <h2>Research Activities</h2>
+                <p>The department actively pursues research in cutting-edge areas with sponsored projects from government agencies and industry partners.</p>
+              </div>
+
+              <div class="dept-section" id="achievements-faculty">
+                <h2>Faculty Achievements</h2>
+                <ul class="dept-list">
+                  <li>Published over 500 research papers in national and international journals</li>
+                  <li>Received multiple awards for teaching excellence</li>
+                  <li>Actively involved in professional societies and academic bodies</li>
+                </ul>
+              </div>
+
+              <div class="dept-section" id="achievements-student">
+                <h2>Student Achievements</h2>
+                <ul class="dept-list">
+                  <li>Won awards in state and national level competitions</li>
+                  <li>Secured positions in top recruitment drives</li>
+                  <li>Published research papers during undergraduate studies</li>
+                </ul>
+              </div>
+
+              <div class="dept-section" id="ipr">
+                <h2>IPR Achievements</h2>
+                <p>The department has filed patents and intellectual property disclosures for innovations in structural engineering and sustainable construction materials.</p>
+              </div>
+
+              <div class="dept-section" id="industry">
+                <h2>Industry Visits</h2>
+                <p>Students are exposed to real-world engineering practices through regular industrial visits to construction sites, design firms, and consultancy organizations.</p>
+              </div>
+
+              <div class="dept-section" id="workshops">
+                <h2>Workshops & Training</h2>
+                <p>Regular workshops are conducted on advanced software tools, sustainable construction practices, and emerging engineering technologies.</p>
+              </div>
+
+              <div class="dept-section" id="seminars">
+                <h2>Talks, Lectures & Seminars</h2>
+                <p>Distinguished experts from academia and industry are invited for seminars and talks to expose students to current trends and best practices in Civil Engineering.</p>
+              </div>
+
+              <div class="dept-section" id="chapters">
+                <h2>Student Chapters</h2>
+                <p>Active student organizations including Indian Concrete Institute (ICI) Chapter, ASCE Student Chapter, and departmental technical clubs promote learning and professional development.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-footer></div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+      document.querySelectorAll('.dept-nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+          // Remove active class from all items and sections
+          document.querySelectorAll('.dept-nav-item').forEach(i => i.classList.remove('active'));
+          document.querySelectorAll('.dept-section').forEach(s => s.classList.remove('active'));
+          
+          // Add active class to clicked item
+          item.classList.add('active');
+          
+          // Show corresponding section
+          const sectionId = item.dataset.section;
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.classList.add('active');
+            // Smooth scroll to section
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    </script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Test</title>
+  <style>
+    body { margin: 0; background: #000; }
+    video {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
+    .info {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      color: #fff;
+      background: rgba(0,0,0,0.8);
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 100;
+      font-family: monospace;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <div>Video Test Page</div>
+    <div id="status">Loading...</div>
+    <div id="size">Size: checking...</div>
+  </div>
+  
+  <video 
+    id="testVideo"
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    width="1920"
+    height="1080"
+    controls
+  >
+    <source src="campus-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const video = document.getElementById('testVideo');
+    const status = document.getElementById('status');
+    const size = document.getElementById('size');
+
+    // Get file size
+    fetch('campus-video.mp4', { method: 'HEAD' })
+      .then(r => {
+        const contentLength = r.headers.get('content-length');
+        size.textContent = 'Size: ' + (contentLength ? (parseInt(contentLength) / 1024 / 1024).toFixed(2) + ' MB' : 'Unknown');
+      });
+
+    video.addEventListener('loadstart', () => {
+      status.textContent = 'Status: Loading...';
+    });
+
+    video.addEventListener('loadedmetadata', () => {
+      status.textContent = `Status: Loaded (${video.duration.toFixed(2)}s)`;
+    });
+
+    video.addEventListener('play', () => {
+      status.textContent = 'Status: Playing ▶';
+    });
+
+    video.addEventListener('pause', () => {
+      status.textContent = 'Status: Paused ⏸';
+    });
+
+    video.addEventListener('error', (e) => {
+      status.textContent = 'Status: ERROR - ' + (video.error?.message || 'Unknown error');
+      console.error('Video error:', video.error);
+    });
+
+    // Initial attempt to play
+    video.play().then(() => {
+      console.log('Autoplay successful');
+    }).catch((e) => {
+      status.textContent = 'Status: Autoplay blocked (click to play)';
+      console.log('Autoplay failed, likely due to browser policy:', e);
+      
+      // Add click handler
+      video.addEventListener('click', () => {
+        video.play();
+      });
+    });
+
+    console.log('Video test page loaded');
+  </script>
+</body>
+</html>

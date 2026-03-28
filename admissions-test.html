@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admissions | Campus Insights University</title>
+    <meta name="description" content="Admissions at Campus Insights University." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .admission-card {
+        padding: 36px;
+        background: var(--surface-2);
+        border: 2px solid var(--gold-border);
+        border-radius: 8px;
+        transition: all 300ms var(--ease);
+        text-align: center;
+      }
+
+      .admission-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-8px);
+        background: var(--gold-dim);
+        box-shadow: 0 0 30px rgba(201, 169, 110, 0.3), inset 0 0 20px rgba(201, 169, 110, 0.05);
+      }
+
+      .admission-icon {
+        font-size: 3rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .admission-card h3 {
+        margin: 0 0 12px 0;
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .admission-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .timeline-card {
+        padding: 32px 28px;
+        background: var(--surface-2);
+        border-left: 4px solid var(--gold);
+        border-radius: 4px;
+        transition: all 300ms var(--ease);
+      }
+
+      .timeline-card:hover {
+        background: var(--gold-dim);
+        border-left-color: var(--gold);
+      }
+
+      .timeline-card h4 {
+        margin: 0 0 8px 0;
+        color: var(--gold);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 500;
+      }
+
+      .timeline-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .requirement-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .requirement-list li {
+        padding: 10px 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .requirement-list li:before {
+        content: "✓";
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 1.2em;
+        flex-shrink: 0;
+      }
+
+      .scholarship-card {
+        padding: 32px;
+        background: linear-gradient(135deg, rgba(201, 169, 110, 0.1), rgba(201, 169, 110, 0.05));
+        border: 2px solid var(--gold-border);
+        border-radius: 8px;
+        transition: all 300ms var(--ease);
+      }
+
+      .scholarship-card:hover {
+        border-color: var(--gold);
+        background: var(--gold-dim);
+      }
+
+      .scholarship-card h4 {
+        margin: 0 0 10px 0;
+        color: var(--gold);
+        font-size: 1.1rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .scholarship-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .faq-item {
+        padding: 24px;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        margin-bottom: 16px;
+      }
+
+      .faq-question {
+        margin: 0;
+        color: var(--text-primary);
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .faq-question::before {
+        content: "▸";
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      .faq-answer {
+        margin: 12px 0 0 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .admission-card.clickable {
+        cursor: pointer;
+      }
+
+      .admission-card.clickable:hover {
+        border-color: var(--gold);
+        transform: translateY(-8px);
+        background: var(--gold-dim);
+        box-shadow: 0 0 30px rgba(201, 169, 110, 0.3), inset 0 0 20px rgba(201, 169, 110, 0.05);
+      }
+
+      .department-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .department-modal.active {
+        display: flex;
+      }
+
+      .department-modal-content {
+        background: var(--surface-2);
+        border: 2px solid var(--gold-border);
+        border-radius: 12px;
+        padding: 40px;
+        max-width: 700px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      .department-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 32px;
+        border-bottom: 2px solid var(--gold-border);
+        padding-bottom: 20px;
+      }
+
+      .department-modal-header h2 {
+        margin: 0;
+        color: var(--gold);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+      }
+
+      .department-close {
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 300ms;
+      }
+
+      .department-close:hover {
+        color: var(--gold);
+      }
+
+      .department-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+
+      .department-item {
+        padding: 20px;
+        background: var(--surface);
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 300ms;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .department-item:hover {
+        border-color: var(--gold);
+        background: var(--gold-dim);
+        transform: translateY(-4px);
+        box-shadow: 0 0 20px rgba(201, 169, 110, 0.2);
+      }
+
+      .department-item-name {
+        color: var(--text-primary);
+        font-weight: 500;
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .department-item-code {
+        color: var(--gold);
+        font-size: 0.85rem;
+        margin: 8px 0 0 0;
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="admissions">
+    <div data-nav></div>
+    <main>
+      <header class="page-header"><div class="container"><p class="section-label reveal">Admissions</p><h1 class="reveal">Your Path to Excellence Starts Here</h1><p class="reveal">We seek talented students who are curious, driven, and ready to make an impact. Our holistic admission process evaluates your academic potential, aspirations, and character.</p></div></header>
+
+      <!-- DEPARTMENT MODAL -->
+      <div id="departmentModal" class="department-modal">
+        <div class="department-modal-content">
+          <div class="department-modal-header">
+            <h2>Engineering Departments</h2>
+            <button class="department-close" onclick="closeDepartmentModal()">&times;</button>
+          </div>
+          <div class="department-grid">
+            <a class="department-item" href="dept-civil.html">
+              <p class="department-item-name">Civil Engineering</p>
+              <p class="department-item-code">CE</p>
+            </a>
+            <a class="department-item" href="dept-mechanical.html">
+              <p class="department-item-name">Mechanical Engineering</p>
+              <p class="department-item-code">ME</p>
+            </a>
+            <a class="department-item" href="dept-electrical.html">
+              <p class="department-item-name">Electrical Engineering</p>
+              <p class="department-item-code">EE</p>
+            </a>
+            <a class="department-item" href="dept-electronics.html">
+              <p class="department-item-name">Electronics Engineering</p>
+              <p class="department-item-code">ECE</p>
+            </a>
+            <a class="department-item" href="dept-cse.html">
+              <p class="department-item-name">Computer Science</p>
+              <p class="department-item-code">CS</p>
+            </a>
+            <a class="department-item" href="dept-chemical.html">
+              <p class="department-item-name">Chemical Engineering</p>
+              <p class="department-item-code">CH</p>
+            </a>
+            <a class="department-item" href="dept-aerospace.html">
+              <p class="department-item-name">Aerospace Engineering</p>
+              <p class="department-item-code">AE</p>
+            </a>
+            <a class="department-item" href="dept-ml.html">
+              <p class="department-item-name">AI & Machine Learning</p>
+              <p class="department-item-code">AI/ML</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- POSTGRADUATE MODAL -->
+      <div id="postgradModal" class="department-modal">
+        <div class="department-modal-content">
+          <div class="department-modal-header">
+            <h2>Postgraduate Specializations</h2>
+            <button class="department-close" onclick="closePostgradModal()">&times;</button>
+          </div>
+          <div class="department-grid">
+            <a class="department-item" href="pg-civil.html">
+              <p class="department-item-name">Civil Engineering (M.Tech)</p>
+              <p class="department-item-code">CE-PG</p>
+            </a>
+            <a class="department-item" href="pg-mechanical.html">
+              <p class="department-item-name">Mechanical Engineering (M.Tech)</p>
+              <p class="department-item-code">ME-PG</p>
+            </a>
+            <a class="department-item" href="pg-electrical.html">
+              <p class="department-item-name">Electrical Engineering (M.Tech)</p>
+              <p class="department-item-code">EE-PG</p>
+            </a>
+            <a class="department-item" href="pg-electronics.html">
+              <p class="department-item-name">Electronics Engineering (M.Tech)</p>
+              <p class="department-item-code">ECE-PG</p>
+            </a>
+            <a class="department-item" href="pg-cse.html">
+              <p class="department-item-name">Computer Science (M.Tech)</p>
+              <p class="department-item-code">CS-PG</p>
+            </a>
+            <a class="department-item" href="pg-chemical.html">
+              <p class="department-item-name">Chemical Engineering (M.Tech)</p>
+              <p class="department-item-code">CH-PG</p>
+            </a>
+            <a class="department-item" href="pg-aerospace.html">
+              <p class="department-item-name">Aerospace Engineering (M.Tech)</p>
+              <p class="department-item-code">AE-PG</p>
+            </a>
+            <a class="department-item" href="pg-ml.html">
+              <p class="department-item-name">AI & Machine Learning (M.Tech)</p>
+              <p class="department-item-code">AI/ML-PG</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOCTORAL MODAL -->
+      <div id="doctoralModal" class="department-modal">
+        <div class="department-modal-content">
+          <div class="department-modal-header">
+            <h2>Doctoral Research Programs</h2>
+            <button class="department-close" onclick="closeDoctoralModal()">&times;</button>
+          </div>
+          <div class="department-grid">
+            <a class="department-item" href="phd-civil.html">
+              <p class="department-item-name">Civil Engineering (PhD)</p>
+              <p class="department-item-code">CE-PhD</p>
+            </a>
+            <a class="department-item" href="phd-mechanical.html">
+              <p class="department-item-name">Mechanical Engineering (PhD)</p>
+              <p class="department-item-code">ME-PhD</p>
+            </a>
+            <a class="department-item" href="phd-electrical.html">
+              <p class="department-item-name">Electrical Engineering (PhD)</p>
+              <p class="department-item-code">EE-PhD</p>
+            </a>
+            <a class="department-item" href="phd-electronics.html">
+              <p class="department-item-name">Electronics Engineering (PhD)</p>
+              <p class="department-item-code">ECE-PhD</p>
+            </a>
+            <a class="department-item" href="phd-cse.html">
+              <p class="department-item-name">Computer Science (PhD)</p>
+              <p class="department-item-code">CS-PhD</p>
+            </a>
+            <a class="department-item" href="phd-chemical.html">
+              <p class="department-item-name">Chemical Engineering (PhD)</p>
+              <p class="department-item-code">CH-PhD</p>
+            </a>
+            <a class="department-item" href="phd-aerospace.html">
+              <p class="department-item-name">Aerospace Engineering (PhD)</p>
+              <p class="department-item-code">AE-PhD</p>
+            </a>
+            <a class="department-item" href="phd-ml.html">
+              <p class="department-item-name">AI & Machine Learning (PhD)</p>
+              <p class="department-item-code">AI/ML-PhD</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 1: PROGRAM OPTIONS -->
+      <section class="section"><div class="container"><p class="section-label reveal">What You Can Study</p><h2 class="section-title reveal">Multiple Programs for All Academic Levels</h2><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 48px;">
+        <div class="admission-card clickable reveal" onclick="openDepartmentModal()"><span class="admission-icon">ðŸŽ“</span><h3>Undergraduate Programs</h3><p>Four-year engineering degrees with honors tracks, specializations, and industry internships. UG programs begin every semester.</p></div>
+        <div class="admission-card clickable reveal" onclick="openPostgradModal()"><span class="admission-icon">ðŸ“š</span><h3>Postgraduate Programs</h3><p>Master's degrees (M.Tech, M.S.) for specialized advanced learning. PG admissions twice yearly with flexible intake options.</p></div>
+        <div class="admission-card clickable reveal" onclick="openDoctoralModal()"><span class="admission-icon">ðŸ”¬</span><h3>Doctoral Programs</h3><p>PhD programs offering research opportunities with world-class faculty. Year-round rolling admissions for research-focused candidates.</p></div>
+        <div class="admission-card reveal"><span class="admission-icon">ðŸ’¼</span><h3>Executive Programs</h3><p>Part-time and weekend programs for working professionals. Skill enhancement certifications and executive upskilling available.</p></div>
+        <div class="admission-card reveal"><span class="admission-icon">ðŸŒ</span><h3>International Students</h3><p>Study at our campus with special visa support and orientation programs. International admissions coordinating across 40+ countries.</p></div>
+        <div class="admission-card reveal"><span class="admission-icon">ðŸ“–</span><h3>Diploma Programs</h3><p>Vocational training and diploma courses for technical skill development. Short-duration programs with placement support.</p></div>
+      </div></div></section>
+
+      <!-- SECTION 2: APPLICATION TIMELINE -->
+      <section class="section"><div class="container"><p class="section-label reveal">How It Works</p><h2 class="section-title reveal">Simple, Transparent Application Timeline</h2><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px;">
+        <div class="timeline-card reveal"><h4>Step 1: Eligibility Check</h4><p>Review program requirements and ensure you meet academic qualifications and prerequisites for your chosen program.</p></div>
+        <div class="timeline-card reveal"><h4>Step 2: Online Application</h4><p>Complete our online application portal with personal information, academic records, and essays about your goals.</p></div>
+        <div class="timeline-card reveal"><h4>Step 3: Document Submission</h4><p>Submit required documents including transcripts, test scores, and recommendation letters through secure portal.</p></div>
+        <div class="timeline-card reveal"><h4>Step 4: Interview</h4><p>Shortlisted candidates attend interviews (online or in-person) to discuss academic and career aspirations.</p></div>
+        <div class="timeline-card reveal"><h4>Step 5: Admission Decision</h4><p>Receive admission decision within 2-3 weeks of final interview. Acceptance includes enrollment details and deadlines.</p></div>
+        <div class="timeline-card reveal"><h4>Step 6: Enrollment</h4><p>Complete enrollment process by submitting confirmation, fees, and attending orientation before semester begins.</p></div>
+      </div></div></section>
+
+      <!-- SECTION 3: ELIGIBILITY REQUIREMENTS -->
+      <section class="section"><div class="container"><p class="section-label reveal">Program Requirements</p><h2 class="section-title reveal">What We're Looking For</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; align-items: start;">
+        <div class="reveal"><h3 style="margin-bottom: 24px;">Undergraduate Eligibility</h3><ul class="requirement-list">
+          <li>12th grade completion or equivalent</li>
+          <li>Minimum 75% aggregate or equivalent CGPA</li>
+          <li>Valid entrance exam score (JEE Main/State CET)</li>
+          <li>English language proficiency</li>
+          <li>No pending legal proceedings</li>
+          <li>Age minimum 17 years at admission</li>
+        </ul></div>
+        <div class="reveal"><h3 style="margin-bottom: 24px;">Postgraduate Eligibility</h3><ul class="requirement-list">
+          <li>Bachelor's degree in relevant field</li>
+          <li>Minimum 60% or 6.5 CGPA in UG</li>
+          <li>Valid GATE/GMAT score (program dependent)</li>
+          <li>Statement of purpose and motivation</li>
+          <li>Academic recommendations from professors</li>
+          <li>Relevant work experience preferred</li>
+        </ul></div>
+      </div></div></section>
+
+      <!-- SECTION 4: SCHOLARSHIPS & FINANCIAL AID -->
+      <section class="section"><div class="container"><p class="section-label reveal">Financial Support</p><h2 class="section-title reveal">Scholarships, Grants & Aid Programs</h2><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-top: 48px;">
+        <div class="scholarship-card reveal"><h4>Merit Scholarships</h4><p>Up to 50% tuition waiver for students with exceptional academic records and entrance exam scores. Renewable annually.</p></div>
+        <div class="scholarship-card reveal"><h4>Need-Based Grants</h4><p>Financial assistance for deserving students based on family income. Full tuition coverage available for eligible candidates.</p></div>
+        <div class="scholarship-card reveal"><h4>Excellence Awards</h4><p>Special recognition and funding for top performers in sports, arts, research, or social service activities.</p></div>
+        <div class="scholarship-card reveal"><h4>Working Student Program</h4><p>Campus employment opportunities providing 15-20 hours/week flexible work with hourly compensation.</p></div>
+        <div class="scholarship-card reveal"><h4>Industry Partnerships</h4><p>Sponsored scholarships from recruiting companies and industry partners for promising engineering candidates.</p></div>
+        <div class="scholarship-card reveal"><h4>Government Schemes</h4><p>Assistance with SC/ST/OBC/EWS schemes and government education loan facilitation programs.</p></div>
+      </div></div></section>
+
+      <!-- SECTION 5: FAQs -->
+      <section class="section"><div class="container"><p class="section-label reveal">Common Questions</p><h2 class="section-title reveal">Frequently Asked Questions</h2><div style="margin-top: 48px;">
+        <div class="faq-item reveal"><p class="faq-question">What is the application fee?</p><p class="faq-answer">Application fee is Rs. 1,500 for domestic students and $50 for international students. Fee is non-refundable and must be submitted with online application.</p></div>
+        <div class="faq-item reveal"><p class="faq-question">When are admissions open?</p><p class="faq-answer">UG admissions: June-July and December-January. PG admissions: April-May and September-October. PhD admissions open year-round with rolling basis decisions.</p></div>
+        <div class="faq-item reveal"><p class="faq-question">Can I apply for multiple programs?</p><p class="faq-answer">Yes, you can apply for up to 3 different programs in a single application. However, you must accept only one admission offer.</p></div>
+        <div class="faq-item reveal"><p class="faq-question">How long is the admission process?</p><p class="faq-answer">Typically 3-4 weeks from application submission to decision notification. Priority processing available for early applicants.</p></div>
+        <div class="faq-item reveal"><p class="faq-question">Do you accept international qualifications?</p><p class="faq-answer">Yes. We accept IB, IGCSE, A-Levels, and qualifications from recognized international boards. Conversion certificates may be required.</p></div>
+        <div class="faq-item reveal"><p class="faq-question">Is accommodation provided?</p><p class="faq-answer">Yes. On-campus hostel accommodations available on first-come-first-serve basis. Off-campus residence support also provided.</p></div>
+      </div></div></section>
+
+      <!-- CTA SECTION -->
+      <section class="section cta"><div class="container"><p class="section-label">Ready to Apply?</p><h2>Start Your Application Today</h2><p>Whether you're a high school graduate, working professional, or seasoned researcher, we have a program tailored to your goals.</p><div class="cta-actions"><a class="btn-primary" href="#">Begin Application</a><a class="btn-ghost" href="contact.html">Schedule Campus Tour</a></div></div></section>
+    </main>
+    <div data-footer></div>
+    <script>
+      function openDepartmentModal() {
+        const modal = document.getElementById('departmentModal');
+        if (modal) {
+          modal.classList.add('active');
+        }
+      }
+
+      function closeDepartmentModal() {
+        const modal = document.getElementById('departmentModal');
+        if (modal) {
+          modal.classList.remove('active');
+        }
+      }
+
+      function openPostgradModal() {
+        const modal = document.getElementById('postgradModal');
+        if (modal) {
+          modal.classList.add('active');
+        }
+      }
+
+      function closePostgradModal() {
+        const modal = document.getElementById('postgradModal');
+        if (modal) {
+          modal.classList.remove('active');
+        }
+      }
+
+      function openDoctoralModal() {
+        const modal = document.getElementById('doctoralModal');
+        if (modal) {
+          modal.classList.add('active');
+        }
+      }
+
+      function closeDoctoralModal() {
+        const modal = document.getElementById('doctoralModal');
+        if (modal) {
+          modal.classList.remove('active');
+        }
+      }
+
+      // Close modal when clicking outside the content
+      document.addEventListener('click', function(event) {
+        const modals = ['departmentModal', 'postgradModal', 'doctoralModal'];
+        modals.forEach(modalId => {
+          const modal = document.getElementById(modalId);
+          if (modal && event.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+      });
+    </script>
+    <script src="assets/js/main.js"></script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>
+

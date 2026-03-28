@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academics | Campus Insights University</title>
+    <meta name="description" content="Comprehensive academic programs at Campus Insights University." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      /* Academic Overview Icons */
+      .overview-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 12px;
+        color: var(--gold);
+        opacity: 0.9;
+      }
+
+      /* Highlight Cards */
+      .highlight-card {
+        padding: 24px;
+        background: var(--surface-2);
+        border-left: 3px solid var(--gold);
+        border-radius: 4px;
+        transition: all 300ms var(--ease);
+      }
+
+      .highlight-card:hover {
+        background: var(--gold-dim);
+        border-left-color: var(--gold);
+        transform: translateX(4px);
+      }
+
+      .highlight-card-title {
+        margin: 0 0 8px 0;
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .highlight-card-text {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Program Structure Tabs */
+      .program-tabs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 48px;
+      }
+
+      .program-tab {
+        padding: 40px;
+        background: var(--surface-2);
+        border: 2px solid var(--gold-border);
+        border-radius: 8px;
+        transition: all 300ms var(--ease);
+      }
+
+      .program-tab:hover {
+        border-color: var(--gold);
+        background: var(--gold-dim);
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-gold);
+      }
+
+      .program-tab-icon {
+        color: var(--gold);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: rgba(201, 169, 110, 0.1);
+        border-radius: 8px;
+      }
+
+      .program-tab-icon .icon-svg {
+        width: 30px;
+        height: 30px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .program-tab h3 {
+        margin: 16px 0 12px 0;
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .program-tab-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 18px;
+      }
+
+      .program-benefits {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .program-benefits li {
+        padding: 8px 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .program-benefits li:before {
+        content: "•";
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      /* Department Cards Updated */
+      .dept-card-equal {
+        padding: 32px;
+        background: var(--surface-2);
+        border: 2px solid var(--gold-border);
+        border-radius: 8px;
+        transition: all 300ms var(--ease);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .dept-card-equal:hover {
+        border-color: var(--gold);
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-gold);
+        background: var(--gold-dim);
+      }
+
+      .dept-card-icon {
+        color: var(--gold);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        background: rgba(201, 169, 110, 0.1);
+        border-radius: 8px;
+      }
+
+      .dept-card-icon .icon-svg {
+        width: 28px;
+        height: 28px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .dept-card-equal h3 {
+        margin: 0 0 10px 0;
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .dept-card-focus {
+        color: var(--gold);
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .dept-card-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        flex-grow: 1;
+        margin-bottom: 20px;
+      }
+
+      .dept-card-cta {
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 300ms var(--ease);
+      }
+
+      .dept-card-equal:hover .dept-card-cta {
+        gap: 12px;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+        margin-top: 48px;
+      }
+
+      .feature-card {
+        padding: 36px;
+        background: var(--surface-2);
+        border: 2px solid var(--gold-border);
+        border-radius: 8px;
+        text-align: center;
+        transition: all 300ms var(--ease);
+      }
+
+      .feature-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-6px);
+        background: var(--gold-dim);
+      }
+
+      .feature-icon-large {
+        color: var(--gold);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .feature-icon-large .icon-svg {
+        width: 34px;
+        height: 34px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .feature-card h3 {
+        margin: 0 0 12px 0;
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Equal Height Layout Pathways */
+      .pathway-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 28px;
+        margin-top: 48px;
+      }
+
+      .pathway-card {
+        padding: 36px;
+        background: var(--surface-2);
+        border: 2px solid var(--gold-border);
+        border-radius: 8px;
+        transition: all 300ms var(--ease);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .pathway-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-6px);
+        background: var(--gold-dim);
+      }
+
+      .pathway-icon {
+        color: var(--gold);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        background: rgba(201, 169, 110, 0.1);
+        border-radius: 8px;
+      }
+
+      .pathway-icon .icon-svg {
+        width: 30px;
+        height: 30px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .pathway-card h3 {
+        margin: 0 0 12px 0;
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .pathway-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        flex-grow: 1;
+      }
+
+      /* Section spacing */
+      .section {
+        padding: 120px 0;
+      }
+
+      @media (max-width: 768px) {
+        .section {
+          padding: 80px 0;
+        }
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="academics">
+    <div data-nav></div>
+    <main>
+      <!-- HERO SECTION -->
+      <header class="page-header">
+        <div class="container">
+          <p class="section-label reveal">Academic Excellence</p>
+          <h1 class="reveal">Academic Excellence Built on Rigor, Innovation, and Industry Relevance</h1>
+          <p class="reveal">Our curriculum is designed to bridge theory and real-world application, preparing students to excel in evolving global industries.</p>
+        </div>
+      </header>
+
+      <!-- SECTION 1: ACADEMIC OVERVIEW -->
+      <section class="section">
+        <div class="container">
+          <div class="intro-grid">
+            <div class="intro-copy">
+              <h2>Why Our Academics Stand Out</h2>
+              <p>Campus Insights University delivers comprehensive academic programs grounded in research, practical application, and industry partnership. Our faculty combines academic rigor with real-world expertise, ensuring students gain both theoretical knowledge and hands-on competency.</p>
+              <p style="margin-top: 24px; margin-bottom: 24px;">Every program integrates industry projects, laboratory work, internships, and mentorship to prepare graduates for leadership in their chosen fields. We believe in holistic education that develops not just skilled professionals, but thoughtful, innovative leaders.</p>
+              <a class="inline-link" href="#departments">Explore All Departments →</a>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div class="highlight-card">
+                <h4 class="highlight-card-title">Outcome-Based Education</h4>
+                <p class="highlight-card-text">Programs designed with clear learning objectives and industry benchmarks for measurable student success.</p>
+              </div>
+              <div class="highlight-card">
+                <h4 class="highlight-card-title">Industry-Aligned Curriculum</h4>
+                <p class="highlight-card-text">Syllabi updated regularly with input from leading industry partners and research institutions.</p>
+              </div>
+              <div class="highlight-card">
+                <h4 class="highlight-card-title">Research-Driven Learning</h4>
+                <p class="highlight-card-text">Students engage in cutting-edge research projects from early years with dedicated faculty mentors.</p>
+              </div>
+              <div class="highlight-card">
+                <h4 class="highlight-card-title">Hands-on Projects & Labs</h4>
+                <p class="highlight-card-text">World-class facilities and state-of-the-art equipment for practical skill development and innovation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: PROGRAM STRUCTURE -->
+      <section class="section">
+        <div class="container">
+          <p class="section-label reveal">Structured Programs</p>
+          <h2 class="section-title reveal">Academic Programs for Every Career Stage</h2>
+          <div class="program-tabs">
+            <!-- Undergraduate -->
+            <div class="program-tab reveal">
+              <div class="program-tab-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h7a3 3 0 0 1 3 3v11H7a3 3 0 0 0-3 3z"/><path d="M20 5h-7a3 3 0 0 0-3 3v11h7a3 3 0 0 1 3 3z"/></svg></div>
+              <h3>Undergraduate Programs</h3>
+              <p class="program-tab-desc">Transform foundational knowledge into professional expertise through comprehensive 4-year curricula.</p>
+              <ul class="program-benefits">
+                <li>Project-based learning pathways</li>
+                <li>Industry internships (mandatory)</li>
+                <li>Honors and specialist tracks</li>
+                <li>Global exposure opportunities</li>
+              </ul>
+            </div>
+
+            <!-- Postgraduate -->
+            <div class="program-tab reveal">
+              <div class="program-tab-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-4 9 4-9 4-9-4z"/><path d="M7 11v4c0 1.7 2.2 3 5 3s5-1.3 5-3v-4"/><path d="M21 10v6"/></svg></div>
+              <h3>Postgraduate Programs</h3>
+              <p class="program-tab-desc">Advanced specialization for professionals seeking expertise and research opportunities.</p>
+              <ul class="program-benefits">
+                <li>M.Tech and M.S. programs</li>
+                <li>Research-driven curriculum</li>
+                <li>Industry partnerships</li>
+                <li>Thesis or capstone projects</li>
+              </ul>
+            </div>
+
+            <!-- Research & PhD -->
+            <div class="program-tab reveal">
+              <div class="program-tab-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-4 7a3 3 0 0 0 2.6 4.5h6.8A3 3 0 0 0 18 16l-4-7V3"/></svg></div>
+              <h3>Research & PhD Programs</h3>
+              <p class="program-tab-desc">Doctoral studies with world-class faculty and collaborative international research networks.</p>
+              <ul class="program-benefits">
+                <li>Guided doctoral research</li>
+                <li>Publication support</li>
+                <li>International collaborations</li>
+                <li>Advanced lab facilities</li>
+              </ul>
+            </div>
+
+            <!-- Academic Support -->
+            <div class="program-tab reveal">
+              <div class="program-tab-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+              <h3>Academic Support Services</h3>
+              <p class="program-tab-desc">Comprehensive resources to ensure student success at every academic level.</p>
+              <ul class="program-benefits">
+                <li>Personalized mentorship</li>
+                <li>Writing and tutoring labs</li>
+                <li>Career integrated advising</li>
+                <li>Accessibility services</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: DEPARTMENTS GRID -->
+      <section class="section" id="departments">
+        <div class="container">
+          <p class="section-label reveal">Engineering Disciplines</p>
+          <h2 class="section-title reveal">Explore Our Departments & Specializations</h2>
+          <p style="text-align: center; color: var(--text-muted); margin-bottom: 48px; font-size: 1.05rem;">Choose from 8 engineering programs, each offering UG, PG, and doctoral pathways.</p>
+          
+          <!-- LEVEL TABS -->
+          <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 48px; flex-wrap: wrap;">
+            <button class="level-tab active" onclick="showLevel('ug')">Undergraduate</button>
+            <button class="level-tab" onclick="showLevel('pg')">Postgraduate (M.Tech)</button>
+            <button class="level-tab" onclick="showLevel('phd')">Doctoral (PhD)</button>
+          </div>
+
+          <style>
+            .level-tab {
+              padding: 12px 28px;
+              background: var(--surface-2);
+              border: 2px solid var(--gold-border);
+              color: var(--text-primary);
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 1rem;
+              font-weight: 500;
+              transition: all 300ms var(--ease);
+            }
+
+            .level-tab:hover {
+              border-color: var(--gold);
+              background: var(--gold-dim);
+            }
+
+            .level-tab.active {
+              background: var(--gold);
+              border-color: var(--gold);
+              color: var(--bg);
+            }
+
+            .department-section {
+              display: none;
+            }
+
+            .department-section.active {
+              display: block;
+            }
+          </style>
+
+          <!-- UNDERGRADUATE SECTION -->
+          <div id="ug-section" class="department-section active">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px;">
+            <!-- Core Engineering -->
+            <a href="dept-civil.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16"/><path d="M6 21V7l6-4 6 4v14"/><path d="M9 11h2"/><path d="M13 11h2"/><path d="M9 15h2"/><path d="M13 15h2"/></svg></div>
+              <h3>Civil Engineering</h3>
+              <p class="dept-card-focus">Infrastructure & Structures</p>
+              <p class="dept-card-desc">Build the future with expertise in structural design, sustainable infrastructure, water resources, and geotechnical engineering.</p>
+              <span class="dept-card-cta">Explore Department →</span>
+            </a>
+
+            <a href="dept-mechanical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a3 3 0 0 0 3.9 3.9l-8.3 8.3a2 2 0 1 1-2.8-2.8z"/><path d="M16 4l4 4"/></svg></div>
+              <h3>Mechanical Engineering</h3>
+              <p class="dept-card-focus">Manufacturing & Systems</p>
+              <p class="dept-card-desc">Master thermodynamics, robotics, fluid mechanics, and manufacturing technologies shaping modern industry.</p>
+              <span class="dept-card-cta">Explore Department →</span>
+            </a>
+
+            <a href="dept-electrical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
+              <h3>Electrical Engineering</h3>
+              <p class="dept-card-focus">Power & Control Systems</p>
+              <p class="dept-card-desc">Design and optimize power systems, control networks, and electrical infrastructure for sustainable energy.</p>
+              <span class="dept-card-cta">Explore Department →</span>
+            </a>
+
+            <a href="dept-electronics.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 1v3M14 1v3M10 20v3M14 20v3M20 10h3M20 14h3M1 10h3M1 14h3"/></svg></div>
+              <h3>Electronics & Instrumentation</h3>
+              <p class="dept-card-focus">Semiconductors & Signals</p>
+              <p class="dept-card-desc">Develop expertise in microelectronics, embedded systems, VLSI design, and advanced signal processing.</p>
+              <span class="dept-card-cta">Explore Department →</span>
+            </a>
+
+            <a href="dept-cse.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg></div>
+              <h3>Computer Science Engineering</h3>
+              <p class="dept-card-focus">Software & Systems</p>
+              <p class="dept-card-desc">Build next-generation software, cloud platforms, and intelligent systems with cutting-edge technologies.</p>
+              <span class="dept-card-cta">Explore Department →</span>
+            </a>
+
+            <a href="dept-aerospace.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l4 7-4 13-4-13z"/><path d="M9 9h6"/></svg></div>
+              <h3>Aerospace Engineering</h3>
+              <p class="dept-card-focus">Aviation & Space</p>
+              <p class="dept-card-desc">Advance aviation technology with expertise in aerodynamics, propulsion systems, and flight dynamics.</p>
+              <span class="dept-card-cta">Explore Department →</span>
+            </a>
+
+            <!-- Advanced/Emerging -->
+            <a href="dept-chemical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-4 7a3 3 0 0 0 2.6 4.5h6.8A3 3 0 0 0 18 16l-4-7V3"/></svg></div>
+              <h3>Chemical Engineering</h3>
+              <p class="dept-card-focus">Processes & Sustainability</p>
+              <p class="dept-card-desc">Innovate in pharmaceutical production, sustainable processes, and green chemistry technologies.</p>
+              <span class="dept-card-cta">Explore Department →</span>
+            </a>
+
+            <a href="dept-ml.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h6M16.6 7.4l-3.2 3.2M13.4 13.4l3.2 3.2"/></svg></div>
+              <h3>AI & Machine Learning</h3>
+              <p class="dept-card-focus">Data & Intelligence</p>
+              <p class="dept-card-desc">Pioneer artificial intelligence, deep learning, and data science solutions for real-world challenges.</p>
+              <span class="dept-card-cta">Explore Department →</span>
+            </a>
+          </div>
+          </div>
+
+          <!-- POSTGRADUATE SECTION -->
+          <div id="pg-section" class="department-section">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px;">
+            <a href="pg-civil.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🏢</div>
+              <h3>Civil Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced Structural & Infrastructure</p>
+              <p class="dept-card-desc">Specialize in earthquake engineering, sustainable construction, and advanced infrastructure systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="pg-mechanical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">⚙️</div>
+              <h3>Mechanical Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced Design & Automation</p>
+              <p class="dept-card-desc">Master CAD/CAM, robotics, advanced materials, and computational fluid dynamics.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="pg-electrical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">⚡</div>
+              <h3>Electrical Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Power Systems & Smart Grid</p>
+              <p class="dept-card-desc">Specialize in renewable energy, smart grids, and power electronics systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="pg-electronics.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">📌</div>
+              <h3>Electronics Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">VLSI & Embedded Systems</p>
+              <p class="dept-card-desc">Advance in chip design, IoT, and advanced signal processing technologies.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="pg-cse.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">💻</div>
+              <h3>Computer Science (M.Tech)</h3>
+              <p class="dept-card-focus">Data Science & Cloud Computing</p>
+              <p class="dept-card-desc">Specialize in big data, cloud platforms, cybersecurity, and AI systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="pg-aerospace.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">✈️</div>
+              <h3>Aerospace Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced Flight Dynamics</p>
+              <p class="dept-card-desc">Specialize in aircraft design, aerodynamics, and propulsion systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="pg-chemical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🧪</div>
+              <h3>Chemical Engineering (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced Process Engineering</p>
+              <p class="dept-card-desc">Master biochemical processes, green chemistry, and sustainable engineering.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="pg-ml.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🤖</div>
+              <h3>AI & Machine Learning (M.Tech)</h3>
+              <p class="dept-card-focus">Advanced AI & Deep Learning</p>
+              <p class="dept-card-desc">Specialize in neural networks, NLP, and large-scale machine learning systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+          </div>
+          </div>
+
+          <!-- DOCTORAL SECTION -->
+          <div id="phd-section" class="department-section">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px;">
+            <a href="phd-civil.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🏢</div>
+              <h3>Civil Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Conduct cutting-edge research in structural systems, sustainability, and infrastructure innovation.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-mechanical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">⚙️</div>
+              <h3>Mechanical Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Advanced research in manufacturing, robotics, thermal systems, and mechanics.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-electrical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">⚡</div>
+              <h3>Electrical Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research opportunities in power systems, renewable energy, and control systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-electronics.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">📌</div>
+              <h3>Electronics Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in semiconductor devices, nanoelectronics, and advanced sensor systems.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-cse.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">💻</div>
+              <h3>Computer Science (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in AI, cybersecurity, distributed systems, and computational methods.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-aerospace.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">✈️</div>
+              <h3>Aerospace Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in aerodynamics, propulsion, space systems, and flight control.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-chemical.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🧪</div>
+              <h3>Chemical Engineering (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in catalysis, green chemistry, and bioengineering processes.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+
+            <a href="phd-ml.html" class="dept-card-equal reveal">
+              <div class="dept-card-icon">🤖</div>
+              <h3>AI & Machine Learning (PhD)</h3>
+              <p class="dept-card-focus">Doctoral Research</p>
+              <p class="dept-card-desc">Research in theoretical ML, optimization, and applications of AI to complex domains.</p>
+              <span class="dept-card-cta">Explore Program →</span>
+            </a>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        function showLevel(level) {
+          // Hide all sections
+          document.querySelectorAll('.department-section').forEach(el => el.classList.remove('active'));
+          document.querySelectorAll('.level-tab').forEach(el => el.classList.remove('active'));
+          
+          // Show selected section
+          const sectionId = level + '-section';
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.classList.add('active');
+          }
+          
+          // Highlight active tab
+          event.target.classList.add('active');
+        }
+      </script>
+
+      <!-- SECTION 4: ACADEMIC FEATURES -->
+      <section class="section">
+        <div class="container">
+          <p class="section-label reveal">What Makes Our Academics Strong</p>
+          <h2 class="section-title reveal">World-Class Academic Ecosystem</h2>
+          
+          <div class="features-grid">
+            <div class="feature-card reveal">
+              <div class="feature-icon-large"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16"/><path d="M6 21V7l6-4 6 4v14"/><path d="M9 11h2"/><path d="M13 11h2"/><path d="M9 15h2"/><path d="M13 15h2"/></svg></div>
+              <h3>Industry Projects</h3>
+              <p>Real-world capstone projects with leading organizations, solving actual industry challenges while building portfolio.</p>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-icon-large"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M3 12h18"/></svg></div>
+              <h3>Internship Opportunities</h3>
+              <p>Structured internship programs with 500+ partner organizations ensuring practical industry experience.</p>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-icon-large"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-4 7a3 3 0 0 0 2.6 4.5h6.8A3 3 0 0 0 18 16l-4-7V3"/></svg></div>
+              <h3>Research Labs & Centers</h3>
+              <p>State-of-the-art facilities for fundamental and applied research in emerging technologies.</p>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-icon-large"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V18h8v-3.3A7 7 0 0 0 12 2z"/></svg></div>
+              <h3>Innovation Centers</h3>
+              <p>Dedicated spaces for prototyping, startup incubation, and technology entrepreneurship.</p>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-icon-large"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 0 1 0 18"/><path d="M12 3a13 13 0 0 0 0 18"/></svg></div>
+              <h3>Global Exposure</h3>
+              <p>Study abroad programs, exchange semesters, and international research collaborations with top universities.</p>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-icon-large"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 2h6v4H9z"/><path d="M8 10h8"/><path d="M8 14h6"/></svg></div>
+              <h3>Technical Workshops</h3>
+              <p>Regular upskilling workshops, certification programs, and industry expert seminars throughout the year.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: LEARNING PATHWAYS -->
+      <section class="section">
+        <div class="container">
+          <p class="section-label reveal">Student-Centric Education</p>
+          <h2 class="section-title reveal">Diverse Learning Pathways for Every Goal</h2>
+          
+          <div class="pathway-grid">
+            <div class="pathway-card reveal">
+              <div class="pathway-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h7a3 3 0 0 1 3 3v11H7a3 3 0 0 0-3 3z"/><path d="M20 5h-7a3 3 0 0 0-3 3v11h7a3 3 0 0 1 3 3z"/></svg></div>
+              <h3>Undergraduate Degree</h3>
+              <p>Four-year comprehensive engineering programs with honors tracks, specializations, and interdisciplinary minors for well-rounded professionals.</p>
+            </div>
+
+            <div class="pathway-card reveal">
+              <div class="pathway-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-4 9 4-9 4-9-4z"/><path d="M7 11v4c0 1.7 2.2 3 5 3s5-1.3 5-3v-4"/><path d="M21 10v6"/></svg></div>
+              <h3>Postgraduate Specialization</h3>
+              <p>Two-year master's programs combining foundational knowledge, advanced research, and industry-aligned specializations.</p>
+            </div>
+
+            <div class="pathway-card reveal">
+              <div class="pathway-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-4 7a3 3 0 0 0 2.6 4.5h6.8A3 3 0 0 0 18 16l-4-7V3"/></svg></div>
+              <h3>Doctoral Research</h3>
+              <p>PhD programs offering opportunities to contribute original research while collaborating with international institutions and industry.</p>
+            </div>
+
+            <div class="pathway-card reveal">
+              <div class="pathway-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M3 12h18"/></svg></div>
+              <h3>Executive Programs</h3>
+              <p>Part-time and weekend programs for working professionals seeking skill enhancement and career advancement credentials.</p>
+            </div>
+
+            <div class="pathway-card reveal">
+              <div class="pathway-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+              <h3>Academic Support & Mentoring</h3>
+              <p>Comprehensive support services including tutoring, writing labs, counseling, and personalized academic advising.</p>
+            </div>
+
+            <div class="pathway-card reveal">
+              <div class="pathway-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 0 1 0 18"/><path d="M12 3a13 13 0 0 0 0 18"/></svg></div>
+              <h3>Global Exchange Programs</h3>
+              <p>Study abroad opportunities and international exchange programs with partner universities across five continents.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA SECTION -->
+      <section class="section cta">
+        <div class="container">
+          <p class="section-label">Begin Your Academic Journey</p>
+          <h2>Ready to Transform Your Future?</h2>
+          <p>Discover the program that aligns with your goals, connect with our academic advisors, and start your application today.</p>
+          <div class="cta-actions">
+            <a class="btn-primary" href="admissions.html">Apply Now</a>
+            <a class="btn-ghost" href="contact.html">Schedule Consultation</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-footer></div>
+    <script src="assets/js/main.js"></script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

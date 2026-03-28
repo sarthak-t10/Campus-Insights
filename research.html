@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research | Campus Insights University</title>
+    <meta
+      name="description"
+      content="Campus Insights University research portal covering R and D governance, projects, publications, patents, centers, and collaborations."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .research-shell {
+        width: min(100%, 1152px);
+        margin: 0 auto;
+      }
+
+      .research-hero {
+        padding-top: 164px;
+        padding-bottom: 96px;
+      }
+
+      .research-hero h1,
+      .research-hero p {
+        animation: researchFadeIn 700ms var(--ease) both;
+      }
+
+      .research-hero p {
+        animation-delay: 90ms;
+      }
+
+      @keyframes researchFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .research-local-nav {
+        position: sticky;
+        top: 76px;
+        z-index: 900;
+        padding: 14px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: color-mix(in srgb, var(--surface) 86%, transparent);
+        backdrop-filter: blur(14px);
+      }
+
+      .research-local-nav-track {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+
+      .research-local-nav-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .research-local-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 13px;
+        border: 1px solid var(--gold-border);
+        border-radius: 999px;
+        color: var(--text-muted);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        transition: all 260ms var(--ease);
+      }
+
+      .research-local-link:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+        background: var(--gold-dim);
+      }
+
+      .research-section {
+        padding: 96px 0;
+      }
+
+      .section-head {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .section-head p {
+        max-width: 760px;
+        margin: 12px auto 0;
+        color: var(--text-muted);
+      }
+
+      .research-grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      .research-grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .research-grid.three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .research-grid.four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .research-card {
+        height: 100%;
+        border: 1px solid var(--gold-border);
+        border-radius: 14px;
+        padding: 22px;
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        transition: transform 280ms var(--ease), border-color 280ms var(--ease), box-shadow 280ms var(--ease), background-color 280ms var(--ease);
+      }
+
+      .research-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(201, 169, 110, 0.7);
+        box-shadow: var(--shadow-gold);
+        background: linear-gradient(165deg, rgba(201, 169, 110, 0.12), rgba(255, 255, 255, 0.02));
+      }
+
+      .card-subtitle {
+        margin: 0;
+        color: var(--gold);
+        font-size: 0.75rem;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .card-title {
+        margin: 0;
+        color: var(--text-primary);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35rem;
+        line-height: 1.16;
+      }
+
+      .card-text {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.66;
+      }
+
+      .icon-wrap {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(201, 169, 110, 0.44);
+        background: rgba(201, 169, 110, 0.1);
+      }
+
+      .ri-icon {
+        width: 20px;
+        height: 20px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .stat-card {
+        justify-content: center;
+      }
+
+      .stat-value {
+        margin: 0;
+        color: var(--gold);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+        line-height: 1.1;
+      }
+
+      .stat-label {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .meta-line {
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        font-size: 0.82rem;
+        color: var(--gold);
+      }
+
+      .list-block {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text-muted);
+      }
+
+      .list-block li {
+        margin-bottom: 6px;
+      }
+
+      .research-table {
+        border: 1px solid var(--gold-border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .research-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 14px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        background: color-mix(in srgb, var(--surface) 44%, transparent);
+      }
+
+      .research-row:last-child {
+        border-bottom: 0;
+      }
+
+      .research-row-head {
+        background: color-mix(in srgb, var(--surface) 70%, transparent);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .research-row span {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .contact-card h4 {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold);
+      }
+
+      .contact-card p,
+      .contact-card a {
+        margin: 6px 0 0;
+        color: var(--text-muted);
+      }
+
+      .cta-row {
+        margin-top: 22px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 1140px) {
+        .research-grid.four {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .research-grid.three {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .contact-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 860px) {
+        .research-hero {
+          padding-top: 130px;
+          padding-bottom: 76px;
+        }
+
+        .research-section {
+          padding: 76px 0;
+        }
+
+        .research-grid.two,
+        .research-grid.three,
+        .research-grid.four,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .research-row,
+        .research-row-head {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="research">
+    <div data-nav></div>
+    <main>
+      <header class="page-header research-hero">
+        <div class="container research-shell">
+          <p class="section-label">Research and Development</p>
+          <h1>Research That Drives Innovation and Real-World Impact</h1>
+          <p>
+            Our research ecosystem empowers innovation through interdisciplinary collaboration, advanced labs, and industry partnerships.
+          </p>
+        </div>
+      </header>
+
+      <section class="research-local-nav">
+        <div class="container research-shell">
+          <nav class="research-local-nav-track" aria-label="Research Section Navigation">
+            <a class="research-local-link" href="#about-rd">About R and D</a>
+            <a class="research-local-link" href="#rd-committee">R and D Committee</a>
+            <a class="research-local-link" href="#research-staff">Research Staff</a>
+            <a class="research-local-link" href="#research-centers">Research Centers</a>
+            <a class="research-local-link" href="#funded-projects">Funded Projects</a>
+            <a class="research-local-link" href="#industry-collab">Industry Collaborations</a>
+            <a class="research-local-link" href="#publications">Publications</a>
+            <a class="research-local-link" href="#patents">Patents</a>
+            <a class="research-local-link" href="#phd-programs">PhD Programs</a>
+            <a class="research-local-link" href="#innovation-labs">Innovation Labs</a>
+            <a class="research-local-link" href="#research-gallery">Research Gallery</a>
+            <a class="research-local-link" href="#research-office">Research Office</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="research-section" id="about-rd">
+        <div class="container research-shell">
+          <div class="research-grid two">
+            <article class="research-card reveal">
+              <p class="card-subtitle">About Research and Development</p>
+              <h2 class="card-title">An Institutional Culture Built on Inquiry and Application</h2>
+              <p class="card-text">
+                The R and D ecosystem at Campus Insights University integrates rigorous academic research with lab-led experimentation,
+                interdisciplinary project teams, and industry-linked implementation pathways.
+              </p>
+              <p class="card-text">
+                Faculty, scholars, and students work through structured research pipelines covering proposal design, experimentation,
+                publication, and patent filing with quality review at each stage.
+              </p>
+              <p class="card-text">
+                The institution supports collaborative grants, center-level research clusters, and translational projects addressing
+                mobility, infrastructure, energy, manufacturing, and intelligent systems.
+              </p>
+            </article>
+
+            <div class="research-grid two">
+              <article class="research-card stat-card reveal">
+                <p class="stat-value">90+</p>
+                <p class="stat-label">Research Projects</p>
+              </article>
+              <article class="research-card stat-card reveal">
+                <p class="stat-value">90+</p>
+                <p class="stat-label">Patents Filed</p>
+              </article>
+              <article class="research-card stat-card reveal">
+                <p class="stat-value">10+</p>
+                <p class="stat-label">Research Centers</p>
+              </article>
+              <article class="research-card stat-card reveal">
+                <p class="stat-value">300+</p>
+                <p class="stat-label">Research Scholars</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="rd-committee">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">R and D Committee</p>
+            <h2 class="section-title">Governance and Academic Oversight</h2>
+            <p>Research policy, proposal review, ethics monitoring, and grant facilitation are managed through a structured committee.</p>
+          </div>
+
+          <div class="research-grid three">
+            <article class="research-card reveal">
+              <p class="card-subtitle">Chairperson</p>
+              <h3 class="card-title">Dr. Ananya Raman</h3>
+              <p class="card-text">Dean - R and D leading strategic planning, quality benchmarks, and interdisciplinary research growth.</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Committee Coordinator</p>
+              <h3 class="card-title">Dr. S. K. Narayan</h3>
+              <p class="card-text">Coordinates proposal workflows, review cycles, and milestone tracking for funded projects.</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">IPR Coordinator</p>
+              <h3 class="card-title">Prof. Meera Joshi</h3>
+              <p class="card-text">Guides invention disclosure, patent drafting, legal support, and technology transfer discussions.</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Ethics and Compliance</p>
+              <h3 class="card-title">Dr. Harish Kulkarni</h3>
+              <p class="card-text">Ensures ethical conduct, data governance, and institutional compliance for all research activity.</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Industry Liaison</p>
+              <h3 class="card-title">Prof. Neha Sridhar</h3>
+              <p class="card-text">Leads industry-facing research partnerships, joint labs, and MoU-based innovation programs.</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Department Representatives</p>
+              <h3 class="card-title">Center and Department Leads</h3>
+              <p class="card-text">Domain-level representatives from Civil, Mechanical, ECE, CSE, and Applied Sciences.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="research-staff">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Research Staff and Faculty</p>
+            <h2 class="section-title">Core Academic Research Teams</h2>
+            <p>Faculty research groups are supported by research associates, technical staff, and doctoral scholars across domains.</p>
+          </div>
+
+          <div class="research-grid four">
+            <article class="research-card reveal">
+              <p class="card-subtitle">Principal Investigator</p>
+              <h3 class="card-title">Dr. Aditya Prakash</h3>
+              <p class="card-text">Leads intelligent transportation and optimization systems research.</p>
+              <p class="meta-line">Domain: AI and Smart Mobility</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Principal Investigator</p>
+              <h3 class="card-title">Dr. Ritu Menon</h3>
+              <p class="card-text">Heads sustainable materials and structural resilience studies.</p>
+              <p class="meta-line">Domain: Civil and Materials</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Senior Research Scientist</p>
+              <h3 class="card-title">Dr. Abhinav Rao</h3>
+              <p class="card-text">Guides embedded hardware, edge intelligence, and IoT testbeds.</p>
+              <p class="meta-line">Domain: ECE and Embedded Systems</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Research Associate Team</p>
+              <h3 class="card-title">Interdisciplinary Associates</h3>
+              <p class="card-text">Coordinates simulation, instrumentation, and data analysis workflows across projects.</p>
+              <p class="meta-line">Support: 45+ Research Associates</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="research-centers">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Research Centers</p>
+            <h2 class="section-title">Center-Led Interdisciplinary Research</h2>
+          </div>
+
+          <div class="research-grid three">
+            <article class="research-card reveal">
+              <span class="icon-wrap"><svg class="ri-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h6M16.6 7.4l-3.2 3.2M13.4 13.4l3.2 3.2"/></svg></span>
+              <h3 class="card-title">AI and Data Science Lab</h3>
+              <p class="card-text">Machine learning, optimization, predictive analytics, and decision support systems.</p>
+              <p class="meta-line">Focus Area: Intelligent Systems</p>
+            </article>
+            <article class="research-card reveal">
+              <span class="icon-wrap"><svg class="ri-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a3 3 0 0 0 3.9 3.9l-8.3 8.3a2 2 0 1 1-2.8-2.8z"/><path d="M16 4l4 4"/></svg></span>
+              <h3 class="card-title">Mechanical Systems Lab</h3>
+              <p class="card-text">Thermal engineering, robotics prototyping, and high-efficiency manufacturing systems.</p>
+              <p class="meta-line">Focus Area: Smart Manufacturing</p>
+            </article>
+            <article class="research-card reveal">
+              <span class="icon-wrap"><svg class="ri-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16"/><path d="M6 21V7l6-4 6 4v14"/><path d="M9 11h2"/><path d="M13 11h2"/><path d="M9 15h2"/><path d="M13 15h2"/></svg></span>
+              <h3 class="card-title">Civil Infrastructure Lab</h3>
+              <p class="card-text">Infrastructure durability, water networks, transportation systems, and sustainability analytics.</p>
+              <p class="meta-line">Focus Area: Urban Systems</p>
+            </article>
+            <article class="research-card reveal">
+              <span class="icon-wrap"><svg class="ri-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 1v3M14 1v3M10 20v3M14 20v3M20 10h3M20 14h3M1 10h3M1 14h3"/></svg></span>
+              <h3 class="card-title">Embedded and Communication Lab</h3>
+              <p class="card-text">Communication stacks, embedded controllers, and low-power hardware systems.</p>
+              <p class="meta-line">Focus Area: ECE and IoT</p>
+            </article>
+            <article class="research-card reveal">
+              <span class="icon-wrap"><svg class="ri-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-4 7a3 3 0 0 0 2.6 4.5h6.8A3 3 0 0 0 18 16l-4-7V3"/></svg></span>
+              <h3 class="card-title">Biotechnology and Materials Lab</h3>
+              <p class="card-text">Sustainable materials, bioengineering workflows, and applied chemistry collaborations.</p>
+              <p class="meta-line">Focus Area: Biomaterials</p>
+            </article>
+            <article class="research-card reveal">
+              <span class="icon-wrap"><svg class="ri-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/><path d="M4 12h16"/></svg></span>
+              <h3 class="card-title">Applied Physics and Chemistry Unit</h3>
+              <p class="card-text">Experimental characterization and instrumentation support for all center-level projects.</p>
+              <p class="meta-line">Focus Area: Core Sciences</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="funded-projects">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Funded Research Projects</p>
+            <h2 class="section-title">Government and Industry Supported Work</h2>
+          </div>
+
+          <div class="research-grid three">
+            <article class="research-card reveal">
+              <p class="card-subtitle">Project</p>
+              <h3 class="card-title">Smart Traffic Optimization using AI</h3>
+              <p class="card-text">Adaptive traffic control framework combining live data analytics and route optimization.</p>
+              <p class="meta-line">Domain: AI Mobility | Funding: Government</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Project</p>
+              <h3 class="card-title">Hybrid EV Powertrain Control Platform</h3>
+              <p class="card-text">Controller development for efficiency and battery longevity in electric mobility systems.</p>
+              <p class="meta-line">Domain: Energy Systems | Funding: Industry</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Project</p>
+              <h3 class="card-title">Water Quality Prediction for Urban Networks</h3>
+              <p class="card-text">Predictive modeling and sensor-based anomaly detection for municipal water grids.</p>
+              <p class="meta-line">Domain: Civil Analytics | Funding: Government</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Project</p>
+              <h3 class="card-title">Autonomous Inspection Drone for Structures</h3>
+              <p class="card-text">Low-cost inspection drone pipeline for bridge and industrial facility assessment.</p>
+              <p class="meta-line">Domain: Robotics | Funding: Industry</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Project</p>
+              <h3 class="card-title">Waste-to-Energy Process Enhancement</h3>
+              <p class="card-text">Thermal and catalytic process optimization for sustainable conversion pathways.</p>
+              <p class="meta-line">Domain: Chemical Engineering | Funding: Government</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Project</p>
+              <h3 class="card-title">Secure Edge Framework for Industrial IoT</h3>
+              <p class="card-text">End-device security, lightweight cryptography, and trusted telemetry architecture.</p>
+              <p class="meta-line">Domain: Embedded Security | Funding: Industry</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="industry-collab">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Industry Collaborations and MoUs</p>
+            <h2 class="section-title">Applied Research Through Institutional Partnerships</h2>
+          </div>
+
+          <div class="research-grid four">
+            <article class="research-card reveal">
+              <h3 class="card-title">Joint Product Development</h3>
+              <p class="card-text">Co-development with manufacturing and digital engineering partners for deployable prototypes.</p>
+              <p class="meta-line">MoU Type: Industry R and D</p>
+            </article>
+            <article class="research-card reveal">
+              <h3 class="card-title">Advanced Testing Programs</h3>
+              <p class="card-text">Shared validation infrastructure for reliability testing and performance benchmarking.</p>
+              <p class="meta-line">MoU Type: Joint Testing</p>
+            </article>
+            <article class="research-card reveal">
+              <h3 class="card-title">Skill and Research Fellowships</h3>
+              <p class="card-text">Research fellowship pathways connecting scholars with partner R and D teams.</p>
+              <p class="meta-line">MoU Type: Talent and Research</p>
+            </article>
+            <article class="research-card reveal">
+              <h3 class="card-title">Government Program Alignment</h3>
+              <p class="card-text">Consortia proposals for mission-driven programs in sustainability and digital systems.</p>
+              <p class="meta-line">MoU Type: Public Funding Programs</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="publications">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Publications</p>
+            <h2 class="section-title">Journal and Conference Contributions</h2>
+          </div>
+
+          <div class="research-table reveal">
+            <div class="research-row research-row-head">
+              <strong>Publication Title</strong>
+              <strong>Type</strong>
+              <strong>Year</strong>
+            </div>
+            <div class="research-row">
+              <span>Adaptive Deep Learning Model for Congestion Prediction in Urban Mobility Systems</span>
+              <span>Journal</span>
+              <span>2025</span>
+            </div>
+            <div class="research-row">
+              <span>Low-Cost Structural Health Monitoring using Sensor Fusion and Edge Analytics</span>
+              <span>Journal</span>
+              <span>2025</span>
+            </div>
+            <div class="research-row">
+              <span>Hybrid Thermal Management Strategy for EV Battery Platforms</span>
+              <span>Conference</span>
+              <span>2024</span>
+            </div>
+            <div class="research-row">
+              <span>Secure Communication Architecture for Large-Scale Industrial IoT Deployments</span>
+              <span>Conference</span>
+              <span>2024</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="patents">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Patents Filed</p>
+            <h2 class="section-title">Innovation with Protectable Outcomes</h2>
+          </div>
+
+          <div class="research-grid three">
+            <article class="research-card reveal">
+              <h3 class="card-title">AI-Based Process Optimization Engine</h3>
+              <p class="card-text">A domain-adaptive optimization engine for industrial decision workflows and production planning.</p>
+              <p class="meta-line">Status: Filed | Domain: AI Systems</p>
+            </article>
+            <article class="research-card reveal">
+              <h3 class="card-title">Renewable Hybrid Microgrid Controller</h3>
+              <p class="card-text">Control architecture for resilient renewable microgrids with predictive demand balancing.</p>
+              <p class="meta-line">Status: Filed | Domain: Energy Systems</p>
+            </article>
+            <article class="research-card reveal">
+              <h3 class="card-title">Autonomous Waste Segregation Pipeline</h3>
+              <p class="card-text">Computer-vision assisted system for automated waste sorting and processing efficiency.</p>
+              <p class="meta-line">Status: Filed | Domain: Sustainability</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="phd-programs">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">PhD Programs and Enrollment</p>
+            <h2 class="section-title">Doctoral Research Pathways</h2>
+          </div>
+
+          <div class="research-grid two">
+            <article class="research-card reveal">
+              <h3 class="card-title">PhD Opportunities</h3>
+              <p class="card-text">
+                Full-time and part-time doctoral programs are offered in Civil, Mechanical, ECE, CSE, AI, and Applied Sciences.
+                Scholars are aligned to funded research groups and receive publication and IPR mentoring.
+              </p>
+              <ul class="list-block">
+                <li>Structured coursework and research methodology modules</li>
+                <li>Quarterly progress reviews with center-level committees</li>
+                <li>Conference participation and publication guidance</li>
+                <li>Patent support and innovation transfer orientation</li>
+              </ul>
+            </article>
+            <div class="research-grid two">
+              <article class="research-card stat-card reveal">
+                <p class="stat-value">300+</p>
+                <p class="stat-label">Active Research Scholars</p>
+              </article>
+              <article class="research-card stat-card reveal">
+                <p class="stat-value">120+</p>
+                <p class="stat-label">PhD Registrations (Last 3 Years)</p>
+              </article>
+              <article class="research-card stat-card reveal">
+                <p class="stat-value">45+</p>
+                <p class="stat-label">Approved Research Guides</p>
+              </article>
+              <article class="research-card stat-card reveal">
+                <p class="stat-value">8</p>
+                <p class="stat-label">Primary Research Domains</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="innovation-labs">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Innovation Labs</p>
+            <h2 class="section-title">Student-Centered Lab Ecosystem</h2>
+          </div>
+
+          <div class="research-grid three">
+            <article class="research-card reveal">
+              <h3 class="card-title">Multidisciplinary Innovation Studio</h3>
+              <p class="card-text">Shared lab environment for early-stage ideation, simulation, and rapid concept validation.</p>
+            </article>
+            <article class="research-card reveal">
+              <h3 class="card-title">Prototype Development Lab</h3>
+              <p class="card-text">End-to-end support for design, fabrication, testing, and iteration of engineering prototypes.</p>
+            </article>
+            <article class="research-card reveal">
+              <h3 class="card-title">Student Research Incubation Cell</h3>
+              <p class="card-text">Mentored spaces for UG and PG teams to transition project ideas into publishable outcomes.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="research-gallery">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Research Gallery</p>
+            <h2 class="section-title">Recent Research Milestones</h2>
+          </div>
+
+          <div class="research-grid three">
+            <article class="research-card reveal">
+              <p class="card-subtitle">Research Showcase 2025</p>
+              <h3 class="card-title">Center Project Demonstrations</h3>
+              <p class="card-text">Live demonstrations of AI systems, EV control modules, and infrastructure diagnostics prototypes.</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">National Conference Track</p>
+              <h3 class="card-title">Paper Presentation Awards</h3>
+              <p class="card-text">Faculty and scholars secured awards for applied research and translational engineering papers.</p>
+            </article>
+            <article class="research-card reveal">
+              <p class="card-subtitle">Innovation Sprint</p>
+              <h3 class="card-title">Student Prototype Cohorts</h3>
+              <p class="card-text">Interdisciplinary cohorts completed rapid prototype cycles with mentor and industry reviews.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-section" id="research-office">
+        <div class="container research-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Research Office</p>
+            <h2 class="section-title">Contact and Administrative Support</h2>
+            <p>For proposal support, center collaborations, PhD admissions, and IPR guidance, connect with the Office of Research and Development.</p>
+          </div>
+
+          <div class="contact-grid">
+            <article class="research-card contact-card reveal">
+              <h4>Office Address</h4>
+              <p>Office of Research and Development, Main Academic Block, Campus Insights University</p>
+            </article>
+            <article class="research-card contact-card reveal">
+              <h4>Email and Phone</h4>
+              <p><a href="mailto:research.office@ciu.edu.in">research.office@ciu.edu.in</a></p>
+              <p><a href="tel:+918012345678">+91 80 1234 5678</a></p>
+            </article>
+            <article class="research-card contact-card reveal">
+              <h4>Office Hours</h4>
+              <p>Monday - Friday: 09:00 AM to 05:30 PM</p>
+              <p>Saturday: 09:00 AM to 01:00 PM</p>
+            </article>
+          </div>
+
+          <div class="cta-row reveal">
+            <a class="btn-primary" href="admissions.html">Apply for PhD Programs</a>
+            <a class="btn-ghost" href="contact.html">Contact Research Team</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-footer></div>
+    <script src="assets/js/main.js"></script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

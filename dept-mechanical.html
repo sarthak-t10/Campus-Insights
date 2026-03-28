@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mechanical Engineering | BMSCE</title>
+    <meta name="description" content="Department of Mechanical Engineering at B.M.S. College of Engineering." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .dept-header {
+        padding: 80px 0 60px;
+        background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      }
+      .dept-hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+      }
+      .dept-head-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .dept-head-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 3px solid var(--gold);
+      }
+      .dept-head-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .dept-head-info h3 {
+        font-size: 1.5rem;
+        font-family: "Cormorant Garamond", serif;
+        color: var(--text-primary);
+        margin: 0;
+      }
+      .dept-head-info p {
+        color: var(--gold);
+        font-size: 1rem;
+        margin: 8px 0 0;
+      }
+      .dept-content {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 60px;
+        padding: 60px 0;
+      }
+      .dept-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .dept-sidebar-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        color: var(--text-primary);
+        padding: 20px 0;
+        border-bottom: 3px solid var(--gold);
+        margin-bottom: 20px;
+      }
+      .dept-nav-item {
+        padding: 14px 16px;
+        cursor: pointer;
+        border-left: 3px solid transparent;
+        transition: all 300ms var(--ease);
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        text-decoration: none;
+        display: block;
+      }
+      .dept-nav-item:hover,
+      .dept-nav-item.active {
+        background: var(--gold-dim);
+        border-left-color: var(--gold);
+        color: var(--gold);
+        padding-left: 24px;
+      }
+      .dept-main {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      .dept-section {
+        display: none;
+      }
+      .dept-section.active {
+        display: block;
+      }
+      .dept-section h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 24px;
+      }
+      .dept-section p {
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+      .dept-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+      }
+      .dept-list li {
+        padding: 12px 0;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .dept-list li:before {
+        content: "›";
+        color: var(--gold);
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      @media (max-width: 1024px) {
+        .dept-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .dept-sidebar {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .dept-sidebar-title {
+          grid-column: 1 / -1;
+        }
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="academics">
+    <div data-nav></div>
+    <main>
+      <header class="dept-header">
+        <div class="container">
+          <div class="dept-hero">
+            <div class="dept-head-card">
+              <div class="dept-head-image">
+                <img src="assets/images/avatar-placeholder.svg" alt="Department Head" />
+              </div>
+              <div class="dept-head-info">
+                <h3>Dr. Mechanical Head</h3>
+                <p>Professor & Head – Mechanical Engineering</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container">
+          <div class="dept-content">
+            <aside class="dept-sidebar">
+              <h4 class="dept-sidebar-title">MECHANICAL ENGINEERING</h4>
+              <a class="dept-nav-item active" data-section="about">›  About</a>
+              <a class="dept-nav-item" data-section="organization">›  Organizational Structure</a>
+              <a class="dept-nav-item" data-section="programmes">›  Programmes</a>
+              <a class="dept-nav-item" data-section="syllabus">›  Syllabus</a>
+              <a class="dept-nav-item" data-section="faculty">›  Faculty</a>
+              <a class="dept-nav-item" data-section="staff">›  Staff</a>
+              <a class="dept-nav-item" data-section="alumni">›  Alumni</a>
+              <a class="dept-nav-item" data-section="publications">›  Publications</a>
+              <a class="dept-nav-item" data-section="research">›  Research</a>
+              <a class="dept-nav-item" data-section="achievements-faculty">›  Faculty Achievements</a>
+              <a class="dept-nav-item" data-section="achievements-student">›  Student Achievements</a>
+              <a class="dept-nav-item" data-section="ipr">›  IPR Achievements</a>
+              <a class="dept-nav-item" data-section="industry">›  Industry Visits</a>
+              <a class="dept-nav-item" data-section="workshops">›  Workshops</a>
+              <a class="dept-nav-item" data-section="seminars">›  Talks / Lectures / Seminars</a>
+              <a class="dept-nav-item" data-section="chapters">›  Student Chapters</a>
+            </aside>
+
+            <article class="dept-main">
+              <div class="dept-section active" id="about">
+                <h2>About Department</h2>
+                <p>The Department of Mechanical Engineering at BMSCE has been a leading institution in engineering education for over seven decades. Our focus is on providing quality education in Mechanical Engineering with emphasis on innovation, research, and practical applications.</p>
+                <p>The department offers comprehensive programs in Mechanical Engineering with accreditation from NBA and Washington Accord recognition. We boast of state-of-the-art laboratories and facilities for hands-on learning.</p>
+              </div>
+              <div class="dept-section" id="organization"><h2>Organizational Structure</h2><p>Led by experienced department head with dedicated faculty and support staff.</p></div>
+              <div class="dept-section" id="programmes"><h2>Programmes Offered</h2><ul class="dept-list"><li>B.E. in Mechanical Engineering</li><li>M.Tech. in Mechanical Engineering</li><li>Ph.D. in Mechanical Engineering</li></ul></div>
+              <div class="dept-section" id="syllabus"><h2>Syllabus</h2><p>Comprehensive curriculum covering thermodynamics, fluid mechanics, manufacturing, and other specialized areas.</p></div>
+              <div class="dept-section" id="faculty"><h2>Faculty</h2><p>Experienced faculty with expertise in various domains of Mechanical Engineering.</p></div>
+              <div class="dept-section" id="staff"><h2>Support Staff</h2><p>Dedicated technical and administrative staff supporting academic activities.</p></div>
+              <div class="dept-section" id="alumni"><h2>Alumni Network</h2><p>Successful alumni working in leading organizations worldwide.</p></div>
+              <div class="dept-section" id="publications"><h2>Publications</h2><p>Faculty publications in peer-reviewed journals and conferences.</p></div>
+              <div class="dept-section" id="research"><h2>Research Activities</h2><p>Active research in advanced areas of Mechanical Engineering.</p></div>
+              <div class="dept-section" id="achievements-faculty"><h2>Faculty Achievements</h2><p>Recognition and awards for teaching and research excellence.</p></div>
+              <div class="dept-section" id="achievements-student"><h2>Student Achievements</h2><p>Student awards and recognition in competitions.</p></div>
+              <div class="dept-section" id="ipr"><h2>IPR Achievements</h2><p>Patents and intellectual property from research work.</p></div>
+              <div class="dept-section" id="industry"><h2>Industry Visits</h2><p>Regular industrial visits for practical exposure.</p></div>
+              <div class="dept-section" id="workshops"><h2>Workshops & Training</h2><p>Workshops on advanced tools and technologies.</p></div>
+              <div class="dept-section" id="seminars"><h2>Talks, Lectures & Seminars</h2><p>Expert talks and seminars from industry and academia.</p></div>
+              <div class="dept-section" id="chapters"><h2>Student Chapters</h2><p>Active student organizations and technical clubs.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-footer></div>
+    <script src="assets/js/main.js"></script>
+    <script>
+      document.querySelectorAll('.dept-nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.dept-nav-item').forEach(i => i.classList.remove('active'));
+          document.querySelectorAll('.dept-section').forEach(s => s.classList.remove('active'));
+          item.classList.add('active');
+          const sectionId = item.dataset.section;
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.classList.add('active');
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    </script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placements | Campus Insights University</title>
+    <meta
+      name="description"
+      content="Placement excellence at Campus Insights University with recruiter ecosystem, career readiness pipeline, and outcome analytics."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .portal-shell {
+        width: min(100%, 1152px);
+        margin: 0 auto;
+      }
+
+      .dense-section {
+        padding: 96px 0;
+      }
+
+      .placement-hero {
+        padding-top: 170px;
+        padding-bottom: 92px;
+      }
+
+      .placement-hero p {
+        max-width: 840px;
+      }
+
+      .placement-grid {
+        display: grid;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        margin-bottom: 30px;
+      }
+
+      .section-head p {
+        margin: 12px 0 0;
+        max-width: 830px;
+        color: var(--text-muted);
+      }
+
+      .icon-wrap {
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        border: 1px solid var(--gold-border);
+        border-radius: 8px;
+        background: var(--gold-dim);
+      }
+
+      .icon-wrap svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .info-card {
+        height: 100%;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: transform 260ms var(--ease), border-color 260ms var(--ease), box-shadow 260ms var(--ease), background-color 260ms var(--ease);
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold-border);
+        box-shadow: var(--shadow-gold);
+        background: linear-gradient(145deg, rgba(201, 169, 110, 0.11), rgba(255, 255, 255, 0.02));
+      }
+
+      .info-card h3,
+      .info-card h4 {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 400;
+      }
+
+      .info-card h3 {
+        font-size: 1.34rem;
+      }
+
+      .info-card h4 {
+        font-size: 1.2rem;
+      }
+
+      .info-card p {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      .stat-card {
+        justify-content: center;
+      }
+
+      .stat-number {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+        line-height: 1.1;
+        color: var(--gold);
+      }
+
+      .stat-label {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+      }
+
+      .tag-pill {
+        display: inline-flex;
+        width: fit-content;
+        border: 1px solid var(--gold-border);
+        padding: 4px 10px;
+        border-radius: 999px;
+        color: var(--gold);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .process-timeline {
+        border-left: 1px solid var(--gold-border);
+        margin-left: 12px;
+        padding-left: 26px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .process-item {
+        position: relative;
+      }
+
+      .process-item::before {
+        content: "";
+        position: absolute;
+        left: -32px;
+        top: 6px;
+        width: 11px;
+        height: 11px;
+        border-radius: 999px;
+        background: var(--gold);
+        box-shadow: 0 0 0 5px rgba(201, 169, 110, 0.15);
+      }
+
+      .process-step {
+        margin: 0 0 6px;
+        color: var(--gold);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+      }
+
+      .process-title {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+      }
+
+      .process-desc {
+        margin: 8px 0 0;
+        color: var(--text-muted);
+      }
+
+      .category-row {
+        margin-bottom: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .category-chip {
+        border: 1px solid var(--gold-border);
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+      }
+
+      .recruiter-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .recruiter-logo {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        min-height: 84px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+        display: grid;
+        place-items: center;
+        transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
+      }
+
+      .recruiter-logo svg {
+        width: 92%;
+        height: 54px;
+        filter: grayscale(1) saturate(0.2) brightness(0.82);
+        transition: filter 240ms var(--ease);
+      }
+
+      .recruiter-logo:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold-border);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+      }
+
+      .recruiter-logo:hover svg {
+        filter: grayscale(0) saturate(1) brightness(1);
+      }
+
+      .story-meta {
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--gold);
+        font-size: 0.82rem;
+      }
+
+      .insight-layout {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 20px;
+      }
+
+      .chart-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        background: var(--surface);
+      }
+
+      .trend-chart {
+        margin-top: 16px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .trend-row {
+        display: grid;
+        grid-template-columns: 64px 1fr auto;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .trend-year {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .trend-track {
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .trend-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(201, 169, 110, 0.45), var(--gold));
+      }
+
+      .trend-value {
+        color: var(--gold);
+        font-size: 0.82rem;
+      }
+
+      .domain-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 12px;
+      }
+
+      .domain-item {
+        display: grid;
+        gap: 8px;
+      }
+
+      .domain-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.82rem;
+      }
+
+      .domain-track {
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .domain-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(201, 169, 110, 0.35), var(--gold));
+      }
+
+      @media (max-width: 1180px) {
+        .recruiter-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .grid-4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 920px) {
+        .dense-section {
+          padding: 76px 0;
+        }
+
+        .placement-hero {
+          padding-top: 136px;
+          padding-bottom: 72px;
+        }
+
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .insight-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .recruiter-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>    <link rel="stylesheet" href="assets/css/chatbot.css" />
+  </head>
+  <body data-page="placements">
+    <div data-nav></div>
+    <main>
+      <header class="page-header placement-hero">
+        <div class="container portal-shell">
+          <p class="section-label reveal">Training, Career Readiness, and Recruitment</p>
+          <h1 class="reveal">Placement Excellence Driven by Industry Collaboration and Career Readiness</h1>
+          <p class="reveal">
+            From training to placement, we prepare students for global careers through structured programs, industry exposure, and
+            continuous mentorship.
+          </p>
+        </div>
+      </header>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Placement Statistics</p>
+            <h2 class="section-title">Outcome Metrics Across Recruitments, Internships, and Career Pathways</h2>
+            <p>
+              The training and placement office tracks yearly outcomes across offer volume, package distribution, internship conversion,
+              and domain diversification to ensure measurable career progression.
+            </p>
+          </div>
+
+          <div class="placement-grid grid-4" data-stagger-group>
+            <article class="info-card stat-card reveal" data-stagger>
+              <p class="stat-number">95%</p>
+              <p class="stat-label">Placement Rate</p>
+            </article>
+            <article class="info-card stat-card reveal" data-stagger>
+              <p class="stat-number">INR 40+ LPA</p>
+              <p class="stat-label">Highest Package</p>
+            </article>
+            <article class="info-card stat-card reveal" data-stagger>
+              <p class="stat-number">INR 8-10 LPA</p>
+              <p class="stat-label">Average Package</p>
+            </article>
+            <article class="info-card stat-card reveal" data-stagger>
+              <p class="stat-number">100+</p>
+              <p class="stat-label">Recruiters</p>
+            </article>
+            <article class="info-card stat-card reveal" data-stagger>
+              <p class="stat-number">500+</p>
+              <p class="stat-label">Offers Released</p>
+            </article>
+            <article class="info-card stat-card reveal" data-stagger>
+              <p class="stat-number">200+</p>
+              <p class="stat-label">Internships</p>
+            </article>
+            <article class="info-card stat-card reveal" data-stagger>
+              <p class="stat-number">30+</p>
+              <p class="stat-label">Core Companies</p>
+            </article>
+            <article class="info-card stat-card reveal" data-stagger>
+              <p class="stat-number">18</p>
+              <p class="stat-label">Countries with Opportunities</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Placement Ecosystem</p>
+            <h2 class="section-title">Integrated Support System for Career Progression</h2>
+            <p>
+              Placement success is delivered through coordinated units across training, exposure, mentorship, and employer engagement.
+              Each unit manages a defined stage of candidate readiness and recruitment outcomes.
+            </p>
+          </div>
+
+          <div class="placement-grid grid-3" data-stagger-group>
+            <article class="info-card reveal" data-stagger>
+              <span class="icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 7h18v13H3z" /><path d="M16 7V5a4 4 0 0 0-8 0v2" /></svg>
+              </span>
+              <h3>Placement Cell</h3>
+              <p>
+                Coordinates recruiter outreach, drive scheduling, eligibility management, and interview logistics through structured
+                communication with students and employers.
+              </p>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 20V10" /><path d="M18 20V4" /><path d="M6 20v-6" /></svg>
+              </span>
+              <h3>Career Development</h3>
+              <p>
+                Delivers resume audits, role mapping, communication labs, and profile-building modules aligned with current hiring
+                expectations across domains.
+              </p>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 6h13" /><path d="M8 12h13" /><path d="M8 18h13" /><path d="M3 6h.01" /><path d="M3 12h.01" /><path d="M3 18h.01" /></svg>
+              </span>
+              <h3>Internship Program</h3>
+              <p>
+                Supports pre-placement internships through semester-wise matching, project mentoring, and conversion pipelines for
+                full-time opportunities.
+              </p>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M22 10.5V6a2 2 0 0 0-2-2h-6" /><path d="M2 13.5V18a2 2 0 0 0 2 2h6" /><path d="M14 2l-4 4 4 4" /><path d="M10 22l4-4-4-4" /></svg>
+              </span>
+              <h3>Industry Mentorship</h3>
+              <p>
+                Domain experts from partner organizations guide interview preparation, role expectation understanding, and case
+                problem-solving approaches.
+              </p>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2v20" /><path d="M2 12h20" /><path d="M5 5l14 14" /><path d="M19 5 5 19" /></svg>
+              </span>
+              <h3>Skill Development</h3>
+              <p>
+                Multi-track modules in DSA, coding platforms, aptitude, technical interviews, and workplace communication ensure
+                technical and professional preparedness.
+              </p>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="8.5" cy="7" r="4" /><path d="M20 8v6" /><path d="M23 11h-6" /></svg>
+              </span>
+              <h3>Alumni Network</h3>
+              <p>
+                Alumni mentors contribute referrals, role-specific sessions, and mock interview panels that improve confidence and
+                conversion across placement rounds.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Placement Process</p>
+            <h2 class="section-title">Structured Placement Journey from Assessment to Offer</h2>
+            <p>
+              Every student follows a process-led progression that begins with capability mapping and ends with job offers aligned to
+              profile, specialization, and career goals.
+            </p>
+          </div>
+
+          <div class="info-card reveal">
+            <div class="process-timeline">
+              <article class="process-item">
+                <p class="process-step">Step 01</p>
+                <h3 class="process-title">Skill Assessment</h3>
+                <p class="process-desc">Baseline tests evaluate aptitude, programming, core fundamentals, communication, and readiness gaps.</p>
+              </article>
+              <article class="process-item">
+                <p class="process-step">Step 02</p>
+                <h3 class="process-title">Training Programs</h3>
+                <p class="process-desc">Role-specific training tracks are mapped to IT, core engineering, analytics, and consulting pathways.</p>
+              </article>
+              <article class="process-item">
+                <p class="process-step">Step 03</p>
+                <h3 class="process-title">Resume Workshops</h3>
+                <p class="process-desc">Students refine resumes and project narratives with faculty and industry reviewers.</p>
+              </article>
+              <article class="process-item">
+                <p class="process-step">Step 04</p>
+                <h3 class="process-title">Mock Interviews</h3>
+                <p class="process-desc">Panel simulations covering technical, behavioral, and case rounds improve interview readiness.</p>
+              </article>
+              <article class="process-item">
+                <p class="process-step">Step 05</p>
+                <h3 class="process-title">Pre-placement Talks</h3>
+                <p class="process-desc">Recruiters share role scope, hiring expectations, compensation structures, and growth pathways.</p>
+              </article>
+              <article class="process-item">
+                <p class="process-step">Step 06</p>
+                <h3 class="process-title">Placement Drives</h3>
+                <p class="process-desc">Campus recruitment drives are executed with screening, interviews, and final shortlist publication.</p>
+              </article>
+              <article class="process-item">
+                <p class="process-step">Step 07</p>
+                <h3 class="process-title">Final Offers</h3>
+                <p class="process-desc">Offer management, acceptance support, and onboarding guidance are completed by placement mentors.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Recruiters Showcase</p>
+            <h2 class="section-title">Diverse Employer Base Across Technology, Core, and Consulting</h2>
+            <p>
+              CIU hosts recurring and new recruiters across software engineering, product, manufacturing, finance, operations,
+              infrastructure, and consulting portfolios.
+            </p>
+          </div>
+
+          <div class="category-row reveal">
+            <span class="category-chip">Tech Recruiters</span>
+            <span class="category-chip">Core Engineering Recruiters</span>
+            <span class="category-chip">Consulting and Analytics Recruiters</span>
+          </div>
+
+          <div class="recruiter-grid" data-stagger-group>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.tcs.com" target="_blank" rel="noopener noreferrer" title="Visit TCS website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="TCS"><rect width="240" height="80" rx="10" fill="#214a8d" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="30" font-family="Space Grotesk, sans-serif">TCS</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.infosys.com" target="_blank" rel="noopener noreferrer" title="Visit Infosys website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Infosys"><rect width="240" height="80" rx="10" fill="#0067b8" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="24" font-family="Space Grotesk, sans-serif">INFOSYS</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.wipro.com" target="_blank" rel="noopener noreferrer" title="Visit Wipro website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Wipro"><rect width="240" height="80" rx="10" fill="#4a148c" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="26" font-family="Space Grotesk, sans-serif">WIPRO</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.accenture.com" target="_blank" rel="noopener noreferrer" title="Visit Accenture website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Accenture"><rect width="240" height="80" rx="10" fill="#3f2a56" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="23" font-family="Space Grotesk, sans-serif">ACCENTURE</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.cognizant.com" target="_blank" rel="noopener noreferrer" title="Visit Cognizant website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Cognizant"><rect width="240" height="80" rx="10" fill="#0f5e7f" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="20" font-family="Space Grotesk, sans-serif">COGNIZANT</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.larsentoubro.com" target="_blank" rel="noopener noreferrer" title="Visit L&T website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Larsen and Toubro"><rect width="240" height="80" rx="10" fill="#144f86" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="22" font-family="Space Grotesk, sans-serif">L&amp;T</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.bosch.com" target="_blank" rel="noopener noreferrer" title="Visit Bosch website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Bosch"><rect width="240" height="80" rx="10" fill="#245fb3" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="28" font-family="Space Grotesk, sans-serif">BOSCH</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.siemens.com" target="_blank" rel="noopener noreferrer" title="Visit Siemens website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Siemens"><rect width="240" height="80" rx="10" fill="#007f78" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="24" font-family="Space Grotesk, sans-serif">SIEMENS</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer" title="Visit Deloitte website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Deloitte"><rect width="240" height="80" rx="10" fill="#205221" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="24" font-family="Space Grotesk, sans-serif">DELOITTE</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.ey.com" target="_blank" rel="noopener noreferrer" title="Visit EY website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="EY"><rect width="240" height="80" rx="10" fill="#4e4d11" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="30" font-family="Space Grotesk, sans-serif">EY</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.pwc.com" target="_blank" rel="noopener noreferrer" title="Visit PwC website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="PwC"><rect width="240" height="80" rx="10" fill="#7b3a1e" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="30" font-family="Space Grotesk, sans-serif">PwC</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.kpmg.com" target="_blank" rel="noopener noreferrer" title="Visit KPMG website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="KPMG"><rect width="240" height="80" rx="10" fill="#194f9b" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="26" font-family="Space Grotesk, sans-serif">KPMG</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" title="Visit Amazon website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Amazon"><rect width="240" height="80" rx="10" fill="#3f3f3f" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="24" font-family="Space Grotesk, sans-serif">AMAZON</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" title="Visit Google website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="Google"><rect width="240" height="80" rx="10" fill="#3a3a3a" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="24" font-family="Space Grotesk, sans-serif">GOOGLE</text></svg>
+              </a>
+            </article>
+            <article class="recruiter-logo reveal" data-stagger>
+              <a href="https://www.hcltech.com" target="_blank" rel="noopener noreferrer" title="Visit HCL website">
+              <svg viewBox="0 0 240 80" role="img" aria-label="HCL"><rect width="240" height="80" rx="10" fill="#14567e" /><text x="50%" y="53%" text-anchor="middle" fill="#ffffff" font-size="28" font-family="Space Grotesk, sans-serif">HCL</text></svg>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Student Success Stories</p>
+            <h2 class="section-title">Career Outcomes Across Engineering, Analytics, and Product Tracks</h2>
+            <p>
+              These profiles represent the depth of student preparation, internship experience, and placement mentoring delivered across
+              departments.
+            </p>
+          </div>
+
+          <div class="placement-grid grid-3" data-stagger-group>
+            <article class="info-card reveal" data-stagger>
+              <span class="tag-pill">Software Engineering</span>
+              <h4>Arjun R - Computer Science</h4>
+              <p>
+                Built distributed systems projects, completed a backend internship, and secured a software engineer role through two
+                technical rounds and a design discussion.
+              </p>
+              <div class="story-meta"><span>Role: Software Engineer</span><span>INR 18 LPA</span></div>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="tag-pill">Analytics</span>
+              <h4>Meera S - AI and Data Science</h4>
+              <p>
+                Led a capstone on demand forecasting, completed analytics bootcamps, and converted an internship into a full-time analyst
+                offer.
+              </p>
+              <div class="story-meta"><span>Role: Data Analyst</span><span>INR 12 LPA</span></div>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="tag-pill">Core Engineering</span>
+              <h4>Karan V - Mechanical Engineering</h4>
+              <p>
+                Demonstrated manufacturing process optimization work and secured a graduate engineer trainee position with a core
+                engineering enterprise.
+              </p>
+              <div class="story-meta"><span>Role: GET</span><span>INR 9.2 LPA</span></div>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="tag-pill">Consulting</span>
+              <h4>Shreya N - Electronics Engineering</h4>
+              <p>
+                Strengthened case-solving and presentation skills through placement mentoring and joined a consulting team for digital
+                transformation projects.
+              </p>
+              <div class="story-meta"><span>Role: Business Analyst</span><span>INR 11.5 LPA</span></div>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="tag-pill">Product</span>
+              <h4>Rahul P - Information Systems</h4>
+              <p>
+                Combined product analytics, user research case studies, and internship exposure to secure an associate product role.
+              </p>
+              <div class="story-meta"><span>Role: APM Associate</span><span>INR 14 LPA</span></div>
+            </article>
+            <article class="info-card reveal" data-stagger>
+              <span class="tag-pill">Research and Development</span>
+              <h4>Ananya K - Civil Engineering</h4>
+              <p>
+                Applied simulation and sustainability research projects and joined infrastructure R and D operations with an urban
+                development firm.
+              </p>
+              <div class="story-meta"><span>Role: R and D Associate</span><span>INR 8.8 LPA</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="dense-section">
+        <div class="container portal-shell">
+          <div class="section-head reveal">
+            <p class="section-label">Placement Insights</p>
+            <h2 class="section-title">Year-wise Trend and Domain Distribution</h2>
+            <p>
+              Outcome analytics indicate consistent growth in offer quality, recruiter diversity, and cross-domain opportunities for
+              graduating cohorts.
+            </p>
+          </div>
+
+          <div class="insight-layout">
+            <article class="chart-card reveal">
+              <h3 class="section-title" style="font-size: 2rem">Placement Trend by Year</h3>
+              <div class="trend-chart">
+                <div class="trend-row">
+                  <span class="trend-year">2020</span>
+                  <span class="trend-track"><span class="trend-fill" style="width: 72%"></span></span>
+                  <span class="trend-value">72%</span>
+                </div>
+                <div class="trend-row">
+                  <span class="trend-year">2021</span>
+                  <span class="trend-track"><span class="trend-fill" style="width: 79%"></span></span>
+                  <span class="trend-value">79%</span>
+                </div>
+                <div class="trend-row">
+                  <span class="trend-year">2022</span>
+                  <span class="trend-track"><span class="trend-fill" style="width: 85%"></span></span>
+                  <span class="trend-value">85%</span>
+                </div>
+                <div class="trend-row">
+                  <span class="trend-year">2023</span>
+                  <span class="trend-track"><span class="trend-fill" style="width: 91%"></span></span>
+                  <span class="trend-value">91%</span>
+                </div>
+                <div class="trend-row">
+                  <span class="trend-year">2024</span>
+                  <span class="trend-track"><span class="trend-fill" style="width: 95%"></span></span>
+                  <span class="trend-value">95%</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="chart-card reveal">
+              <h3 class="section-title" style="font-size: 2rem">Domain Distribution</h3>
+              <div class="domain-list">
+                <div class="domain-item">
+                  <div class="domain-head"><span>IT and Product</span><span>46%</span></div>
+                  <span class="domain-track"><span class="domain-fill" style="width: 46%"></span></span>
+                </div>
+                <div class="domain-item">
+                  <div class="domain-head"><span>Core Engineering</span><span>28%</span></div>
+                  <span class="domain-track"><span class="domain-fill" style="width: 28%"></span></span>
+                </div>
+                <div class="domain-item">
+                  <div class="domain-head"><span>Consulting and Analytics</span><span>19%</span></div>
+                  <span class="domain-track"><span class="domain-fill" style="width: 19%"></span></span>
+                </div>
+                <div class="domain-item">
+                  <div class="domain-head"><span>Finance and Operations</span><span>7%</span></div>
+                  <span class="domain-track"><span class="domain-fill" style="width: 7%"></span></span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta">
+        <div class="container portal-shell">
+          <p class="section-label">Career Support</p>
+          <h2>Build Your Career Roadmap with the Placement Office</h2>
+          <p>
+            Access placement preparation resources, role-specific mentoring sessions, and recruiter engagement calendars through our
+            student career services team.
+          </p>
+          <div class="cta-actions">
+            <a class="btn-primary" href="contact.html">Contact Placement Office</a>
+            <a class="btn-ghost" href="admissions.html">Explore Programs</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-footer></div>
+    <script src="assets/js/main.js"></script>    <script src="assets/js/chatbot-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>
